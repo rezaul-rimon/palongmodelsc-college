@@ -1,0 +1,532 @@
+@import url(stylesheet.css);
+
+*{
+    padding:0;
+    margin:0;
+    font-family: kalpurushregular!important;
+}
+
+
+#rollBanner {
+	width:100%;
+    height:40px;
+    overflow:hidden;
+    border:0px;
+    white-space:nowrap;
+	position:relative;
+	padding-top:10px;
+
+}
+
+#rollBanner p    {
+    position:absolute;
+    margin:0;
+}
+
+.top_header{
+	width:100%;
+	padding:5px;
+	float:left;
+	background-color: #9E5BBA;
+    border-bottom: 1px solid #e40001;
+    color: white;
+    float: left;
+    height: auto;
+}
+
+.footer-wrapper {
+	background-color:#EBEBEB;
+	height: 100px;
+	margin: 0 auto;
+}
+.footer-inner .block {
+	margin-top: 30px;
+}
+.footer-inner .block p {
+	font-size: 1.2em;
+	margin: 0;
+	text-align: right;
+}
+
+.horizontal-tabs ul{
+	width: 100%;
+	float: left;
+	border-bottom: 1px solid #aaa;
+}
+.horizontal-tabs ul li{
+	background-color: #FAFAFA;
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+    float: left;
+    margin-bottom: 0;
+    
+}
+.horizontal-tabs ul li.active{
+	background-color: #aaa;
+}
+.horizontal-tabs ul li a{
+	color: #000;
+	padding: 10px;
+	float: left;
+}
+.horizontal-tabs ul li.active a{
+	color: #fff;
+}
+.horizontal-tabs ul li.active a:hover{
+	color: #fff;
+}
+
+.vertical-tabs div{
+	width: 70%;
+	float: left;
+}
+
+.vertical-tabs ul{
+	width: 30%;
+	float: left;
+}
+.vertical-tabs ul li{
+	width: 90%;
+	background-color: #FAFAFA;
+    border-right: 1px solid #aaa;
+    float: left;
+    margin-bottom: 0;
+}
+.vertical-tabs ul li.active{
+	background-color: #aaa;
+}
+.vertical-tabs ul li a{
+	float: left;
+	color: #000;
+	padding: 10px;
+}
+.vertical-tabs ul li.active a{
+	color: #fff;
+}
+.vertical-tabs ul li.active a:hover{
+	color: #fff;
+}
+
+.work_distribution li,
+.work_distribution a{
+	float: left;
+	font-size: 1em;
+	color: #666;
+}
+@media only screen and (min-width: 960px) {
+	body{
+		background: url("../images/dotbg.gif") repeat scroll center top rgba(0, 0, 0, 0);
+	}
+	.footer-artwork {
+		/*background: url("../images/footer_top_bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);*/
+		height: 84px;
+		margin: 0 auto;
+		width: 1020px;
+		clear:both;
+	}
+	.footer-wrapper {
+		width: 1020px;
+	}
+	#block-block-1 {
+		float: right;
+		text-align: right;
+		margin-right: 20px;
+	}
+	.right-side-bar{
+		width: 220px!important;
+		margin-left: 20px!important;
+	}
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+	.footer-artwork {
+		height: 15px;
+		margin: 0 auto;
+		background-color: #666;
+	}
+	#notice-board{
+				background: url("../welcome_grad.html") repeat-x scroll center bottom #EBEBEB;
+				border: 1px solid #DDDDDD;
+				height: 172px;
+				font-size: .8em;
+				padding: 20px 0 0 120px;
+			}
+			#notice-board h2{
+				font-size: 1.5em;
+			}
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {}
+
+
+
+
+
+
+
+
+
+.ticker-title {
+	color:#fff;
+	background:#8CC643;
+	float:left;
+	text-transform:uppercase;
+	font-weight:700;
+	font-size:20px;
+	padding:10px;
+}
+
+.newsTrick{
+	width:100%; 
+	height:auto;
+	background-color:#a21c0d;
+	font-family: BNG,SutonnyBanglaOMJ,SolaimanLipi;
+	height:auto;
+	overflow:hidden;
+}
+.newsTrick ul{
+	margin:0;
+	padding:0;
+	display:block;
+	margin-top:10px;
+}
+
+.newsTrick ul li{
+	display:inline;
+}
+.newsTrick ul li a{
+	display:inline;
+	color:#eaeaea;
+	overflow:hidden;
+	text-shadow:1px 0px #999;
+	font-size:18px;
+	
+}
+.newsTrick ul li a:hover{
+	display:inline;
+	color:#e3e302;
+	overflow:hidden;
+}
+
+
+
+/*.news-ticker {
+	width:100%;
+	float:left;
+	max-height:40px;
+	height:auto;
+	background-color:#C40A2A;
+	font-family: BNG,SutonnyBanglaOMJ,SolaimanLipi;
+	position:relative;
+	margin-bottom:2px;
+}
+
+
+.ticker-title {
+	color:#fff;
+	background:#8CC643;
+	float:left;
+	text-transform:uppercase;
+	font-weight:700;
+	font-size:20px;
+	padding:10px;
+}
+
+.news-tickerM {
+	width:100%;
+	float:left;
+	background:#FF0066;
+	height:auto;
+}
+.news-tickerM ul{
+	width:100%;
+	float:left;
+	padding:0;
+	margin:0;
+	display:inline-block;
+}
+
+.news-tickerM ul li{
+	display:inline;
+	margin-top:10px;
+	float:left;
+	width:100%;
+}
+
+.news-tickerM ul li a{
+	cursor:pointer;
+	padding:5px;
+	text-align:left;
+	font-size:17px;
+	color:#fff;
+	display:inline;	
+	
+}
+.news-tickerM ul li a:hover{
+	color:#000;
+}
+*/
+
+
+
+.messagePresident{
+	width:96%;
+	height:auto;
+	border:1px solid #ccc;
+	box-shadow: #eaeaea 0 0 2px 2px;
+	padding:5px;
+	float:left;
+	text-align:justify;
+	font-size:15px;
+	line-height:18px;
+	margin-bottom:10px;
+	}	
+.messagePresident h3{
+	width:100%;
+	font-size:20px;
+	color:#0e1d4b;
+	font-family:Arial, Helvetica, sans-serif;
+	text-align:left;
+	font-weight:bold;
+	padding:5px;
+	margin:0;
+	margin-bottom:10px;
+	border-bottom:1px solid #ccc;
+	float:left;
+}
+
+
+.messageEvent{
+	width:98%;
+	min-height:387px;
+	padding:5px;
+	border:1px solid #ccc;
+	float:left;
+	margin:10px;
+}	
+.messageEvent h3{
+	width:100%;
+	font-size:20px;
+	color:#0e1d4b;
+	font-family: BNG,SutonnyBanglaOMJ,SolaimanLipi;
+	text-align:left;
+	font-weight:bold;
+	padding:5px;
+	margin:0;
+	margin-bottom:10px;
+	border-bottom:1px solid #ccc;
+	float:left;
+}
+
+.messageEvent ul{
+	margin:0;
+	padding:0;
+	display:block;
+	width:100%;
+}	
+
+.messageEvent ul li{
+	display:inline;
+	width:100%;
+	float:left;
+	list-style:none;
+}	
+
+.messageEvent ul li a{
+	display:inline;
+	font-size:16px;
+	line-height:20px;
+	border-bottom:1px dotted #ccc;
+	padding:5px;
+	color:#333;
+	width:100%;
+	float:left;
+}	
+
+.messageEvent ul li a:hover{
+	color:#000;
+}	
+
+
+.noticeboard{
+	width:100%;
+	float:left;
+	padding:0;
+	margin:0;
+}
+
+.noticeboard ul{
+	width:100%;
+	float:left;
+	padding:0;
+	margin:0;
+}
+
+.noticeboard ul li{
+	display:block;
+}
+
+.noticeboard ul li a{
+	float:left;
+	border-bottom:1px dotted #333;
+	cursor:pointer;
+	padding:5px;
+	text-align:left;
+	font-size:17px;
+	text-shadow:1px 1px #ccc;
+	color:#333;
+	font-weight:normal;
+}
+.noticeboard ul li a:hover{
+	float:left;
+	border-bottom:1px solid #333;
+	cursor:pointer;
+	background:#F3F3F3;
+}
+
+
+.maincontent p{
+	font-size:17px;
+	line-height:20px;
+	text-align:justify;
+}
+
+
+
+.cs-campunews .cs-campunews.custom-fig figcaption i {
+width:35px;
+height:35px;
+font-size:20px;
+margin:-18px 0 0 -20px;
+padding:7px 0 0;
+}
+
+
+.search-course {
+float:left;
+width:100%;
+background-position:left bottom;
+background-repeat:no-repeat;
+padding:5px;
+height:auto;
+margin:0;
+padding:0;
+}
+
+.search-course form {
+float:left;
+width:100%;
+height:auto;
+margin:0;
+padding:0;
+}
+
+.search-course h6 {
+height:auto;
+margin:0;
+padding:0;
+}
+
+.search-course ul li {
+float:left;
+width:98%;
+margin:3px;
+list-style:none;
+position:relative;
+}
+
+.search-course ul li input[type="text"] {
+float:left;
+width:100%;
+height:auto;
+border-radius:4px;
+border:1px solid #ccc;
+color:#333;
+font-size:12px;
+padding:5px;
+}
+
+.search-course ul li textarea {
+float:left;
+width:100%;
+height:70px;
+border-radius:4px;
+font-size:12px;
+padding:0 0 0 10px;
+border:1px solid #ccc;
+color:#333;
+}
+
+.search-course ul li i {
+position:absolute;
+left:10px;
+top:13px;
+color:#aaa;
+z-index:2;
+}
+
+.search-course ul li input[type="submit"] {
+float:left;
+color:#333;
+border:none;
+font-size:16px;
+font-weight:700;
+text-transform:uppercase;
+width:100%;
+}
+
+.search-course ul li.search-submit {
+
+}
+
+.search-course ul li.search-submit i {
+color:#000;
+left:16px;
+top:14px;
+}
+
+.search-course ul li.search-submit a {
+color:#fff;
+float:left;
+width:100%;
+text-align:center;
+padding:7px 0 0;
+}
+
+.search-course .select-style option {
+border-bottom:1px solid #ccc;
+padding:10px;
+}
+
+
+.messageChairmen{
+	width:98%;
+	height:auto;
+	padding:5px;
+	border:1px solid #ccc;
+	float:left;
+	margin:10px;
+}	
+.messageChairmen h6{
+	width:100%;
+	font-size:16px;
+	color:#0e1d4b;
+	font-family: BNG,SutonnyBanglaOMJ,SolaimanLipi;
+	text-align:center;
+	font-weight:normal;
+	padding:5px;
+	margin:0;
+	float:left;
+}

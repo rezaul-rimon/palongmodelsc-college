@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body{
+  font-family: 'Kalpurush', Arial, sans-serif !important;
+}
+
+.header-top {
+  background-color: #9e5bba;
+  color: white;
+  border-bottom: 1px solid red;
+}
+
+.center-content {
+  display: flex;
+  position: relative;
+  height: 40px;
+}
+
+.center-content p {
+  font-size: 17px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header-main {
+  padding: 5px 0;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  align-items: flex-end;
+}
+
+.logo img {
+  max-height: 100%;
+  height: 90px;
+  width: auto;
+}
+
+.bn-name {
+  font-size: 25px;
+  color: #6610f2;
+  border-bottom: 2px dotted #ccc;
+  padding-bottom: 5px;
+}
+
+.en-name {
+  margin-top: -5px;
+  font-size: 20px;
+  color: #007bff;
+}
+
+.regi-number {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  align-items: flex-end;
+  justify-content: center;
+  padding-top: 8px;
+  
+}
+
+.eiin-no {
+  font-size: 20px;
+  color: blue;
+  border-bottom: 2px dotted #ccc;
+}
+
+.tech-code {
+  margin-top: -7px;
+  font-size: 20px;
+  color: blueviolet;
+  border-bottom: 2px dotted #ccc;
+}
+
+.mpo-code {
+  margin-top: -7px;
+  font-size: 20px;
+  color: blue;
+}
+
+
+
+.notice {
+  background-color: #a21c0d;
+}
+
+.update {
+  background-color: #8cc643;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 40px;
+}
+
+.update span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.up-text {
+  background-color: #a21c0d;
+  color: white;
+  font-size: 20px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 40px;
+}
+
+.up-text p {
+  white-space: nowrap;
+  position: absolute;
+  /* animation: marquee 15s linear infinite; */
+  top: 10%;
+}
+
+/* @keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+} */
+
+
+
+
