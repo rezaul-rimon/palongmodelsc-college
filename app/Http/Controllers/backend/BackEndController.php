@@ -29,7 +29,9 @@ class BackEndController extends Controller
     }
 
     public function notice(){
-        return view('backend.notice');
+        $notice = Notice::with('user')->get();
+        //dd($notice);
+        return view('backend.notice', compact('notice'));
     }
 
     public function add_notice(Request $request){
@@ -57,7 +59,7 @@ class BackEndController extends Controller
             if ($request->hasFile('noticeFile')) {
                 $file = $request->file('noticeFile');
                 // Generate a unique filename
-                $filename = 'Notice' . '_' . uniqid() .  $file->getClientOriginalExtension();
+                $filename = 'Notice' . '_' . uniqid() . '.' .  $file->getClientOriginalExtension();
                 // Move the uploaded file to the public path
                 $file->move(public_path('Resources/Notice/Files'), $filename);
             }
@@ -69,6 +71,10 @@ class BackEndController extends Controller
                 'added_by' => Auth::user()->id,
                 'notice_file' => isset($filename) ? $filename : null,
             ]);
+
+            if($notice){
+                return redirect()->back()->withSuccess('Successfully Added a Notice');
+            }
         }
     }
     

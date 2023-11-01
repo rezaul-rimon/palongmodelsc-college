@@ -45,15 +45,48 @@
         </div>
 
         <table class="table table-responsive table-bordered text-center">
+            <colgroup>
+                <col style="width: 5%;">
+                <col style="width: 10%;">
+                <col style="width: 15%;">
+                <col style="width: 35%;">
+                <col style="width: 15%;">
+                <col style="width: 12%;">
+                <col style="width: 8%;">
+            </colgroup>
             <thead>
                 <tr>
                     <th>ক্রম</th>
+                    <th>তারিখ</th>
                     <th>নোটিশ টাইপ</th>
                     <th>নোটিশ সারমর্ম</th>
                     <th>নোটিশ ফাইল</th>
+                    <th>নোটিশ যুক্তকারী</th>
                     <th>একশন</th>
                 </tr>
             </thead>
+
+            <tbody>
+                @php
+                    $sl=1;
+                @endphp
+                @foreach($notice as $item)
+                    <tr>
+                        <td class="align-middle">{{ $sl++ }}</td>
+                        <td class="align-middle">{{ $item->created_at }}</td>
+                        <td class="align-middle">{{ $item->notice_type }}</td>
+                        <td class="align-middle">{{ $item->notice_summary }}</td>
+                        <td class="align-middle">
+                            <a target="_blank" href="{{ asset('Resources' . DIRECTORY_SEPARATOR . 'Notice' . DIRECTORY_SEPARATOR . 'Files' . DIRECTORY_SEPARATOR . $item->notice_file) }}">{{ $item->notice_file }}</a>
+                        </td>
+                        <td class="align-middle">{{ $item->user->name }}</td>
+                        <td class="align-middle">
+                            <a href="#" class="btn my-1 btn-sm btn-warning">Edit</a>
+                            <a href="#" class="btn my-1 btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
         </table>
     </div>
 </main>
@@ -125,3 +158,4 @@
         </div>
     </div>
 </div>
+
