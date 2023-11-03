@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
-use App\Models\{Notice, Teacher};
+use App\Models\{Notice, Teacher, Committee};
 
 class BackEndController extends Controller
 {
@@ -28,6 +28,8 @@ class BackEndController extends Controller
         ])->onlyInput('email');
     }
 
+
+    ///Notice Management
     public function notice(){
         $notice = Notice::where('status', 1)
             ->with('user')
@@ -94,7 +96,7 @@ class BackEndController extends Controller
         }
     }
 
-    ////////////
+    //Teacher Management
     public function teacher(){
         $teacher = Teacher::where('status', 1)
             ->with('user')
@@ -130,7 +132,7 @@ class BackEndController extends Controller
             'takenSubject.max' => "এতবড় গৃহীত বিষয় গ্রহণযোগ্য নয়",
 
             'teacherPhoto.required' => "শিক্ষকের ছবি দেয়া বাধ্যতামূলক",
-            'teacherPhoto.mimes' => "ছবি অবশ্যই pdf, jpg, jpeg, png ফরম্যাটে হতে হবে",
+            'teacherPhoto.mimes' => "ছবি অবশ্যই jpg, jpeg, png ফরম্যাটে হতে হবে",
             'teacherPhoto.max' => "ছবির আকার 5-MB এর বেশি হতে পারবে না",
         ]);
 
@@ -171,6 +173,76 @@ class BackEndController extends Controller
             $teacher->update();
         
             return redirect()->back()->with('success', 'সফল ভাবে একজন শিক্ষক সরিয়ে দেয়া হয়েছে');
+        } catch (\Exception $e) {
+            // Handle any errors, such as the notice not being found.
+            return redirect()->back()->with('error', 'কিছু একটা সমস্যা হয়েছে');
+        }
+    }
+
+    //Committee Management
+    public function committee(){
+        $committee = Committee::where('status', 1)
+            ->with('user')
+            ->get();
+
+        //dd($committee);
+        return view('backend.committee', compact('committee'));
+    }
+
+    public function add_committee(Request $request){
+        //dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'committeeName' => 'required|string|min:5|max:50',
+            'committeeDesignation' => 'required|string|min:5|max:100',
+            'committeePhoto' => 'mimes:jpg,jpeg,png|max:5120',
+        ], [
+            'committeeName.required' => "অবশ্যই শিক্ষকের নাম দিতে হবে",
+            'committeeName.min' => "এতছোট নাম গ্রহণযোগ্য নয়",
+            'committeeName.max' => "এতবড় নাম গ্রহণযোগ্য নয়",
+
+            'committeeDesignation.required' => "অবশ্যই শিক্ষকের পদবী দিতে হবে",
+            'committeeDesignation.min' => "এতছোট পদবী গ্রহণযোগ্য নয়",
+            'committeeDesignation.max' => "এতবড় পদবী গ্রহণযোগ্য নয়",
+
+            'committeePhoto.mimes' => "ছবি অবশ্যই jpg, jpeg, png ফরম্যাটে হতে হবে",
+            'committeePhoto.max' => "ছবির আকার 5-MB এর বেশি হতে পারবে না",
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            // Check if a file was uploaded
+            if ($request->hasFile('committeerPhoto')) {
+                $file = $request->file('committeePhoto');
+                // Generate a unique filename
+                $filename = 'Committee_Member_' . uniqid() . '.' . $file->getClientOriginalExtension();
+                // Move the uploaded file to the public path
+                $file->move(public_path('Resources/Committee/Photos'), $filename);
+            }
+    
+            // Create the 'Committee' record
+            $committee = Committee::create([
+                'committee_name' => $request->committeeName,
+                'committee_designation' => $request->committeeDesignation,
+                'added_by' => Auth::user()->id,
+                'committee_photo' => isset($filename) ? $filename : null,
+            ]);
+    
+            if ($committee) {
+                return redirect()->back()->with('success', 'সফল ভাবে নতুন একজন কমিটি সদস্য যুক্ত করা হয়েছে');
+            }
+        }
+    }
+
+    public function delete_committee($id){
+        try {
+            $committee = Committee::findOrFail($id);
+            $committee->status = 0;
+            $committee->update();
+        
+            return redirect()->back()->with('success', 'সফল ভাবে একজন কমিটি সদিস্য সরিয়ে দেয়া হয়েছে');
         } catch (\Exception $e) {
             // Handle any errors, such as the notice not being found.
             return redirect()->back()->with('error', 'কিছু একটা সমস্যা হয়েছে');

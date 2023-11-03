@@ -80,9 +80,6 @@
             </thead>
 
             <tbody>
-                @php
-                    $sl=1;
-                @endphp
                 @forelse($notice as $item)
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>

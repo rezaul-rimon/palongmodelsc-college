@@ -15,8 +15,13 @@
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('backend.notice') }}">Manage Notice</a>
-                        <a class="nav-link" href="#">Light Sidenav</a>
+                        <a class="nav-link" href="{{ route('backend.notice') }}">নোটিশ ম্যানেজমেন্ট</a>
+                        <a class="nav-link" href="{{ route('backend.teacher') }}">শিক্ষক ম্যানেজমেন্ট</a>
+                        <a class="nav-link" href="{{ route('backend.committee') }}">কমিটি ম্যানেজমেন্ট</a>
+                        <a class="nav-link" href="#">ছাত্র ম্যানেজমেন্ট</a>
+                        <a class="nav-link" href="#">ইভেন্ট ম্যানেজমেন্ট</a>
+                        <a class="nav-link" href="#">গ্যালারী ম্যানেজমেন্ট</a>
+
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

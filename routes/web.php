@@ -30,8 +30,12 @@ Route::get('/delete-notice/{id}', [BackEndController::class, 'delete_notice'])->
 //Teacher
 Route::get('/teacher', [BackEndController::class, 'teacher'])->name('backend.teacher');
 Route::post('/add-teacher',[BackEndController::class, 'add_teacher'])->name('backend.add_teacher');
-Route::get('/delete-notice/{id}', [BackEndController::class, 'delete_teacher'])->name('backend.delete_teacher');
+Route::get('/delete-teacher/{id}', [BackEndController::class, 'delete_teacher'])->name('backend.delete_teacher');
 
+//Committee
+Route::get('/committee', [BackEndController::class, 'committee'])->name('backend.committee');
+Route::post('/add-committee',[BackEndController::class, 'add_committee'])->name('backend.add_committee');
+Route::get('/delete-committee/{id}', [BackEndController::class, 'delete_committee'])->name('backend.delete_committee');
 
 // Route::get('/login', [AuthController::class, 'login'])->name('login');
 // Route::get('/registration', [AuthController::class, 'registration'])->name('registration');

@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-use App\Models\{Notice, Teacher};
+use App\Models\{Notice, Teacher, Committee};
 
 class User extends Authenticatable
 {
@@ -53,5 +53,10 @@ class User extends Authenticatable
     public function teachers()
     {
         return $this->hasMany(Teacher::class, 'added_by', 'id');
+    }
+
+    public function committees()
+    {
+        return $this->hasMany(Committee::class, 'added_by', 'id');
     }
 }
