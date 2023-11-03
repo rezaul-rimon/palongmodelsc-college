@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\{Notice, Teacher};
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -46,5 +48,10 @@ class User extends Authenticatable
     public function notices()
     {
         return $this->hasMany(Notice::class, 'added_by', 'id');
+    }
+
+    public function teachers()
+    {
+        return $this->hasMany(Teacher::class, 'added_by', 'id');
     }
 }

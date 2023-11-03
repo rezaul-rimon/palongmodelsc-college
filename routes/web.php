@@ -21,10 +21,17 @@ use App\Http\Controllers\backend\{BackEndController, AuthController};
 
 Route::get('/',[FrontEndController::class, 'index'])->name('frontend.index');
 Route::get('/admin',[BackEndController::class, 'index'])->name('backend.index');
-Route::get('/notice',[BackEndController::class, 'notice'])->name('backend.notice');
 
+//Notice
+Route::get('/notice',[BackEndController::class, 'notice'])->name('backend.notice');
 Route::post('/add-notice',[BackEndController::class, 'add_notice'])->name('backend.add_notice');
 Route::get('/delete-notice/{id}', [BackEndController::class, 'delete_notice'])->name('backend.delete_notice');
+
+//Teacher
+Route::get('/teacher', [BackEndController::class, 'teacher'])->name('backend.teacher');
+Route::post('/add-teacher',[BackEndController::class, 'add_teacher'])->name('backend.add_teacher');
+Route::get('/delete-notice/{id}', [BackEndController::class, 'delete_teacher'])->name('backend.delete_teacher');
+
 
 // Route::get('/login', [AuthController::class, 'login'])->name('login');
 // Route::get('/registration', [AuthController::class, 'registration'])->name('registration');

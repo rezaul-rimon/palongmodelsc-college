@@ -6,15 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
-class Notice extends Model
+class Teacher extends Model
 {
     use HasFactory;
-    protected $table = 'notices';
+
+    protected $table = 'teachers';
     protected $fillable = [
-        'notice_type',
-        'notice_summary',
-        'notice_file',
+        'teacher_name',
+        'teacher_designation',
+        'teacher_description',
+        'taken_subject',
+        'teacher_photo',
         'added_by',
+        'status',
     ];
 
     public function user()

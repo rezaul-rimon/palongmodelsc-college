@@ -9,13 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('notices', function (Blueprint $table) {
+        Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->string('notice_type', 100);
-            $table->string('notice_summary', 255);
-            $table->string('notice_file', 100);
+            $table->string('teacher_name', 50);
+            $table->string('teacher_designation', 100); 
+            $table->string('taken_subject', 150); 
+            $table->string('teacher_description', 150);
+            $table->string('teacher_photo', 100);
             $table->unsignedTinyInteger('added_by')->default(1);
             $table->boolean('status')->default(true);
             $table->timestamps();
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notices');
+        Schema::dropIfExists('teachers');
     }
 };
