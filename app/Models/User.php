@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-use App\Models\{Notice, Teacher, Committee};
+use App\Models\{Notice, Teacher, Committee, Event};
 
 class User extends Authenticatable
 {
@@ -45,18 +45,19 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function notices()
-    {
+    public function notices(){
         return $this->hasMany(Notice::class, 'added_by', 'id');
     }
 
-    public function teachers()
-    {
+    public function teachers(){
         return $this->hasMany(Teacher::class, 'added_by', 'id');
     }
 
-    public function committees()
-    {
+    public function committees(){
         return $this->hasMany(Committee::class, 'added_by', 'id');
+    }
+
+    public function events(){
+        return $this->hasMany(Event::class, 'added_by', 'id');
     }
 }

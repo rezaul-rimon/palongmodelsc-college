@@ -37,6 +37,11 @@ Route::get('/committee', [BackEndController::class, 'committee'])->name('backend
 Route::post('/add-committee',[BackEndController::class, 'add_committee'])->name('backend.add_committee');
 Route::get('/delete-committee/{id}', [BackEndController::class, 'delete_committee'])->name('backend.delete_committee');
 
+//Event
+Route::get('/event', [BackEndController::class, 'event'])->name('backend.event');
+Route::post('/add-event',[BackEndController::class, 'add_event'])->name('backend.add_event');
+Route::get('/delete-event/{id}', [BackEndController::class, 'delete_event'])->name('backend.delete_event');
+
 // Route::get('/login', [AuthController::class, 'login'])->name('login');
 // Route::get('/registration', [AuthController::class, 'registration'])->name('registration');
 

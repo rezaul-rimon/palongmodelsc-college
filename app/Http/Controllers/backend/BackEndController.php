@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
-use App\Models\{Notice, Teacher, Committee};
+use App\Models\{Notice, Teacher, Committee, Event};
 
 class BackEndController extends Controller
 {
@@ -248,5 +248,82 @@ class BackEndController extends Controller
             return redirect()->back()->with('error', 'কিছু একটা সমস্যা হয়েছে');
         }
     }
+
+    //Event Management
+    public function event(){
+        //dd($event);
+        $event = Event::where('status', 1)
+            ->with('user')
+            ->get();
+
+        return view('backend.event', compact('event'));
+    }
+
+    public function add_event(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'eventName' => 'required|string|min:5|max:50',
+            'eventDescription' => 'required|string|min:5|max:1200',
+            'eventDate' => 'required|date|after:tomorrow',
+            'eventPhoto' => 'mimes:jpg,jpeg,png|max:5120',
+        ], [
+            'eventName.required' => "অবশ্যই ইভেন্টের নাম দিতে হবে",
+            'eventName.min' => "এতছোট নাম গ্রহণযোগ্য নয়",
+            'eventName.max' => "এতবড় নাম গ্রহণযোগ্য নয়",
+    
+            'eventDescription.required' => "অবশ্যই ইভেন্টের বিস্তারিত দিতে হবে",
+            'eventDescription.min' => "এতছোট ইভেন্ট বিস্তারিত গ্রহণযোগ্য নয়",
+            'eventDescription.max' => "এতবড় ইভেন্ট বিস্তারিত গ্রহণযোগ্য নয়",
+    
+            'eventDate.required' => 'ইভেন্টের তারিখ দিতে হবে',
+            'eventDate.date' => 'তারিখ টি সঠিক হতে হবে',
+            'eventDate.after' => 'ইভেন্টের তারিখ আজ অতবা গত তারিখ হতে পারবে না',
+    
+            'eventPhoto.mimes' => "ছবি অবশ্যই jpg, jpeg, png ফরম্যাটে হতে হবে",
+            'eventPhoto.max' => "ছবির আকার 5-MB এর বেশি হতে পারবে না",
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            // Check if a file was uploaded
+            if ($request->hasFile('eventPhoto')) {
+                $file = $request->file('eventPhoto');
+                // Generate a unique filename
+                $filename = 'Event_' . uniqid() . '.' . $file->getClientOriginalExtension();
+                // Move the uploaded file to the public path
+                $file->move(public_path('Resources/Event/Photos'), $filename);
+            }
+    
+            // Create the 'Event' record
+            $event = Event::create([
+                'event_name' => $request->eventName, // Corrected variable name
+                'event_description' => $request->eventDescription, // Corrected variable name
+                'event_date' => $request->eventDate, // Corrected variable name
+                'added_by' => Auth::user()->id,
+                'event_photo' => isset($filename) ? $filename : null,
+            ]);
+    
+            if ($event) {
+                return redirect()->back()->with('success', 'সফল ভাবে নতুন একটি ইভেন্ট যুক্ত করা হয়েছে');
+            }
+        }
+    }
+    
+
+    public function delete_event($id){
+        try {
+            $event = Event::findOrFail($id);
+            $event->status = 0;
+            $event->update();
+        
+            return redirect()->back()->with('success', 'ইভেন্ট টি সফল ভাবে সরিয়ে দেয়া হয়েছে');
+        } catch (\Exception $e) {
+            // Handle any errors, such as the notice not being found.
+            return redirect()->back()->with('error', 'কিছু একটা সমস্যা হয়েছে');
+        }
+    }
+    
     
 }
