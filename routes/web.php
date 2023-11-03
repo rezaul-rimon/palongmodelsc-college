@@ -24,6 +24,7 @@ Route::get('/admin',[BackEndController::class, 'index'])->name('backend.index');
 Route::get('/notice',[BackEndController::class, 'notice'])->name('backend.notice');
 
 Route::post('/add-notice',[BackEndController::class, 'add_notice'])->name('backend.add_notice');
+Route::get('/delete-notice/{id}', [BackEndController::class, 'delete_notice'])->name('backend.delete_notice');
 
 // Route::get('/login', [AuthController::class, 'login'])->name('login');
 // Route::get('/registration', [AuthController::class, 'registration'])->name('registration');

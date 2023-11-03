@@ -29,7 +29,10 @@ class BackEndController extends Controller
     }
 
     public function notice(){
-        $notice = Notice::with('user')->get();
+        $notice = Notice::where('status', 1)
+            ->with('user')
+            ->get();
+
         //dd($notice);
         return view('backend.notice', compact('notice'));
     }
@@ -73,9 +76,22 @@ class BackEndController extends Controller
             ]);
 
             if($notice){
-                return redirect()->back()->withSuccess('Successfully Added a Notice');
+                return redirect()->back()->with('success', 'Successfully Added a Notice');
             }
         }
     }
+
+    public function delete_notice($id) {
+        try {
+            $notice = Notice::findOrFail($id);
+            $notice->status = 0;
+            $notice->update();
+        
+            return redirect()->back()->with('success', 'Notice Deleted Successfully');
+        } catch (\Exception $e) {
+            // Handle any errors, such as the notice not being found.
+            return redirect()->back()->with('error', 'Error deleting notice');
+        }
+    }    
     
 }
