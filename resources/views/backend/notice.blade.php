@@ -62,15 +62,15 @@
                 <col style="width: 5%;">
                 <col style="width: 10%;">
                 <col style="width: 15%;">
-                <col style="width: 35%;">
+                <col style="width: 33%;">
                 <col style="width: 15%;">
                 <col style="width: 12%;">
-                <col style="width: 8%;">
+                <col style="width: 10%;">
             </colgroup>
             <thead>
                 <tr>
                     <th>ক্রম</th>
-                    <th>তারিখ</th>
+                    <th>তারিখ ও সময়</th>
                     <th>নোটিশ টাইপ</th>
                     <th>নোটিশ সারমর্ম</th>
                     <th>নোটিশ ফাইল</th>
@@ -91,8 +91,8 @@
                         </td>
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">
-                            <a href="#" class="btn my-1 btn-sm btn-warning">Edit</a>
-                            <a href="{{ route('backend.delete_notice', $item->id) }}" class="btn my-1 btn-sm btn-danger">Delete</a>
+                            <a href="#" class="btn my-1 btn-sm btn-warning">আপডেট</a>
+                            <a href="#" class="btn my-1 btn-sm btn-danger" onclick="showConfirmationModal({{ $item->id }})">ডিলিট</a>
                         </td>
                     </tr>
                 @empty
@@ -101,6 +101,14 @@
                     </tr>
                 @endforelse
             </tbody>
+            <script>
+                function showConfirmationModal(itemId) {
+                    if (confirm('আপনি কি নিশ্চিত যে আপনি এই নোটিশটি ডিলিট করতে চান?')) {
+                        // If the user confirms, redirect to the delete route
+                        window.location.href = "{{ route('backend.delete_notice', '') }}" + '/' + itemId;
+                    }
+                }
+            </script>
         </table>
     </div>
 </main>
@@ -111,8 +119,8 @@
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <div class="modal-header text-primary">
+                <h5 class="modal-title" id="staticBackdropLabel">নতুন নোটিশ যুক্ত করুন</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -120,7 +128,7 @@
                     @csrf
                 
                     <div class="form-group mb-4">
-                        <label for="noticeType">নোটিশ টাইপ</label>
+                        <label for="noticeType" class="text-info">নোটিশ টাইপ</label>
                         <input type="text" class="form-control @error('noticeType') is-invalid @enderror" id="noticeType" name="noticeType" value="{{ old('noticeType') }}">
                         @error('noticeType')
                         <span class="invalid-feedback">{{ $message }}</span>
@@ -128,7 +136,7 @@
                     </div>
                 
                     <div class="form-group mb-4">
-                        <label for="noticeSummary">নোটিশ সারমর্ম</label>
+                        <label for="noticeSummary" class="text-info">নোটিশ সারমর্ম</label>
                         <textarea class="form-control @error('noticeSummary') is-invalid @enderror" id="noticeSummary" name="noticeSummary">{{ old('noticeSummary') }}</textarea>
                         @error('noticeSummary')
                         <span class="invalid-feedback">{{ $message }}</span>
@@ -136,7 +144,7 @@
                     </div>
                 
                     <div class="form-group">
-                        <label for="noticeFile">নোটিশ ফাইল</label>
+                        <label for="noticeFile" class="text-info">নোটিশ ফাইল</label>
                         <input type="file" class="form-control @error('noticeFile') is-invalid @enderror" id="noticeFile" name="noticeFile" value="{{ old('noticeFile') }}">
                         @error('noticeFile')
                         <span class="invalid-feedback">{{ $message }}</span>
@@ -144,8 +152,8 @@
                     </div>
                 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" value="Add a Notice" class="btn btn-success">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">বাতিল করুন</button>
+                        <input type="submit" value="যুক্ত করুন" class="btn btn-success">
                     </div>
                 </form>                
             </div>

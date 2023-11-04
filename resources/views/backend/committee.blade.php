@@ -83,7 +83,7 @@
                 @forelse($committee as $item)
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
-                        <td class="align-middle">{{ $item->created_at }}</td>
+                        <td class="align-middle">{{ $item->updated_at }}</td>
                         <td class="align-middle">
                             @if($item->committee_photo != null)
                                 <img src="{{ asset('Resources/Committee/Photos/' . $item->committee_photo) }}" alt="{{ $item->committee_name }} Photo" style="max-width: 60px; height: 60px;">

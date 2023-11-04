@@ -42,9 +42,9 @@ class BackEndController extends Controller
     public function add_notice(Request $request){
         //dd($request->all());
         $validator = Validator::make($request->all(), [
-            'noticeType' => 'required|string|max:50',
-            'noticeSummary' => 'required|string|max:100',
-            'noticeFile' => 'required|mimes:pdf,jpg,jpeg,png|max:2048',
+            'noticeType' => 'required|string|max:100',
+            'noticeSummary' => 'required|string|max:255',
+            'noticeFile' => 'required|mimes:pdf,jpg,jpeg,png|max:5120',
         ], [
             'noticeType.required' => "অবশ্যই নোটিশ টাইপ দিতে হবে",
             'noticeType.max' => "এতবড় নোটিশ টাইপ গ্রহণযোগ্য নয়",
@@ -52,7 +52,7 @@ class BackEndController extends Controller
             'noticeSummary.max' => "এতবড় নোটিশ সারমর্ম গ্রহণযোগ্য নয়",
             'noticeFile.required' => "নোটিশ ফাইল দেয়া বাধ্যতামূলক",
             'noticeFile.mimes' => "নোটিশ ফাইল pdf, jpg, jpeg, png ফরম্যাটে হতে হবে",
-            'noticeFile.max' => "নোটিশ ফাইলের আকার 2MB এর বেশি হতে পারবে না",
+            'noticeFile.max' => "নোটিশ ফাইলের আকার 5MB এর বেশি হতে পারবে না",
         ]);
 
         if ($validator->fails()) {
