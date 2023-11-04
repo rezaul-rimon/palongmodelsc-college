@@ -214,7 +214,7 @@ class BackEndController extends Controller
                 ->withInput();
         } else {
             // Check if a file was uploaded
-            if ($request->hasFile('committeerPhoto')) {
+            if ($request->hasFile('committeePhoto')) {
                 $file = $request->file('committeePhoto');
                 // Generate a unique filename
                 $filename = 'Committee_Member_' . uniqid() . '.' . $file->getClientOriginalExtension();

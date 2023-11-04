@@ -104,7 +104,8 @@
                         <td class="text-danger fw-bold" colspan="8">এই পর্যন্ত কোন কমিটি সদস্য সংযুক্ত করা হয়নি।</td>
                     </tr>
                 @endforelse
-            </tbody> 
+            </tbody>
+            
             <script>
                 function showConfirmationModal(itemId) {
                     if (confirm('আপনি কি নিশ্চিত যে আপনি এই কমিটি সদস্যকে ডিলিট করতে চান?')) {
@@ -118,13 +119,13 @@
 </main>
 @endsection
 
-<!-- Modal -->
+<!-- Add Modal -->
 <div class="modal fade" id="memberAddModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">নতুন কমিটি সদস্য যোগ করুন</h5>
+                <h5 class="modal-title text-primary" id="staticBackdropLabel">নতুন কমিটি সদস্য যোগ করুন</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -132,7 +133,7 @@
                     @csrf
                 
                     <div class="form-group mb-4">
-                        <label for="committeeName">সদস্যের নাম</label>
+                        <label for="committeeName" class="text-info">সদস্যের নাম</label>
                         <input type="text" class="form-control @error('committeeName') is-invalid @enderror" id="committeeName" name="committeeName" value="{{ old('committeeName') }}" required>
                         @error('committeeName')
                         <span class="invalid-feedback">{{ $message }}</span>
@@ -140,7 +141,7 @@
                     </div>
                 
                     <div class="form-group mb-4">
-                        <label for="committeeDesignation">সদস্যের পদবী</label>
+                        <label for="committeeDesignation" class="text-info">সদস্যের পদবী</label>
                         <input type="text" class="form-control @error('committeeDesignation') is-invalid @enderror" id="committeeDesignation" name="committeeDesignation" value="{{ old('committeerDesignation') }}" required>
                         @error('committeeDesignation')
                         <span class="invalid-feedback">{{ $message }}</span>
@@ -148,7 +149,7 @@
                     </div>
                 
                     <div class="form-group">
-                        <label for="committeePhoto">সদস্যের ছবি</label>
+                        <label for="committeePhoto" class="text-info">সদস্যের ছবি</label>
                         <input type="file" class="form-control @error('committeePhoto') is-invalid @enderror" id="committeePhoto" name="committeePhoto" value="{{ old('committeePhoto') }}">
                         @error('committeePhoto')
                         <span class="invalid-feedback">{{ $message }}</span>
@@ -156,12 +157,13 @@
                     </div>
                 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" value="Add a Notice" class="btn btn-success">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">বাতিল করুন</button>
+                        <input type="submit" value="যুক্ত করুন" class="btn btn-success">
                     </div>
                 </form>                
             </div>
         </div>
     </div>
 </div>
+
 
