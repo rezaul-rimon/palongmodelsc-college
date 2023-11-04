@@ -64,9 +64,9 @@
                 <col style="width: 10%;">
                 <col style="width: 20%;">
                 <col style="width: 25%;">
-                <col style="width: 10%;">
-                <col style="width: 12%;">
                 <col style="width: 8%;">
+                <col style="width: 12%;">
+                <col style="width: 10%;">
             </colgroup>
             <thead>
                 <tr>
@@ -85,21 +85,21 @@
                 @forelse($event as $item)
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
-                        <td class="align-middle">{{ $item->created_at }}</td>
+                        <td class="align-middle">{{ $item->updated_at }}</td>
                         <td class="align-middle">
                             @if($item->event_photo != null)
-                                <img src="{{ asset('Resources/Event/Photos/' . $item->event_photo) }}" alt="{{ $item->event_name }} Photo" style="max-width: 60px; height: 60px;">
+                                <img src="{{ asset('Resources/Event/Photos/' . $item->event_photo) }}" alt="{{ $item->event_name }} Photo" style="max-width: 120px; height: 80px;">
                             @else
-                                <img src="{{ asset('Resources/Event/Photos/event.jpg') }}" alt="{{ $item->event_name }} Photo" style="max-width: 60px; height: 60px;">
+                                <img src="{{ asset('Resources/Event/Photos/event.jpg') }}" alt="{{ $item->event_name }} Photo" style="max-width: 120px; height: 80px;">
                             @endif
                         </td>                        
                         <td class="align-middle">{{ $item->event_name }}</td>
-                        <td class="align-middle">{{ $item->committee_description }}</td>
+                        <td class="align-middle">{{ $item->event_description }}</td>
                         <td class="align-middle">{{ $item->event_date }}</td>
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">
-                            <a href="#" class="btn my-1 btn-sm btn-warning">Edit</a>
-                            <a href="#" class="btn my-1 btn-sm btn-danger" onclick="showConfirmationModal({{ $item->id }})">Delete</a>
+                            <a href="#" class="btn my-1 btn-sm btn-warning">আপডেট</a>
+                            <a href="#" class="btn my-1 btn-sm btn-danger" onclick="showConfirmationModal({{ $item->id }})">ডিলিট</a>
                         </td>
                     </tr>
                 @empty
@@ -126,7 +126,7 @@
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-primary">
                 <h5 class="modal-title" id="staticBackdropLabel">নতুন আপকামিং ইভেন্ট যোগ করুন</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -135,40 +135,40 @@
                     @csrf
                 
                     <div class="form-group mb-4">
-                        <label for="eventName">ইভেন্টের নাম</label>
+                        <label for="eventName" class="text-info">ইভেন্টের নাম</label>
                         <input type="text" class="form-control @error('eventName') is-invalid @enderror" id="eventName" name="eventName" value="{{ old('eventName') }}" required>
                         @error('eventName')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                            <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
 
                     <div class="form-group mb-4">
-                        <label for="eventDate">ইভেন্টের তারিখ</label>
+                        <label for="eventDate" lass="text-info">ইভেন্টের তারিখ</label>
                         <input type="date" class="form-control @error('eventDate') is-invalid @enderror" id="eventDate" name="eventDate" value="{{ old('eventDate') }}" required>
                         @error('eventDate')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                            <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
                 
                     <div class="form-group mb-4">
-                        <label for="eventDescription">ইভেন্টের বিস্তারিত</label>
+                        <label for="eventDescription" lass="text-info">ইভেন্টের বিস্তারিত</label>
                         <textarea class="form-control @error('eventDescription') is-invalid @enderror" id="eventDescription" name="eventDescription" required>{{ old('eventDescription') }}</textarea>
                         @error('eventDescription')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                            <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>                    
                 
                     <div class="form-group">
-                        <label for="eventPhoto">ইভেন্টের ছবি</label>
+                        <label for="eventPhoto" lass="text-info">ইভেন্টের ছবি</label>
                         <input type="file" class="form-control @error('eventPhoto') is-invalid @enderror" id="eventPhoto" name="eventPhoto" value="{{ old('eventPhoto') }}">
                         @error('eventPhoto')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                            <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
                 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" value="Add a Notice" class="btn btn-success">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বাতিল করুন</button>
+                        <input type="submit" value="যুক্ত করুন" class="btn btn-success">
                     </div>
                 </form>                
             </div>
