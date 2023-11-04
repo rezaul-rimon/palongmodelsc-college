@@ -133,7 +133,7 @@
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-primary">
                 <h5 class="modal-title" id="staticBackdropLabel">নতুন শ্রেণী যুক্ত করুন</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -142,7 +142,7 @@
                     @csrf
                 
                     <div class="form-group mb-4">
-                        <label for="className">শ্রেণী</label>
+                        <label for="className" class="text-info">শ্রেণী</label>
                         <select class="form-control @error('className') is-invalid @enderror" id="className" name="className" required>
                             <option value="">শ্রেণী নির্বাচন করুন</option>
                             @for ($class = 6; $class <= 12; $class++)
@@ -155,7 +155,7 @@
                     </div>                    
 
                     <div class="form-group mb-4">
-                        <label for="classSection">শাখা</label>
+                        <label for="classSection" class="text-info">শাখা</label>
                         <select class="form-control @error('classSection') is-invalid @enderror" id="classSection" name="classSection" required>
                             <option value="">শাখা নির্বাচন করুন</option>
                             <option value="A" {{ old('classSection') == 'A' ? 'selected' : '' }}>A</option>
@@ -173,7 +173,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label for="maleStudents">ছাত্র</label>
+                                <label for="maleStudents" class="text-info">ছাত্র</label>
                                 <input type="number" class="form-control @error('maleStudents') is-invalid @enderror" id="maleStudents" name="maleStudents" value="{{ old('maleStudents', 0) }}" required min="0" max="9999">
                                 @error('maleStudents')
                                 <span class="invalid-feedback">{{ $message }}</span>
@@ -183,7 +183,7 @@
                     
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label for="femaleStudents">ছাত্রী</label>
+                                <label for="femaleStudents" class="text-info">ছাত্রী</label>
                                 <input type="number" class="form-control @error('femaleStudents') is-invalid @enderror" id="femaleStudents" name="femaleStudents" value="{{ old('femaleStudents', 0) }}" required min="0" max="9999">
                                 @error('femaleStudents')
                                 <span class="invalid-feedback">{{ $message }}</span>
@@ -195,7 +195,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label for="hinduStudents">হিন্দু</label>
+                                <label for="hinduStudents" class="text-info">হিন্দু</label>
                                 <input type="number" class="form-control @error('hinduStudents') is-invalid @enderror" id="hinduStudents" name="hinduStudents" value="{{ old('hinduStudents', 0) }}" required min="0" max="9999">
                                 @error('hinduStudents')
                                 <span class="invalid-feedback">{{ $message }}</span>
@@ -205,7 +205,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label for="buddistStudents">বৌদ্ধ</label>
+                                <label for="buddistStudents" class="text-info">বৌদ্ধ</label>
                                 <input type="number" class="form-control @error('buddistStudents') is-invalid @enderror" id="buddistStudents" name="buddistStudents" value="{{ old('buddistStudents', 0) }}" required min="0" max="9999">
                                 @error('buddistStudents')
                                 <span class="invalid-feedback">{{ $message }}</span>
@@ -216,8 +216,8 @@
 
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" value="Add a Notice" class="btn btn-success">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বাতিল করুন</button>
+                        <input type="submit" value="যুক্ত করুন" class="btn btn-success">
                     </div>
                 </form>                
             </div>
@@ -230,8 +230,8 @@
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">শ্রেণী আপডেট যুক্ত করুন</h5>
+            <div class="modal-header text-primary">
+                <h5 class="modal-title" id="staticBackdropLabel">শ্রেণী আপডেট করুন</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -239,7 +239,7 @@
                     @csrf
 
                     <div class="form-group mb-4">
-                        <label for="className">শ্রেণী</label>
+                        <label for="className" class="text-info">শ্রেণী</label>
                         <select class="form-control @error('className') is-invalid @enderror" id="className" name="className" required>
                             <option value="">শ্রেণী নির্বাচন করুন</option>
                             @for ($class = 6; $class <= 12; $class++)
@@ -252,7 +252,7 @@
                     </div>
 
                     <div class="form-group mb-4">
-                        <label for="classSection">শাখা</label>
+                        <label for="classSection" class="text-info">শাখা</label>
                         <select class="form-control @error('classSection') is-invalid @enderror" id="classSection" name="classSection" required>
                             <option value="">শাখা নির্বাচন করুন</option>
                             <option value="A" {{ old('classSection', $item->class_section) == 'A' ? 'selected' : '' }}>A</option>
@@ -270,7 +270,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label for="maleStudents">ছাত্র</label>
+                                <label for="maleStudents" class="text-info">ছাত্র</label>
                                 <input type="number" class="form-control @error('maleStudents') is-invalid @enderror" id="maleStudents" name="maleStudents" value="{{ old('maleStudents', $item->male_students) }}" required min="0" max="9999">
                                 @error('maleStudents')
                                 <span class="invalid-feedback">{{ $message }}</span>
@@ -280,7 +280,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label for="femaleStudents">ছাত্রী</label>
+                                <label for="femaleStudents" class="text-info">ছাত্রী</label>
                                 <input type="number" class="form-control @error('femaleStudents') is-invalid @enderror" id="femaleStudents" name="femaleStudents" value="{{ old('femaleStudents', $item->female_students) }}" required min="0" max="9999">
                                 @error('femaleStudents')
                                 <span class="invalid-feedback">{{ $message }}</span>
@@ -292,7 +292,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label for="hinduStudents">হিন্দু</label>
+                                <label for="hinduStudents" class="text-info">হিন্দু</label>
                                 <input type="number" class="form-control @error('hinduStudents') is-invalid @enderror" id="hinduStudents" name="hinduStudents" value="{{ old('hinduStudents', $item->hindu_students) }}" required min="0" max="9999">
                                 @error('hinduStudents')
                                 <span class="invalid-feedback">{{ $message }}</span>
@@ -302,7 +302,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label for="buddistStudents">বৌদ্ধ</label>
+                                <label for="buddistStudents" class="text-info">বৌদ্ধ</label>
                                 <input type="number" class="form-control @error('buddistStudents') is-invalid @enderror" id="buddistStudents" name="buddistStudents" value="{{ old('buddistStudents', $item->buddhist_students) }}" required min="0" max="9999">
                                 @error('buddistStudents')
                                 <span class="invalid-feedback">{{ $message }}</span>
@@ -312,8 +312,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" value="Edit Student" class="btn btn-success">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বাতিল করুন</button>
+                        <input type="submit" value="আপডেট করুন" class="btn btn-success">
                     </div>
                 </form>
             </div>
