@@ -47,6 +47,12 @@ Route::get('/gallery', [BackEndController::class, 'gallery'])->name('backend.gal
 Route::post('/add-gallery',[BackEndController::class, 'add_gallery'])->name('backend.add_gallery');
 Route::get('/delete-gallery/{id}', [BackEndController::class, 'delete_gallery'])->name('backend.delete_gallery');
 
+//Students
+Route::get('/students', [BackEndController::class, 'students'])->name('backend.students');
+Route::post('/add-students',[BackEndController::class, 'add_students'])->name('backend.add_students');
+Route::get('/delete-students/{id}', [BackEndController::class, 'delete_students'])->name('backend.delete_students');
+Route::post('/update-students/{id}', [BackEndController::class, 'update_students'])->name('backend.update_students');
+
 // Route::get('/login', [AuthController::class, 'login'])->name('login');
 // Route::get('/registration', [AuthController::class, 'registration'])->name('registration');
 

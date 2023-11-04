@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-use App\Models\{Notice, Teacher, Committee, Event, Gallery};
+use App\Models\{Notice, Teacher, Committee, Event, Gallery, Students};
 
 class User extends Authenticatable
 {
@@ -63,5 +63,9 @@ class User extends Authenticatable
 
     public function gallery(){
         return $this->hasMany(Gallery::class, 'added_by', 'id');
+    }
+
+    public function students(){
+        return $this->hasMany(Students::class, 'added_by', 'id');
     }
 }

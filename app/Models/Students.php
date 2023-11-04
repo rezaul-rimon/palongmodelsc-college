@@ -6,17 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
-class Event extends Model
+class Students extends Model
 {
     use HasFactory;
 
-    protected $table = 'events';
-
+    protected $table = 'students';
     protected $fillable = [
-        'event_name',
-        'event_description',
-        'event_date',
-        'event_photo',
+        'class_name',
+        'class_section',
+        'male_students',
+        'female_students',
+        'hindu_students',
+        'buddhist_students',
         'added_by',
         'status',
     ];

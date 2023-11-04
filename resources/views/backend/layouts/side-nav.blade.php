@@ -20,9 +20,8 @@
                         <a class="nav-link" href="{{ route('backend.committee') }}">কমিটি ম্যানেজমেন্ট</a>
                         <a class="nav-link" href="{{ route('backend.event') }}">ইভেন্ট ম্যানেজমেন্ট</a>
                         <a class="nav-link" href="{{ route('backend.gallery') }}">গ্যালারী ম্যানেজমেন্ট</a>
-                        <a class="nav-link" href="#">ছাত্র ম্যানেজমেন্ট</a>
+                        <a class="nav-link" href="{{ route('backend.students') }}">শ্রেণী ভিত্তিক ম্যানেজমেন্ট</a>
                         
-
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
