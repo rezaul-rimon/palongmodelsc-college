@@ -113,7 +113,7 @@ class BackEndController extends Controller
             'teacherDesignation' => 'required|string|min:5|max:100',
             'teacherDescription' => 'required|string|min:10|max:100',
             'takenSubject' => 'required|string|min:5|max:100',
-            'teacherPhoto' => 'required|mimes:jpg,jpeg,png|max:5120',
+            'teacherPhoto' => 'mimes:jpg,jpeg,png|max:5120',
         ], [
             'teacherName.required' => "অবশ্যই শিক্ষকের নাম দিতে হবে",
             'teacherName.min' => "এতছোট নাম গ্রহণযোগ্য নয়",
@@ -131,7 +131,7 @@ class BackEndController extends Controller
             'takenSubject.min' => "এতছোট গৃহীত বিষয় গ্রহণযোগ্য নয়",
             'takenSubject.max' => "এতবড় গৃহীত বিষয় গ্রহণযোগ্য নয়",
 
-            'teacherPhoto.required' => "শিক্ষকের ছবি দেয়া বাধ্যতামূলক",
+            
             'teacherPhoto.mimes' => "ছবি অবশ্যই jpg, jpeg, png ফরম্যাটে হতে হবে",
             'teacherPhoto.max' => "ছবির আকার 5-MB এর বেশি হতে পারবে না",
         ]);
@@ -161,7 +161,7 @@ class BackEndController extends Controller
             ]);
     
             if ($teacher) {
-                return redirect()->back()->with('success', 'সফল ভাবে একজন নতুন শিক্ষক যোগ করা হয়েছে');
+                return redirect()->back()->with('success', 'সফল ভাবে একজন নতুন শিক্ষক যুক্ত করা হয়েছে');
             }
         }
     }

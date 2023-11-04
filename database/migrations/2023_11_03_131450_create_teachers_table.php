@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('teacher_designation', 100); 
             $table->string('taken_subject', 150); 
             $table->string('teacher_description', 150);
-            $table->string('teacher_photo', 100);
+            $table->string('teacher_photo', 100)->nullable();
             $table->unsignedTinyInteger('added_by')->default(1);
             $table->boolean('status')->default(true);
             $table->timestamps();

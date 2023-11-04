@@ -65,14 +65,14 @@
                 <col style="width: 10%;">
                 <col style="width: 10%;">
                 <col style="width: 20%;">
-                <col style="width: 20%;">
+                <col style="width: 18%;">
                 <col style="width: 12%;">
-                <col style="width: 8%;">
+                <col style="width: 10%;">
             </colgroup>
             <thead>
                 <tr>
                     <th>ক্রম</th>
-                    <th>তারিখ</th>
+                    <th>তারিখ ও সময়</th>
                     <th>ছবি</th>
                     <th>শিক্ষকের নাম</th>
                     <th>শিক্ষকের পদবী</th>
@@ -87,9 +87,13 @@
                 @forelse($teacher as $item)
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
-                        <td class="align-middle">{{ $item->created_at }}</td>
+                        <td class="align-middle">{{ $item->updated_at }}</td>
                         <td class="align-middle">
-                            <img src="{{ asset('Resources/Teachers/Photos/' . $item->teacher_photo) }}" alt="{{ $item->teacher_name }} Photo" style="max-width: 60px; height: 60px;">
+                            @if($item->teacher_photo != null)
+                                <img src="{{ asset('Resources/Teachers/Photos/' . $item->teacher_photo) }}" alt="{{ $item->teacher_name }} Photo" style="max-width: 60px; height: 60px;">
+                            @else
+                                <img src="{{ asset('Resources/Teachers/Photos/teacher.png') }}" alt="{{ $item->teacher_name }} Photo" style="max-width: 60px; height: 60px;">
+                            @endif
                         </td>
                         <td class="align-middle">{{ $item->teacher_name }}</td>
                         <td class="align-middle">{{ $item->teacher_designation }}</td>
@@ -97,16 +101,24 @@
                         <td class="align-middle">{{ $item->taken_subject }}</td>
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">
-                            <a href="#" class="btn my-1 btn-sm btn-warning">Edit</a>
-                            <a href="{{ route('backend.delete_teacher', $item->id) }}" class="btn my-1 btn-sm btn-danger">Delete</a>
+                            <a href="#" class="btn my-1 btn-sm btn-warning">আপডেট</a>
+                            <a href="#" class="btn my-1 btn-sm btn-danger" onclick="showConfirmationModal({{ $item->id }})">ডিলিট</a>
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td class="text-danger fw-bold" colspan="8">এই পর্যন্ত কোন শিক্ষক সংযোজন করা হয়নি।</td>
+                        <td class="text-danger fw-bold" colspan="8">এই পর্যন্ত কোন শিক্ষক সংযুক্ত করা হয়নি।</td>
                     </tr>
                 @endforelse
-            </tbody>            
+            </tbody>   
+            <script>
+                function showConfirmationModal(itemId) {
+                    if (confirm('আপনি কি নিশ্চিত যে আপনি এই শিক্ষককে ডিলিট করতে চান?')) {
+                        // If the user confirms, redirect to the delete route
+                        window.location.href = "{{ route('backend.delete_teacher', '') }}" + '/' + itemId;
+                    }
+                }
+            </script>
         </table>
     </div>
 </main>
@@ -118,7 +130,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <h5 class="modal-title text-primary" id="staticBackdropLabel">নতুন শিক্ষক সংযুক্ত করুন</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -126,39 +138,39 @@
                     @csrf
                 
                     <div class="form-group mb-4">
-                        <label for="teacherName">শিক্ষকের নাম</label>
-                        <input type="text" class="form-control @error('teacherName') is-invalid @enderror" id="teacherName" name="teacherName" value="{{ old('teacherName') }}">
+                        <label for="teacherName" class="text-info">শিক্ষকের নাম <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control @error('teacherName') is-invalid @enderror" id="teacherName" name="teacherName" value="{{ old('teacherName') }}" required>
                         @error('teacherName')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                            <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
                 
                     <div class="form-group mb-4">
-                        <label for="teacherDesignation">শিক্ষকের পদবী</label>
-                        <input type="text" class="form-control @error('teacherDesignation') is-invalid @enderror" id="teacherDesignation" name="teacherDesignation" value="{{ old('teacherDesignation') }}">
+                        <label for="teacherDesignation" class="text-info">শিক্ষকের পদবী <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control @error('teacherDesignation') is-invalid @enderror" id="teacherDesignation" name="teacherDesignation" value="{{ old('teacherDesignation') }}" required>
                         @error('teacherDesignation')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                            <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
 
                     <div class="form-group mb-4">
-                        <label for="teacherDescription">সংখিপ্ত বিবরণ</label>
-                        <textarea class="form-control @error('teacherDescription') is-invalid @enderror" id="teacherDescription" name="teacherDescription">{{ old('teacherDescription') }}</textarea>
+                        <label for="teacherDescription" class="text-info">সংখিপ্ত বিবরণ <span class="text-danger">*</span></label>
+                        <textarea class="form-control @error('teacherDescription') is-invalid @enderror" id="teacherDescription" name="teacherDescription" required>{{ old('teacherDescription') }}</textarea>
                         @error('teacherDescription')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                            <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
 
                     <div class="form-group mb-4">
-                        <label for="takenSubject">গৃহীত বিষয় সমূহ</label>
-                        <textarea class="form-control @error('takenSubject') is-invalid @enderror" id="takenSubject" name="takenSubject">{{ old('takenSubject') }}</textarea>
+                        <label for="takenSubject" class="text-info">গৃহীত বিষয় সমূহ <span class="text-danger">*</span></label>
+                        <textarea class="form-control @error('takenSubject') is-invalid @enderror" id="takenSubject" name="takenSubject" required>{{ old('takenSubject') }}</textarea>
                         @error('takenSubject')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                            <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
                 
                     <div class="form-group">
-                        <label for="teacherPhoto">শিক্ষকের ছবি</label>
+                        <label for="teacherPhoto" class="text-info">শিক্ষকের ছবি <span class="text-primary">(ঐচ্ছিক)</span></label>
                         <input type="file" class="form-control @error('teacherPhoto') is-invalid @enderror" id="teacherPhoto" name="teacherPhoto" value="{{ old('teacherPhoto') }}">
                         @error('teacherPhoto')
                         <span class="invalid-feedback">{{ $message }}</span>
@@ -166,8 +178,8 @@
                     </div>
                 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" value="Add a Notice" class="btn btn-success">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">বাতিল করুন</button>
+                        <input type="submit" value="যুক্ত করুন" class="btn btn-success">
                     </div>
                 </form>                
             </div>
