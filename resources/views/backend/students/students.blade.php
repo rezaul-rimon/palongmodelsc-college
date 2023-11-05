@@ -37,10 +37,6 @@
             </div>
 
             <div class="col-md-6 col-12 add-button">
-                {{-- <a style="margin-bottom: 20px;" class="btn btn-primary" href="">নতুন নোটিশ যুক্ত করুন</a> --}}
-                {{-- <button style="margin-bottom: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#classAddModal">
-                    নতুন শ্রেণী যুক্ত করুন
-                </button> --}}
                 <a style="margin-bottom: 20px;" type="button" class="btn btn-primary" href="{{ route('backend.add_students') }}">নতুন শ্রেণী যুক্ত করুন</a>
             </div>
         </div>
@@ -105,7 +101,7 @@
                         {{-- <td class="align-middle">{{ $item->user->name }}</td> --}}
                         <td class="align-middle">
                             <a href="{{ route('backend.edit_students', $item->id) }}" class="btn my-1 btn-sm btn-warning">Edit</a>
-                            <a href="#" class="btn my-1 btn-sm btn-danger" onclick="showConfirmationModal({{ $item->id }})">Delete</a>
+                            <a href="{{ route('backend.delete_students', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="return confirm('আপনি কি নিশ্চিত যে আপনি এই শ্রেণীটি ডিলিট করতে চান?')">Delete</a>
                         </td>
                     </tr>
                 @empty
@@ -114,15 +110,6 @@
                     </tr>
                 @endforelse
             </tbody>            
-
-            <script>
-                function showConfirmationModal(itemId) {
-                    if (confirm('আপনি কি নিশ্চিত যে আপনি এই শ্রেণীটি ডিলিট করতে চান?')) {
-                        // If the user confirms, redirect to the delete route
-                        window.location.href = "{{ route('backend.delete_students', '') }}" + '/' + itemId;
-                    }
-                }
-            </script>
         </table>
     </div>
 </main>
