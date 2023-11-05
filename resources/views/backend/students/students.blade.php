@@ -38,9 +38,10 @@
 
             <div class="col-md-6 col-12 add-button">
                 {{-- <a style="margin-bottom: 20px;" class="btn btn-primary" href="">নতুন নোটিশ যুক্ত করুন</a> --}}
-                <button style="margin-bottom: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#classAddModal">
+                {{-- <button style="margin-bottom: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#classAddModal">
                     নতুন শ্রেণী যুক্ত করুন
-                </button>
+                </button> --}}
+                <a style="margin-bottom: 20px;" type="button" class="btn btn-primary" href="{{ route('backend.add_students') }}">নতুন শ্রেণী যুক্ত করুন</a>
             </div>
         </div>
 
@@ -104,7 +105,6 @@
                         {{-- <td class="align-middle">{{ $item->user->name }}</td> --}}
                         <td class="align-middle">
                             <a href="#" class="btn my-1 btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editStudentModal{{ $item->id }}" data-student="{{ json_encode($item) }}">Edit</a>
-
                             <a href="#" class="btn my-1 btn-sm btn-danger" onclick="showConfirmationModal({{ $item->id }})">Delete</a>
                         </td>
                     </tr>
@@ -129,7 +129,7 @@
 @endsection
 
 <!-- Add Modal -->
-<div class="modal fade" id="classAddModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+{{-- <div class="modal fade" id="classAddModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -223,10 +223,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <!-- Edit Modal -->
-<div class="modal fade" id="editStudentModal{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+{{-- <div class="modal fade" id="editStudentModal{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -319,7 +319,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 {{-- <script>
     $('#editStudentModal{{ $item->id }}').on('show.bs.modal', function (event) {

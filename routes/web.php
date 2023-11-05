@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\FrontEndController;
-use App\Http\Controllers\backend\{BackEndController, AuthController};
+use App\Http\Controllers\backend\{BackEndController, AuthController, StudentsController};
 
 /*
 |--------------------------------------------------------------------------
@@ -48,10 +48,11 @@ Route::post('/add-gallery',[BackEndController::class, 'add_gallery'])->name('bac
 Route::get('/delete-gallery/{id}', [BackEndController::class, 'delete_gallery'])->name('backend.delete_gallery');
 
 //Students
-Route::get('/students', [BackEndController::class, 'students'])->name('backend.students');
-Route::post('/add-students',[BackEndController::class, 'add_students'])->name('backend.add_students');
-Route::get('/delete-students/{id}', [BackEndController::class, 'delete_students'])->name('backend.delete_students');
-Route::post('/update-students/{id}', [BackEndController::class, 'update_students'])->name('backend.update_students');
+Route::get('/students', [StudentsController::class, 'students'])->name('backend.students');
+Route::get('/add-students',[StudentsController::class, 'add_students'])->name('backend.add_students');
+Route::post('/store-students',[StudentsController::class, 'store_students'])->name('backend.store_students');
+Route::get('/delete-students/{id}', [StudentsController::class, 'delete_students'])->name('backend.delete_students');
+Route::post('/update-students/{id}', [StudentsController::class, 'update_students'])->name('backend.update_students');
 
 // Route::get('/login', [AuthController::class, 'login'])->name('login');
 // Route::get('/registration', [AuthController::class, 'registration'])->name('registration');
