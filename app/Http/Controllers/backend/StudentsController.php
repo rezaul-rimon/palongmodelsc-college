@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\{Students};
 
-class StudentsController extends Controller
-{
-    //Event Management
+class StudentsController extends Controller {
     public function students(){
         //dd($students);
         $students = Students::where('status', 1)
@@ -81,7 +79,7 @@ class StudentsController extends Controller
             ]);
         
             if ($student) {
-                return redirect()->back()->with('success', 'সফল ভাবে নতুন ছাত্র যুক্ত করা হয়েছে');
+                return redirect('backend.students')->with('success', 'সফল ভাবে নতুন একটি শ্রেণী যুক্ত করা হয়েছে');
             }
         }
     }
@@ -97,6 +95,13 @@ class StudentsController extends Controller
             // Handle any errors, such as the notice not being found.
             return redirect()->back()->with('error', 'কিছু একটা সমস্যা হয়েছে');
         }
+    }
+
+    public function edit_students($id){
+        //dd($id);
+        $class = Students::find($id);
+        //dd($class);
+        return view('backend.students.edit_students', compact('class'));
     }
 
     public function update_students(Request $request, $student_id){
@@ -155,9 +160,9 @@ class StudentsController extends Controller
                 $student->hindu_students = $request->hinduStudents;
                 $student->buddhist_students = $request->buddistStudents;
                 $student->added_by = Auth::user()->id;
-                $student->save();
+                $student->update();
     
-                return redirect()->back()->with('success', 'সফল ভাবে আপডেট করা হয়েছে');
+                return redirect('backend.students')->with('success', 'শ্রেণীটি সফল ভাবে আপডেট করা হয়েছে');
             }
             else{
                 dd("Bssssl");

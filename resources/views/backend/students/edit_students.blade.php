@@ -5,10 +5,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h2 class="text-center text-primary my-4">নতুন ছাত্র যুক্ত করুন</h2>
+            <h2 class="text-center text-primary my-4">শ্রেণী আপডেট করুন</h2>
 
             <div class="border p-4 rounded">
-                <form action="{{ route('backend.store_students') }}" method="POST" id="notice" enctype="multipart/form-data">
+                <form action="{{ route('backend.update_students', ['id' => $class->id]) }}" method="POST" id="notice" enctype="multipart/form-data">
                     @csrf
                 
                     <div class="row">
@@ -50,7 +50,7 @@
                         <div class="col-md-6">
                             <div class="form-group mb-4">
                                 <label for="maleStudents" class="text-info">ছাত্র</label>
-                                <input type="number" class="form-control @error('maleStudents') is-invalid @enderror" id="maleStudents" name="maleStudents" value="{{ old('maleStudents', 0) }}" required min="0" max="9999">
+                                <input type="number" class="form-control @error('maleStudents') is-invalid @enderror" id="maleStudents" name="maleStudents" value="{{ old('maleStudents', (integer)$class->male_students) }}" required min="0" max="9999">
                                 @error('maleStudents')
                                 <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
@@ -102,7 +102,6 @@
                             </div>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>

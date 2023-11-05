@@ -52,6 +52,7 @@ Route::get('/students', [StudentsController::class, 'students'])->name('backend.
 Route::get('/add-students',[StudentsController::class, 'add_students'])->name('backend.add_students');
 Route::post('/store-students',[StudentsController::class, 'store_students'])->name('backend.store_students');
 Route::get('/delete-students/{id}', [StudentsController::class, 'delete_students'])->name('backend.delete_students');
+Route::get('/edit-students/{id}', [StudentsController::class, 'edit_students'])->name('backend.edit_students');
 Route::post('/update-students/{id}', [StudentsController::class, 'update_students'])->name('backend.update_students');
 
 // Route::get('/login', [AuthController::class, 'login'])->name('login');
