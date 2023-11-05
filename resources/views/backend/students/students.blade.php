@@ -42,15 +42,19 @@
         </div>
 
         <div class="col-md-6 offset-md-3">
-            @if(session()->has('success'))
-                <div class="alert alert-success">
+            @if (session()->has('success'))
+                <div class="alert alert-success text-center">
                     {{ session('success') }}
+                </div>
+            @elseif (session()->has('error'))
+                <div class="alert alert-danger text-center">
+                    {{ session('error') }}
                 </div>
             @endif
         </div>
         <script>
             $(document).ready(function() {
-                $('.alert').delay(2000).fadeOut(500);
+                $('.alert').delay(4000).fadeOut(500);
             });
         </script>               
 
@@ -100,8 +104,8 @@
                         <td class="align-middle">{{ $total }}</td>
                         {{-- <td class="align-middle">{{ $item->user->name }}</td> --}}
                         <td class="align-middle">
-                            <a href="{{ route('backend.edit_students', $item->id) }}" class="btn my-1 btn-sm btn-warning">Edit</a>
-                            <a href="{{ route('backend.delete_students', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="return confirm('আপনি কি নিশ্চিত যে আপনি এই শ্রেণীটি ডিলিট করতে চান?')">Delete</a>
+                            <a href="{{ route('backend.edit_students', $item->id) }}" class="btn my-1 btn-sm btn-warning">আপডেট</a>
+                            <a href="{{ route('backend.delete_students', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="return confirm('আপনি কি নিশ্চিত যে আপনি এই শ্রেণীটি ডিলিট করতে চান?')">ডিলিট</a>
                         </td>
                     </tr>
                 @empty

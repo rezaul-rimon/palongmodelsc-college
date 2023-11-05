@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use App\Models\User;
 use App\Models\{Notice, Teacher, Committee, Event, Gallery, Students};
 
 class BackEndController extends Controller
@@ -26,74 +25,6 @@ class BackEndController extends Controller
             ->withErrors([
             'email' => 'ড্যাশবোর্ডে আসার জন্য লগইন করা বাধ্যতামূলক',
         ])->onlyInput('email');
-    }
-
-
-    ///Notice Management
-    public function notice(){
-        $notice = Notice::where('status', 1)
-            ->with('user')
-            ->get();
-
-        //dd($notice);
-        return view('backend.notice', compact('notice'));
-    }
-
-    public function add_notice(Request $request){
-        //dd($request->all());
-        $validator = Validator::make($request->all(), [
-            'noticeType' => 'required|string|max:100',
-            'noticeSummary' => 'required|string|max:255',
-            'noticeFile' => 'required|mimes:pdf,jpg,jpeg,png|max:5120',
-        ], [
-            'noticeType.required' => "অবশ্যই নোটিশ টাইপ দিতে হবে",
-            'noticeType.max' => "এতবড় নোটিশ টাইপ গ্রহণযোগ্য নয়",
-            'noticeSummary.required' => "অবশ্যই নোটিশ সারমর্ম দিতে হবে",
-            'noticeSummary.max' => "এতবড় নোটিশ সারমর্ম গ্রহণযোগ্য নয়",
-            'noticeFile.required' => "নোটিশ ফাইল দেয়া বাধ্যতামূলক",
-            'noticeFile.mimes' => "নোটিশ ফাইল pdf, jpg, jpeg, png ফরম্যাটে হতে হবে",
-            'noticeFile.max' => "নোটিশ ফাইলের আকার 5MB এর বেশি হতে পারবে না",
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        } else {
-            // Check if a file was uploaded
-            if ($request->hasFile('noticeFile')) {
-                $file = $request->file('noticeFile');
-                // Generate a unique filename
-                $filename = 'Notice' . '_' . uniqid() . '.' .  $file->getClientOriginalExtension();
-                // Move the uploaded file to the public path
-                $file->move(public_path('Resources/Notice/Files'), $filename);
-            }
-        
-            // Create the 'Notice' record
-            $notice = Notice::create([
-                'notice_type' => $request->noticeType,
-                'notice_summary' => $request->noticeSummary,
-                'added_by' => Auth::user()->id,
-                'notice_file' => isset($filename) ? $filename : null,
-            ]);
-
-            if($notice){
-                return redirect()->back()->with('success', 'Successfully Added a Notice');
-            }
-        }
-    }
-
-    public function delete_notice($id) {
-        try {
-            $notice = Notice::findOrFail($id);
-            $notice->status = 0;
-            $notice->update();
-        
-            return redirect()->back()->with('success', 'Notice Deleted Successfully');
-        } catch (\Exception $e) {
-            // Handle any errors, such as the notice not being found.
-            return redirect()->back()->with('error', 'Error deleting notice');
-        }
     }
 
     //Teacher Management
