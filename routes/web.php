@@ -49,8 +49,8 @@ Route::controller(CommitteeController::class)->prefix('backend')->group(function
     Route::get('/committee', 'committee')->name('backend.committee');
     Route::get('/add-committee', 'add_committee')->name('backend.add_committee');
     Route::post('/store-committee', 'store_committee')->name('backend.store_committee');
-    Route::get('/edit-committee', 'edit_committee')->name('backend.edit_committee');
-    Route::post('/update-committee', 'update_committee')->name('backend.update_committee');
+    Route::get('/edit-committee/{id}', 'edit_committee')->name('backend.edit_committee');
+    Route::post('/update-committee/{id}', 'update_committee')->name('backend.update_committee');
     Route::get('/delete-committee/{id}', 'delete_committee')->name('backend.delete_committee');
 });
 

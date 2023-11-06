@@ -33,14 +33,11 @@
     <div class="container-fluid px-4">
         <div class="row">
             <div class="col-md-6 col-12 page-title">
-                <h1 class="text-danger">অনুমোদিত ম্যানেজিং কমিটি ম্যানেজমেন্ট</h1>
+                <h1 class="text-danger">ম্যানেজিং কমিটি ম্যানেজমেন্ট</h1>
             </div>
 
             <div class="col-md-6 col-12 add-button">
-                {{-- <a style="margin-bottom: 20px;" class="btn btn-primary" href="">নতুন নোটিশ যুক্ত করুন</a> --}}
-                <button style="margin-bottom: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#memberAddModal">
-                    নতুন সদস্য যুক্ত করুন
-                </button>
+                <a style="margin-bottom: 20px;" class="btn btn-primary" href="{{ route('backend.add_committee') }}">নতুন সদস্য যুক্ত করুন</a>
             </div>
         </div>
 
@@ -95,8 +92,8 @@
                         <td class="align-middle">{{ $item->committee_designation }}</td>
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">
-                            <a href="#" class="btn my-1 btn-sm btn-warning">Edit</a>
-                            <a href="#" class="btn my-1 btn-sm btn-danger" onclick="showConfirmationModal({{ $item->id }})">Delete</a>
+                            <a href="{{ route('backend.edit_committee', $item->id) }}" class="btn my-1 btn-sm btn-warning">সংশোধন</a>
+                            <a href="{{ route('backend.delete_committee', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="confirm('আপনি কি নিশ্চিত যে আপনি এই কমিটি সদস্যকে ডিলিট করতে চান?')">ডিলিট</a>
                         </td>
                     </tr>
                 @empty
@@ -105,22 +102,13 @@
                     </tr>
                 @endforelse
             </tbody>
-            
-            <script>
-                function showConfirmationModal(itemId) {
-                    if (confirm('আপনি কি নিশ্চিত যে আপনি এই কমিটি সদস্যকে ডিলিট করতে চান?')) {
-                        // If the user confirms, redirect to the delete route
-                        window.location.href = "{{ route('backend.delete_committee', '') }}" + '/' + itemId;
-                    }
-                }
-            </script>
         </table>
     </div>
 </main>
 @endsection
 
 <!-- Add Modal -->
-<div class="modal fade" id="memberAddModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+{{-- <div class="modal fade" id="memberAddModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -164,6 +152,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 

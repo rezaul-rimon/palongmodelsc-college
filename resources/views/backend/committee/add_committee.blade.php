@@ -6,15 +6,15 @@
     <div class="row">
         <div class="">
             <div class="col-md-6 offset-md-3">
-                <h2 class="text-center text-primary my-4">সদস্যের তথ্য সংশোধন করুন</h2>
+                <h2 class="text-center text-primary my-4">নতুন সদস্য যুক্ত করুন</h2>
     
                 <div class="border p-4 rounded">
-                    <form action="{{ route('backend.update_committee', $committee->id) }}" method="POST" id="notice" enctype="multipart/form-data">
+                    <form action="{{ route('backend.store_committee') }}" method="POST" id="notice" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group mb-4">
                             <label for="committeeName" class="text-info">সদস্যের নাম</label>
-                            <input type="text" class="form-control @error('committeeName') is-invalid @enderror" id="committeeName" name="committeeName" value="{{ old('committeeName', $committee->committee_name) }}" required placeholder="উদাহরণঃ জনাব হোছাইন আলী মাতব্বর">
+                            <input type="text" class="form-control @error('committeeName') is-invalid @enderror" id="committeeName" name="committeeName" value="{{ old('committeeName') }}" required placeholder="উদাহরণঃ জনাব হোছাইন আলী মাতব্বর">
                             @error('committeeName')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
@@ -22,7 +22,7 @@
                     
                         <div class="form-group mb-4">
                             <label for="committeeDesignation" class="text-info">সদস্যের পদবী</label>
-                            <input type="text" class="form-control @error('committeeDesignation') is-invalid @enderror" id="committeeDesignation" name="committeeDesignation" value="{{ old('committeerDesignation', $committee->committee_designation) }}" required placeholder="উদাহরণঃ প্রতিষ্টাতা সভাপতি">
+                            <input type="text" class="form-control @error('committeeDesignation') is-invalid @enderror" id="committeeDesignation" name="committeeDesignation" value="{{ old('committeerDesignation') }}" required placeholder="উদাহরণঃ প্রতিষ্টাতা সভাপতি">
                             @error('committeeDesignation')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="submit" value="আপডেট করুন" class="btn btn-success form-control">
+                                    <input type="submit" value="যুক্ত করুন" class="btn btn-success form-control">
                                 </div>
                             </div>
                         </div>

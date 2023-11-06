@@ -14,7 +14,7 @@
 
                         <div class="form-group mb-4">
                             <label for="teacherName" class="text-info">শিক্ষকের নাম <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control @error('teacherName') is-invalid @enderror" id="teacherName" name="teacherName" value="{{ old('teacherName') }}" required>
+                            <input type="text" class="form-control @error('teacherName') is-invalid @enderror" id="teacherName" name="teacherName" value="{{ old('teacherName') }}" required placeholder="উদাহরণঃ মোঃ আশেক উল্লাহ">
                             @error('teacherName')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
@@ -22,7 +22,7 @@
                     
                         <div class="form-group mb-4">
                             <label for="teacherDesignation" class="text-info">শিক্ষকের পদবী <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control @error('teacherDesignation') is-invalid @enderror" id="teacherDesignation" name="teacherDesignation" value="{{ old('teacherDesignation') }}" required>
+                            <input type="text" class="form-control @error('teacherDesignation') is-invalid @enderror" id="teacherDesignation" name="teacherDesignation" value="{{ old('teacherDesignation') }}" required placeholder="উদাহরণঃ ট্রেড ইন্সট্রাকটর">
                             @error('teacherDesignation')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
@@ -30,7 +30,7 @@
     
                         <div class="form-group mb-4">
                             <label for="teacherDescription" class="text-info">সংখিপ্ত বিবরণ <span class="text-danger">*</span></label>
-                            <textarea class="form-control @error('teacherDescription') is-invalid @enderror" id="teacherDescription" name="teacherDescription" required>{{ old('teacherDescription') }}</textarea>
+                            <textarea class="form-control @error('teacherDescription') is-invalid @enderror" id="teacherDescription" name="teacherDescription" required placeholder="উদাহরণঃ আমি অত্র স্কুলের ভোকেশনাল শাখায় আইটি সাপোর্ট অ্যান্ড আইওটি বেসিক ট্রেডে শিক্ষকতা করছি">{{ old('teacherDescription') }}</textarea>
                             @error('teacherDescription')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
@@ -38,7 +38,7 @@
     
                         <div class="form-group mb-4">
                             <label for="takenSubject" class="text-info">গৃহীত বিষয় সমূহ <span class="text-danger">*</span></label>
-                            <textarea class="form-control @error('takenSubject') is-invalid @enderror" id="takenSubject" name="takenSubject" required rows="1">{{ old('takenSubject') }}</textarea>
+                            <textarea class="form-control @error('takenSubject') is-invalid @enderror" id="takenSubject" name="takenSubject" required rows="1" placeholder="উদাহরণঃ গণিত, পদার্থবিদ্যা, কম্পিউটার">{{ old('takenSubject') }}</textarea>
                             @error('takenSubject')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
