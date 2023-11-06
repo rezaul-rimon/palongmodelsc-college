@@ -37,12 +37,12 @@
                         </div>
                         
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <a class="btn btn-warning form-control" href="{{ route('backend.committee') }}">ফিরে যান</a>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <input type="submit" value="যুক্ত করুন" class="btn btn-success form-control">
                                 </div>

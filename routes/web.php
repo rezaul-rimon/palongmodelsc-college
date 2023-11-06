@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\FrontEndController;
-use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeController, EventController, NoticeController, StudentsController, TeacherController};
+use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeController, EventController, GalleryController, NoticeController, StudentsController, TeacherController};
 
 /*
 |--------------------------------------------------------------------------
@@ -67,9 +67,15 @@ Route::controller(EventController::class)->prefix('backend')->group(function () 
 
 
 //Gallery
-Route::get('/gallery', [BackEndController::class, 'gallery'])->name('backend.gallery');
-Route::post('/add-gallery',[BackEndController::class, 'add_gallery'])->name('backend.add_gallery');
-Route::get('/delete-gallery/{id}', [BackEndController::class, 'delete_gallery'])->name('backend.delete_gallery');
+Route::controller(GalleryController::class)->prefix('backend')->group(function () {
+    Route::get('/gallery', 'gallery')->name('backend.gallery');
+    Route::get('/add-gallery', 'add_gallery')->name('backend.add_gallery');
+    Route::post('/store-gallery', 'store_gallery')->name('backend.store_gallery');
+    Route::get('/edit-gallery/{id}', 'edit_gallery')->name('backend.edit_gallery');
+    Route::post('/update-gallery/{id}', 'update_gallery')->name('backend.update_gallery');
+    Route::get('/delete-gallery/{id}', 'delete_gallery')->name('backend.delete_gallery');
+});
+
 
 //Students
 
