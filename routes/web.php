@@ -60,8 +60,8 @@ Route::controller(EventController::class)->prefix('backend')->group(function () 
     Route::get('/event', 'event')->name('backend.event');
     Route::get('/add-event', 'add_event')->name('backend.add_event');
     Route::post('/store-event', 'store_event')->name('backend.store_event');
-    Route::get('/edit-event', 'edit_event')->name('backend.edit_event');
-    Route::post('/update-event', 'update_event')->name('backend.update_event');
+    Route::get('/edit-event/{id}', 'edit_event')->name('backend.edit_event');
+    Route::post('/update-event/{id}', 'update_event')->name('backend.update_event');
     Route::get('/delete-event/{id}', 'delete_event')->name('backend.delete_event');
 });
 

@@ -2,15 +2,15 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
-                <div class="sb-sidenav-menu-heading">Core</div>
+                {{-- <div class="sb-sidenav-menu-heading">Core</div> --}}
                 <a class="nav-link" href="{{ route('backend.index') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Dashboard
+                    ড্যাশবোর্ড
                 </a>
-                <div class="sb-sidenav-menu-heading">Interface</div>
+                {{-- <div class="sb-sidenav-menu-heading" style="font-size: 20px;">ম্যানেজমেন্ট</div> --}}
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    Layouts
+                    ম্যানেজমেন্ট
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -26,7 +26,7 @@
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                    Pages
+                    ইউজার
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
