@@ -68,4 +68,8 @@ class User extends Authenticatable
     public function students(){
         return $this->hasMany(Students::class, 'added_by', 'id');
     }
+
+    public function stipend_students(){
+        return $this->hasMany(Students::class, 'added_by', 'id');
+    }
 }
