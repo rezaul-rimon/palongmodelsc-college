@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\FrontEndController;
-use App\Http\Controllers\backend\{BackEndController, AuthController, NoticeController, StudentsController};
+use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeController, EventController, NoticeController, StudentsController, TeacherController};
 
 /*
 |--------------------------------------------------------------------------
@@ -34,19 +34,37 @@ Route::controller(NoticeController::class)->prefix('backend')->group(function(){
 
 
 //Teacher
-Route::get('/teacher', [BackEndController::class, 'teacher'])->name('backend.teacher');
-Route::post('/add-teacher',[BackEndController::class, 'add_teacher'])->name('backend.add_teacher');
-Route::get('/delete-teacher/{id}', [BackEndController::class, 'delete_teacher'])->name('backend.delete_teacher');
+Route::controller(TeacherController::class)->prefix('backend')->group(function () {
+    Route::get('/teacher', 'teacher')->name('backend.teacher');
+    Route::get('/add-teacher', 'add_teacher')->name('backend.add_teacher');
+    Route::post('/store-teacher', 'store_teacher')->name('backend.store_teacher');
+    Route::get('/edit-teacher/{id}', 'edit_teacher')->name('backend.edit_teacher');
+    Route::post('/update-teacher/{id}', 'update_teacher')->name('backend.update_teacher');
+    Route::get('/delete-teacher/{id}', 'delete_teacher')->name('backend.delete_teacher');
+});
+
 
 //Committee
-Route::get('/committee', [BackEndController::class, 'committee'])->name('backend.committee');
-Route::post('/add-committee',[BackEndController::class, 'add_committee'])->name('backend.add_committee');
-Route::get('/delete-committee/{id}', [BackEndController::class, 'delete_committee'])->name('backend.delete_committee');
+Route::controller(CommitteeController::class)->prefix('backend')->group(function () {
+    Route::get('/committee', 'committee')->name('backend.committee');
+    Route::get('/add-committee', 'add_committee')->name('backend.add_committee');
+    Route::post('/store-committee', 'store_committee')->name('backend.store_committee');
+    Route::get('/edit-committee', 'edit_committee')->name('backend.edit_committee');
+    Route::post('/update-committee', 'update_committee')->name('backend.update_committee');
+    Route::get('/delete-committee/{id}', 'delete_committee')->name('backend.delete_committee');
+});
+
 
 //Event
-Route::get('/event', [BackEndController::class, 'event'])->name('backend.event');
-Route::post('/add-event',[BackEndController::class, 'add_event'])->name('backend.add_event');
-Route::get('/delete-event/{id}', [BackEndController::class, 'delete_event'])->name('backend.delete_event');
+Route::controller(EventController::class)->prefix('backend')->group(function () {
+    Route::get('/event', 'event')->name('backend.event');
+    Route::get('/add-event', 'add_event')->name('backend.add_event');
+    Route::post('/store-event', 'store_event')->name('backend.store_event');
+    Route::get('/edit-event', 'edit_event')->name('backend.edit_event');
+    Route::post('/update-event', 'update_event')->name('backend.update_event');
+    Route::get('/delete-event/{id}', 'delete_event')->name('backend.delete_event');
+});
+
 
 //Gallery
 Route::get('/gallery', [BackEndController::class, 'gallery'])->name('backend.gallery');

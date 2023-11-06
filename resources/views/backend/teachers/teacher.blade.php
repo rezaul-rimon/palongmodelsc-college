@@ -37,25 +37,26 @@
             </div>
 
             <div class="col-md-6 col-12 add-button">
-                {{-- <a style="margin-bottom: 20px;" class="btn btn-primary" href="">নতুন নোটিশ যুক্ত করুন</a> --}}
-                <button style="margin-bottom: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#teacherAddModal">
-                    নতুন শিক্ষক যুক্ত করুন
-                </button>
+                <a style="margin-bottom: 20px;" class="btn btn-primary" href="{{ route('backend.add_teacher') }}">নতুন শিক্ষক যুক্ত করুন</a>
             </div>
         </div>
 
         <div class="col-md-6 offset-md-3">
-            @if(session()->has('success'))
-                <div class="alert alert-success">
+            @if (session()->has('success'))
+                <div class="alert alert-success text-center">
                     {{ session('success') }}
+                </div>
+            @elseif (session()->has('error'))
+                <div class="alert alert-danger text-center">
+                    {{ session('error') }}
                 </div>
             @endif
         </div>
         <script>
             $(document).ready(function() {
-                $('.alert').delay(2000).fadeOut(500);
+                $('.alert').delay(4000).fadeOut(500);
             });
-        </script>               
+        </script>                
 
         <table class="table table-responsive table-bordered text-center">
             <colgroup>
@@ -101,8 +102,8 @@
                         <td class="align-middle">{{ $item->taken_subject }}</td>
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">
-                            <a href="#" class="btn my-1 btn-sm btn-warning">আপডেট</a>
-                            <a href="#" class="btn my-1 btn-sm btn-danger" onclick="showConfirmationModal({{ $item->id }})">ডিলিট</a>
+                            <a href="{{ route('backend.edit_teacher', $item->id) }}" class="btn my-1 btn-sm btn-warning">আপডেট</a>
+                            <a href="{{ route('backend.delete_teacher', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="return confirm('আপনি কি নিশ্চিত যে আপনি এই শিক্ষককে ডিলিট করতে চান?')">ডিলিট</a>
                         </td>
                     </tr>
                 @empty
@@ -111,21 +112,13 @@
                     </tr>
                 @endforelse
             </tbody>   
-            <script>
-                function showConfirmationModal(itemId) {
-                    if (confirm('আপনি কি নিশ্চিত যে আপনি এই শিক্ষককে ডিলিট করতে চান?')) {
-                        // If the user confirms, redirect to the delete route
-                        window.location.href = "{{ route('backend.delete_teacher', '') }}" + '/' + itemId;
-                    }
-                }
-            </script>
         </table>
     </div>
 </main>
 @endsection
 
 <!-- Modal -->
-<div class="modal fade" id="teacherAddModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+{{-- <div class="modal fade" id="teacherAddModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -185,5 +178,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
