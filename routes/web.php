@@ -15,12 +15,25 @@ use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeCo
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-Route::get('/',[FrontEndController::class, 'index'])->name('frontend.index');
+//Route::get('/',[FrontEndController::class, 'index'])->name('frontend.index');
+Route::controller(FrontEndController::class)->group(function(){
+    Route::get('/', 'index');
+});
+
+
+
 Route::get('/admin',[BackEndController::class, 'index'])->middleware('auth')->name('backend.index');
+
+//Login and Registration 
+Route::controller(AuthController::class)->group(function() {
+    Route::get('/registration', 'registration')->name('registration');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/login', 'login')->name('login');
+    Route::post('/authenticate', 'authenticate')->name('authenticate');
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
+    Route::post('/logout', 'logout')->name('logout');
+});
 
 //Notice
 Route::controller(NoticeController::class)->prefix('backend')->middleware('auth')->group(function(){
@@ -92,12 +105,4 @@ Route::controller(StipendStudentsController::class)->prefix('backend')->middlewa
     Route::post('/update-stipend-students/{id}', 'update_stipend_students')->name('backend.update_stipend_students');
 });
 
-Route::controller(AuthController::class)->group(function() {
-    Route::get('/registration', 'registration')->name('registration');
-    Route::post('/store', 'store')->name('store');
-    Route::get('/login', 'login')->name('login');
-    Route::post('/authenticate', 'authenticate')->name('authenticate');
-    Route::get('/dashboard', 'dashboard')->name('dashboard');
-    Route::post('/logout', 'logout')->name('logout');
-});
 

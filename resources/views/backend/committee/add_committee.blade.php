@@ -13,7 +13,7 @@
                         @csrf
 
                         <div class="form-group mb-4">
-                            <label for="committeeName" class="text-info">সদস্যের নাম</label>
+                            <label for="committeeName" class="text-info">সদস্যের নাম <span class="text-danger">*</span></label>
                             <input type="text" class="form-control @error('committeeName') is-invalid @enderror" id="committeeName" name="committeeName" value="{{ old('committeeName') }}" required placeholder="উদাহরণঃ জনাব হোছাইন আলী মাতব্বর">
                             @error('committeeName')
                                 <span class="invalid-feedback">{{ $message }}</span>
@@ -21,7 +21,7 @@
                         </div>
                     
                         <div class="form-group mb-4">
-                            <label for="committeeDesignation" class="text-info">সদস্যের পদবী</label>
+                            <label for="committeeDesignation" class="text-info">সদস্যের পদবী <span class="text-danger">*</span></label>
                             <input type="text" class="form-control @error('committeeDesignation') is-invalid @enderror" id="committeeDesignation" name="committeeDesignation" value="{{ old('committeerDesignation') }}" required placeholder="উদাহরণঃ প্রতিষ্টাতা সভাপতি">
                             @error('committeeDesignation')
                                 <span class="invalid-feedback">{{ $message }}</span>
@@ -29,7 +29,7 @@
                         </div>
                     
                         <div class="form-group mb-4">
-                            <label for="committeePhoto" class="text-info">সদস্যের ছবি</label>
+                            <label for="committeePhoto" class="text-info">সদস্যের ছবি <span class="text-primary">(ঐচ্ছিক)</span></label>
                             <input type="file" class="form-control @error('committeePhoto') is-invalid @enderror" id="committeePhoto" name="committeePhoto" value="{{ old('committeePhoto') }}">
                             @error('committeePhoto')
                             <span class="invalid-feedback">{{ $message }}</span>

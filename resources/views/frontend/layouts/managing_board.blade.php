@@ -11,13 +11,33 @@
 				<table class="table table-striped table-bordered text-center" style="font-size: 20px;">
 					<thead >
 						<tr>
-							<th>ক্রম</th>
-							<th>নাম</th>
-							<th>পদবী</th>
+							<th style="width: 8%">ক্রম</th>
+							<th style="width: 10%">সদস্যের ছবি</th>
+							<th style="width: 41%">সদস্যের নাম</th>
+							<th style="width: 41%">সদস্যের পদবী</th>
 						</tr>
 					</thead>
 
 					<tbody>
+						@forelse ($committee as $item)
+							<tr>
+								<td class="align-middle">{{ $loop->iteration }}</td>
+								<td class="align-middle">
+									@if($item->committee_photo != null)
+										<img src="{{ asset('Resources/Committee/Photos/' . $item->committee_photo) }}" alt="{{ $item->committee_name }} Photo" style="max-width: 80px; height: 80px;">
+									@else
+										<img src="{{ asset('Resources/Committee/Photos/committee.png') }}" alt="{{ $item->committee_name }} Photo" style="max-width: 80px; height: 80px;">
+									@endif
+								</td>
+								<td class="align-middle">{{ $item->committee_name }}</td>
+								<td class="align-middle">{{ $item->committee_designation }}</td>
+							</tr>
+						@empty
+							
+						@endforelse
+					</tbody>
+
+					{{-- <tbody>
 						<tr>
 							<td>১</td>
 							<td>জনাব জালাল আহমদ</td>
@@ -73,7 +93,7 @@
 							<td>জনাব খুরশিদা বেগম</td>
 							<td>(সংরক্ষিত মহিলা শিক্ষক প্রতিনিধি) / সদস্য</td>
 						</tr>
-					</tbody>
+					</tbody> --}}
 
 					<tfoot>
 
