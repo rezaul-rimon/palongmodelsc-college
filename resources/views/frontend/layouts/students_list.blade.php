@@ -11,6 +11,17 @@
 			<div class="row">
 				<div class="col-md-12">
 					<table class="table table-striped table-bordered text-center" style="font-size: 20px;">
+						<colgroup>
+							<col style="width: 5%;">
+							<col style="width: 11%;">
+							<col style="width: 15%;">
+							<col style="width: 11%;">
+							<col style="width: 11%;">
+							<col style="width: 12%;">
+							<col style="width: 11%;">
+							<col style="width: 11%;">
+							<col style="width: 13%;">
+						</colgroup>
 						<thead>
 							<tr>
 								<th>ক্রম</th>
@@ -25,290 +36,60 @@
 							</tr>
 						</thead>
 
+						@php
+							$total_section = 0;
+							$total_male = 0;
+							$total_female = 0;
+							$total_muslim = 0;
+							$total_hindu = 0;
+							$total_buddhist = 0;
+							$final_total = 0;
+							use App\Helpers\AppHelper;
+						@endphp
+
 						<tbody>
+							@forelse($students as $item)
+							@php
+								$total = $item->male_students + $item->female_students;
+								$muslim = $total - $item->hindu_students - $item->buddhist_students;
+						
+								$total_section += 1;
+								$total_male += $item->male_students;
+								$total_female += $item->female_students;
+								$total_muslim += $muslim;
+								$total_hindu += $item->hindu_students;
+								$total_buddhist += $item->buddhist_students;
+								$final_total += $total;
+							@endphp
 							<tr>
-								<td>১</td>
-								<td>৬ষ্ঠ</td>
-								<td>A</td>
-								<td>১০৮</td>
-								<td>-</td>
-								<td></td>
-								<td>২</td>
-								<td>১৫</td>
-								<th>১০৮</th>
-							</tr>
+								<td class="align-middle">{{ AppHelper::en2bn($loop->iteration) }}</td>
+								<td class="align-middle">{{ AppHelper::en2bn_class($item->class_name) }}</td>
+								<td class="align-middle">{{ AppHelper::en2bn($item->class_section) }}</td>
+								<td class="align-middle">{{ AppHelper::en2bn($item->male_students) }}</td>
+								<td class="align-middle">{{ AppHelper::en2bn($item->female_students) }}</td>
+								<td class="align-middle">{{ AppHelper::en2bn($muslim) }}</td>
+								<td class="align-middle">{{ AppHelper::en2bn($item->hindu_students) }}</td>
+								<td class="align-middle">{{ AppHelper::en2bn($item->buddhist_students) }}</td>
+								<td class="align-middle" style="font-weight: bold;">{{ AppHelper::en2bn($total) }}</td>
+							</tr>							
+						@empty
 							<tr>
-								<td>২</td>
-								<td>৬ষ্ঠ</td>
-								<td>B</td>
-								<td>-</td>
-								<td>১১৩</td>
-								<td></td>
-								<td>-</td>
-								<td>২০</td>
-								<th>১১৩</th>
+								<td class="text-danger fw-bold" colspan="9">এই পর্যন্ত কোন ছাত্র যোগ করা হয়নি।</td>
 							</tr>
-							<tr>
-								<td>৩</td>
-								<td>৬ষ্ঠ</td>
-								<td>C</td>
-								<td>-</td>
-								<td>১১৮</td>
-								<td></td>
-								<td>২</td>
-								<td>১২</td>
-								<th>১১৮</th>
-							</tr>
-							<tr>
-								<td>৪</td>
-								<td>৬ষ্ঠ</td>
-								<td>D</td>
-								<td>৯৮</td>
-								<td>-</td>
-								<td></td>
-								<td>-</td>
-								<td>৭</td>
-								<th>৯৮</th>
-							</tr>
-
-							<tr>
-								<td>৫</td>
-								<td>৭ম</td>
-								<td>A</td>
-								<td>-</td>
-								<td>১১১</td>
-								<td></td>
-								<td>২</td>
-								<td>৬</td>
-								<th>১১১</th>
-							</tr>
-							<tr>
-								<td>৬</td>
-								<td>৭ম</td>
-								<td>B</td>
-								<td>৯৬</td>
-								<td>-</td>
-								<td></td>
-								<td>-</td>
-								<td>১০</td>
-								<th>৯৬</th>
-							</tr>
-							<tr>
-								<td>৭</td>
-								<td>৭ম</td>
-								<td>C</td>
-								<td>৯৭</td>
-								<td>০</td>
-								<td></td>
-								<td>১</td>
-								<td>৯</td>
-								<th>৯৭</th>
-							</tr>
-							<tr>
-								<td>৮</td>
-								<td>৭ম</td>
-								<td>D</td>
-								<td>-</td>
-								<td>১০৮</td>
-								<td></td>
-								<td>-</td>
-								<td>৮</td>
-								<th>১০৮</th>
-							</tr>
-
-							<tr>
-								<td>৯</td>
-								<td>৮ম</td>
-								<td>A</td>
-								<td>৭০</td>
-								<td>-</td>
-								<td></td>
-								<td>-</td>
-								<td>৭</td>
-								<th>৭০</th>
-							</tr>
-							<tr>
-								<td>১০</td>
-								<td>৮ম</td>
-								<td>B</td>
-								<td>-</td>
-								<td>১০০</td>
-								<td></td>
-								<td>১</td>
-								<td>১৫</td>
-								<th>১০০</th>
-							</tr>
-							<tr>
-								<td>১১</td>
-								<td>৮ম</td>
-								<td>C</td>
-								<td>৭৩</td>
-								<td>-</td>
-								<td></td>
-								<td>২</td>
-								<td>১৪</td>
-								<th>৭৩</th>
-							</tr>
-							<tr>
-								<td>১২</td>
-								<td>৮ম</td>
-								<td>D</td>
-								<td>-</td>
-								<td>১০৩</td>
-								<td></td>
-								<td>-</td>
-								<td>১১</td>
-								<th>১০৩</th>
-							</tr>
-
-							<tr>
-								<td>১৩</td>
-								<td>৯ম</td>
-								<td>A</td>
-								<td>১৩</td>
-								<td>৭৪</td>
-								<td></td>
-								<td>-</td>
-								<td>২</td>
-								<th>৮৭</th>
-							</tr>
-							<tr>
-								<td>১৪</td>
-								<td>৯ম</td>
-								<td>B</td>
-								<td>৫২</td>
-								<td>২৮</td>
-								<td></td>
-								<td>-</td>
-								<td>২০</td>
-								<th>৮০</th>
-							</tr>
-							<tr>
-								<td>১৫</td>
-								<td>৯ম</td>
-								<td>C</td>
-								<td>১৮</td>
-								<td>৩৫</td>
-								<td></td>
-								<td>৫</td>
-								<td>৬</td>
-								<th>৫৩</th>
-							</tr>
-							<tr>
-								<td>১৬</td>
-								<td>৯ম</td>
-								<td>D</td>
-								<td>৩২</td>
-								<td>৫৮</td>
-								<td></td>
-								<td>-</td>
-								<td>৭</td>
-								<th>৯০</th>
-							</tr>
-
-							<tr>
-								<td>১৭</td>
-								<td>১০ম</td>
-								<td>A</td>
-								<td>৩২</td>
-								<td>৪৩</td>
-								<td></td>
-								<td>-</td>
-								<td>১</td>
-								<th>৭৫</th>
-							</tr>
-							<tr>
-								<td>১৮</td>
-								<td>১০ম</td>
-								<td>B</td>
-								<td>৬৩</td>
-								<td>৭৭</td>
-								<td></td>
-								<td>১</td>
-								<td>১৭</td>
-								<th>১৪০</th>
-							</tr>
-							<tr>
-								<td>১৯</td>
-								<td>১০ম</td>
-								<td>C</td>
-								<td>৩৩</td>
-								<td>২৮</td>
-								<td></td>
-								<td>১</td>
-								<td>৬</td>
-								<th>৬১</th>
-							</tr>
-							<tr>
-								<td>২০</td>
-								<td>১০ম</td>
-								<td>D</td>
-								<td>৩২</td>
-								<td>৫৮</td>
-								<td></td>
-								<td>-</td>
-								<td>৭</td>
-								<th>৯০</th>
-							</tr>
-
-							<tr>
-								<td>২১</td>
-								<td>৯ম</td>
-								<td>কম্পিউটার</td>
-								<td>৭</td>
-								<td>২৬</td>
-								<td></td>
-								<td>-</td>
-								<td>৪</td>
-								<th>৩৩</th>
-							</tr>
-							<tr>
-								<td>২২</td>
-								<td>৯ম</td>
-								<td>সিভিল</td>
-								<td>১৭</td>
-								<td>১১</td>
-								<td></td>
-								<td>-</td>
-								<td>৯</td>
-								<th>২৮</th>
-							</tr>
-							<tr>
-								<td>২৩</td>
-								<td>১০ম</td>
-								<td>কম্পিউটার</td>
-								<td>৬</td>
-								<td>১৩</td>
-								<td></td>
-								<td>১</td>
-								<td>৭</td>
-								<th>১৯</th>
-							</tr>
-							<tr>
-								<td>২৪</td>
-								<td>১০ম</td>
-								<td>সিভিল</td>
-								<td>১৫</td>
-								<td>১০</td>
-								<td></td>
-								<td>-</td>
-								<td>৪</td>
-								<th>২৫</th>
-							</tr>
-							
+						@endforelse
 						</tbody>
 
 						<tfoot>
 							<tr>
-								<th colspan="2">মোট</th>
-								<th>২৪</th>
-								<th>৯০৪</th>
-								<th>১০৫৬</th>
-								<th></th>
-								<th>২০</th>
-								<th>২১৮</th>
-								<th>১৯৬০</th>
-							</tr>
+								<th class="align-middle" colspan="2">{{ AppHelper::en2bn('মোট') }}</th>
+								<th class="align-middle">{{ AppHelper::en2bn($total_section) }}</th>
+								<th class="align-middle">{{ AppHelper::en2bn($total_male) }}</th>
+								<th class="align-middle">{{ AppHelper::en2bn($total_female) }}</th>
+								<th class="align-middle">{{ AppHelper::en2bn($total_muslim) }}</th>
+								<th class="align-middle">{{ AppHelper::en2bn($total_hindu) }}</th>
+								<th class="align-middle">{{ AppHelper::en2bn($total_buddhist) }}</th>
+								<th class="align-middle">{{ AppHelper::en2bn($final_total) }}</th>
+							</tr>							
 						</tfoot>
 					</table>
 				</div>
