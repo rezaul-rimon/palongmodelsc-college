@@ -21,6 +21,7 @@
                         <a class="nav-link" href="{{ route('backend.event') }}">ইভেন্ট ম্যানেজমেন্ট</a>
                         <a class="nav-link" href="{{ route('backend.gallery') }}">গ্যালারী ম্যানেজমেন্ট</a>
                         <a class="nav-link" href="{{ route('backend.students') }}">শ্রেণী ভিত্তিক ম্যানেজমেন্ট</a>
+                        <a class="nav-link" href="{{ route('backend.stipend_students') }}">বৃত্তি পরাপ্ত শ্রেণী ম্যানেজমেন্ট</a>
                         
                     </nav>
                 </div>

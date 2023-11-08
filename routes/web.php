@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\FrontEndController;
-use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeController, EventController, GalleryController, NoticeController, StudentsController, TeacherController};
+use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeController, EventController, GalleryController, NoticeController, StipendStudentsController, StudentsController, TeacherController};
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +80,16 @@ Route::controller(StudentsController::class)->prefix('backend')->middleware('aut
     Route::get('/delete-students/{id}', 'delete_students')->name('backend.delete_students');
     Route::get('/edit-students/{id}', 'edit_students')->name('backend.edit_students');
     Route::post('/update-students/{id}', 'update_students')->name('backend.update_students');
+});
+
+//Students
+Route::controller(StipendStudentsController::class)->prefix('backend')->middleware('auth')->group(function () {
+    Route::get('/stipend-students', 'stipend_students')->name('backend.stipend_students');
+    Route::get('/add-stipend-students', 'add_stipend_students')->name('backend.add_stipend_students');
+    Route::post('/store-stipend-students', 'store_stipend_students')->name('backend.store_stipend_students');
+    Route::get('/delete-stipend-students/{id}', 'delete_stipend_students')->name('backend.delete_stipend_students');
+    Route::get('/edit-stipend-students/{id}', 'edit_stipend_students')->name('backend.edit_stipend_students');
+    Route::post('/update-stipend-students/{id}', 'update_stipend_students')->name('backend.update_stipend_students');
 });
 
 Route::controller(AuthController::class)->group(function() {
