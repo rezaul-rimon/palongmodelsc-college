@@ -12,7 +12,6 @@ class StipendStudents extends Model
     protected $table = 'stipend_students';
     protected $fillable = [
         'class_name',
-        'class_section',
         'gov_stipend_male',
         'gov_stipend_female',
         'sub_stipend_male',

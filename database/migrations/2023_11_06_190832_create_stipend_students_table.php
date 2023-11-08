@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('stipend_students', function (Blueprint $table) {
             $table->id();
             $table->unsignedTinyInteger('class_name');
-            $table->string('class_section', 20);
             $table->unsignedInteger('gov_stipend_male');
             $table->unsignedInteger('gov_stipend_female'); 
             $table->unsignedInteger('sub_stipend_male');

@@ -79,25 +79,11 @@ class StudentsController extends Controller {
         }
     }
     
-    public function delete_students($id){
-        try {
-            $students = Students::findOrFail($id);
-            $students->status = 0;
-            $students->update();
-        
-            return redirect()->back()->with('success', 'শ্রেণী টি সফল ভাবে সরিয়ে দেয়া হয়েছে');
-        } catch (\Exception $e) {
-            // Handle any errors, such as the notice not being found.
-            return redirect()->back()->with('error', 'কিছু একটা সমস্যা হয়েছে');
-        }
-    }
-
     public function edit_students($id) {
         $student = Students::find($id);
         return view('backend.students.edit_students', compact('student'));
     }
-    
-    
+
     public function update_students(Request $request, $id) {
         //dd($request->all(), $id);
         $validator2 = Validator::make($request->all(), [
@@ -158,4 +144,19 @@ class StudentsController extends Controller {
     
         return redirect()->route('backend.students')->with('success', 'শ্রেণীটি সফল ভাবে আপডেট করা হয়েছে');
     }
+
+    public function delete_students($id){
+        try {
+            $student = Students::findOrFail($id);
+            
+            // Perform a permanent delete
+            $student->delete();
+            
+            return redirect()->route('backend.students')->with('success', 'শ্রেণী টি সফল ভাবে মুছে ফেলা হয়েছে');
+        } catch (\Exception $e) {
+            // Handle any errors, such as the student not being found.
+            return redirect()->route('backend.students')->with('error', 'কিছু একটা সমস্যা হয়েছে');
+        }
+    }
+    
 }

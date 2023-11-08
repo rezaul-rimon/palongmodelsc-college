@@ -59,58 +59,50 @@
         </script>               
 
         <table class="table table-responsive table-bordered text-center">
-            {{-- <colgroup>
-                <col style="width: 5%;">
-                <col style="width: 10%;">
-                <col style="width: 35%;">
-                <col style="width: 35%;">
-                <col style="width: 15%;">
-            </colgroup> --}}
             <thead>
                 <tr>
-                    <th class="align-middle" rowspan="2">ক্রম</th>
-                    <th class="align-middle" rowspan="2">শ্রেণী</th>
-                    <th class="align-middle" colspan="3">উপবৃত্তি</th>
-                    <th class="align-middle" colspan="3">সরকারী বৃত্তি</th>
-                    <th class="align-middle" rowspan="2">একশন</th>
+                    <th class="align-middle" rowspan="2" style="width: 5%;">ক্রম</th>
+                    <th class="align-middle" rowspan="2" style="width: 10%;">শ্রেণী</th>
+                    <th class="align-middle" colspan="3" style="width: 35%;">উপবৃত্তি</th>
+                    <th class="align-middle" colspan="3" style="width: 35%;">সরকারী বৃত্তি</th>
+                    <th class="align-middle" rowspan="2" style="width: 15%;">একশন</th>
                 </tr>
                 <tr>
-                    <th class="align-middle">ছাত্র</th>
-                    <th class="align-middle">ছাত্রী</th>
-                    <th class="align-middle">মোট</th>
-                    <th class="align-middle">ছাত্র</th>
-                    <th class="align-middle">ছাত্রী</th>
-                    <th class="align-middle">মোট</th>
+                    <th class="align-middle" style="width: 12%;">ছাত্র</th>
+                    <th class="align-middle" style="width: 12%;">ছাত্রী</th>
+                    <th class="align-middle" style="width: 11%;">মোট</th>
+                    <th class="align-middle" style="width: 12%;">ছাত্র</th>
+                    <th class="align-middle" style="width: 12%;">ছাত্রী</th>
+                    <th class="align-middle text-bold" style="width: 11%;">মোট</th>
                 </tr>
             </thead>
 
             <tbody>
-                {{-- @forelse($students as $item)
+                @forelse($students as $item)
                     @php
-                        $total = $item->male_students + $item->female_students;
-                        $muslim = $total - $item->hindu_students - $item->buddhist_students;
+                        $total_gov = $item->gov_stipend_male + $item->gov_stipend_female;
+                        $total_sub = $item->sub_stipend_male + $item->sub_stipend_female;
                     @endphp
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
-                        <td class="align-middle">{{ $item->class_name }}</td>
-                        <td class="align-middle">{{ $item->class_section }}</td>
-                        <td class="align-middle">{{ $item->male_students }}</td>
-                        <td class="align-middle">{{ $item->female_students }}</td>
-                        <td class="align-middle">{{ $muslim }}</td>
-                        <td class="align-middle">{{ $item->hindu_students }}</td>
-                        <td class="align-middle">{{ $item->buddhist_students }}</td>
-                        <td class="align-middle">{{ $total }}</td>
-                        <td class="align-middle">{{ $item->user->name }}</td>
+                        <td class="align-middle" style="font-weight: bold;">{{ $item->class_name }}</td>
+                        <td class="align-middle">{{ $item->sub_stipend_male }}</td>
+                        <td class="align-middle">{{ $item->sub_stipend_female }}</td>
+                        <td class="align-middle" style="font-weight: bold;">{{ $total_sub }}</td>
+                        <td class="align-middle">{{ $item->gov_stipend_male }}</td>
+                        <td class="align-middle">{{ $item->gov_stipend_female }}</td>
+                        <td class="align-middle" style="font-weight: bold;">{{ $total_gov }}</td>
+                        {{-- <td class="align-middle">{{ $item->user->name }}</td> --}}
                         <td class="align-middle">
-                            <a href="{{ route('backend.edit_students', $item->id) }}" class="btn my-1 btn-sm btn-warning">আপডেট</a>
-                            <a href="{{ route('backend.delete_students', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="return confirm('আপনি কি নিশ্চিত যে আপনি এই শ্রেণীটি ডিলিট করতে চান?')">ডিলিট</a>
+                            <a href="{{ route('backend.edit_stipend_students', $item->id) }}" class="btn my-1 btn-sm btn-warning">আপডেট</a>
+                            <a href="{{ route('backend.delete_stipend_students', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="return confirm('আপনি কি নিশ্চিত যে আপনি এই শ্রেণীটি ডিলিট করতে চান?')">ডিলিট</a>
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td class="text-danger fw-bold" colspan="9">এই পর্যন্ত কোন ছাত্র যোগ করা হয়নি।</td>
+                        <td class="text-danger fw-bold" colspan="9">এই পর্যন্ত কোন বৃত্তিপ্রাপ্ত শ্রেণী যুক্ত করা হয়নি।</td>
                     </tr>
-                @endforelse --}}
+                @endforelse
             </tbody>
         </table>
     </div>
