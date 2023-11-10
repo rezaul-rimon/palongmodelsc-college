@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <input type="submit" value="যুক্ত করুন" class="btn btn-success form-control">
+                                    <input type="submit" value="আপডেট করুন" class="btn btn-success form-control">
                                 </div>
                             </div>
                         </div>

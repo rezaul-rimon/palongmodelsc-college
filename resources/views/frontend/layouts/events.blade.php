@@ -7,27 +7,69 @@
 						হালনাগাদ রাখা হয়</p>
 				</div>
 			</div>
+			<style>
+				.blog-entry {
+					position: relative;
+					height: 100%;
+					text-align: center;
+				}
+				.text {
+					height: 250px; /* Set your desired height */
+					overflow: hidden;
+					display: flex;
+					flex-direction: column;
+				}
+				.btn-read-more {
+					position: absolute;
+					bottom: 10px;
+					left: 0;
+					width: 100%;
+					text-align: center;
+					padding: 5px;
+				}
+			
+			</style>
+			
 			<div class="row">
+				@php
+					use Illuminate\Support\Str;
+				@endphp
+				@forelse ($events as $item)
 				<div class="col-md-6 col-lg-4 ftco-animate">
 					<div class="blog-entry">
-						<a href="blog-single.html" class="block-20 d-flex align-items-end"
-							style="background-image: url({{ asset('frontend') }}/images/image_2.jpg);">
+						@if($item->event_photo != null)
+							<a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url('{{ asset('Resources/Event/Photos/' . $item->event_photo) }}'); background-size: cover; background-position: center;">
+						@else
+							<a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url('{{ asset('Resources/Event/Photos/event.jpg') }}'); background-size: cover; background-position: center;">
+						@endif
 							<div class="meta-date text-center p-2">
-								<span class="day">27</span>
-								<span class="mos">January</span>
-								<span class="yr">2019</span>
-							</div>
+								@php
+									$carbonDate = \Carbon\Carbon::parse($item->event_date);
+								@endphp
+								<span class="day">{{ $carbonDate->format('d') }}</span>
+								<span style="font-size: 18px;" class="mos">{{ $carbonDate->format('M') }}</span>
+								<span style="font-size: 18px;" class="yr">{{ $carbonDate->format('Y') }}</span>
+							</div>							
 						</a>
 						<div class="text bg-white p-4">
-							<h3 class="heading"><a href="#">সবার জন্য কম্পিউটার প্রশিক্ষণ প্রোগ্রাম</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-								there live the blind texts.</p>
-							<div class="d-flex align-items-center mt-4">
-								<p class="mb-0"><a href="#" class="btn btn-secondary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+							<h4 class="heading"><a href="#">{{ Str::limit($item->event_name, 45, '...') }}</a></h4>
+							<p>{{ Str::limit($item->event_description, 210, '...') }}</p>
+							<div class="btn-read-more">
+								<a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a>
 							</div>
 						</div>
 					</div>
 				</div>
+				@empty
+				<div class="mt-3">
+					<h2 class="text-secondary font-bold text-4xl mb-2" style="text-align: center;">আমাদের প্ল্যানে আপাতত কোন আপকামিং ইভেন্ট নেই, কোন ইভেন্টের প্ল্যান হওইয়া মাত্রই জানিয়ে দেয়া হবে। </h2>
+				</div>				
+				@endforelse
+			
+				<!-- Repeat the above structure for other items -->
+			
 			</div>
+			
+			
 		</div>
 	</section>
