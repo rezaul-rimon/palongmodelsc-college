@@ -24,8 +24,8 @@ class AppHelper
         return str_replace(self::$en_number, self::$bn_number, $number);
     }
 
-    public static $bn_class = [ "৬ষ্ঠ", "৭ম", "৮ম", "৯ম", "১০ম" ];
-    public static $en_class = [ "6", "7", "8", "9", "10" ];
+    public static $bn_class = [ "৬ষ্ঠ", "৭ম", "৮ম", "৯ম", "১০ম", "৯ম (ভোক)", "১০ম (ভোক)" ];
+    public static $en_class = [ "6", "7", "8", "9", "10", "901", "101"];
 
     public static function en2bn_class($class)
     {

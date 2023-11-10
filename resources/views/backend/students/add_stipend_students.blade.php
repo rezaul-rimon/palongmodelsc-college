@@ -23,8 +23,6 @@
                                         @endfor
                                         <option value="901">9(Voc)</option>
                                         <option value="101">10(Voc)</option>
-                                        <option value="111">11(Voc)</option>
-                                        <option value="121">12(Voc)</option>
                                     </select>
                                     @error('class_name')
                                     <span class="invalid-feedback">{{ $message }}</span>
