@@ -13,7 +13,7 @@
 					height: 100%;
 					text-align: center;
 				}
-				.text {
+				.text-2 {
 					height: 250px; /* Set your desired height */
 					overflow: hidden;
 					display: flex;
@@ -52,7 +52,7 @@
 								<span style="font-size: 17px;" class="yr">{{ AppHelper::en2bn($carbonDate->format('Y')) }}</span>
 							</div>							
 						</a>
-						<div class="text bg-white p-4">
+						<div class="text-2 text bg-white p-4">
 							<h4 class="heading"><a href="#">{{ Str::limit($item->event_name, 45, '...') }}</a></h4>
 							<p>{{ Str::limit($item->event_description, 210, '...') }}</p>
 							<div class="btn-read-more">

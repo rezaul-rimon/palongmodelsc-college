@@ -18,6 +18,7 @@ class FrontEndController extends Controller
         $students = Students::where('status', 1)->get();
         $stipend_students = StipendStudents::where('status', 1)->get();
         $notices = Notice::where('status', 1)->orderBy('id', 'desc')->get();
+        
         $events = Event::where('status', 1)
             ->whereDate('event_date', '>=', now()) // Filter events with dates greater than or equal to today
             ->orderBy('event_date') // Order events by event date in ascending order
