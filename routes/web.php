@@ -22,7 +22,6 @@ Route::controller(FrontEndController::class)->group(function(){
 });
 
 
-
 Route::get('/admin',[BackEndController::class, 'index'])->middleware('auth')->name('backend.index');
 
 //Login and Registration 

@@ -32,6 +32,7 @@
 			
 			<div class="row">
 				@php
+					use App\Helpers\AppHelper;
 					use Illuminate\Support\Str;
 				@endphp
 				@forelse ($events as $item)
@@ -46,16 +47,16 @@
 								@php
 									$carbonDate = \Carbon\Carbon::parse($item->event_date);
 								@endphp
-								<span class="day">{{ $carbonDate->format('d') }}</span>
-								<span style="font-size: 18px;" class="mos">{{ $carbonDate->format('M') }}</span>
-								<span style="font-size: 18px;" class="yr">{{ $carbonDate->format('Y') }}</span>
+								<span class="day">{{ AppHelper::en2bn($carbonDate->format('d')) }}</span>
+								<span style="font-size: 17px;" class="mos">{{ AppHelper::en2bnMonth($carbonDate->format('F')) }}</span>
+								<span style="font-size: 17px;" class="yr">{{ AppHelper::en2bn($carbonDate->format('Y')) }}</span>
 							</div>							
 						</a>
 						<div class="text bg-white p-4">
 							<h4 class="heading"><a href="#">{{ Str::limit($item->event_name, 45, '...') }}</a></h4>
 							<p>{{ Str::limit($item->event_description, 210, '...') }}</p>
 							<div class="btn-read-more">
-								<a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a>
+								<a href="#" class="btn btn-primary">আরো পড়ুন <span class="ion-ios-arrow-round-forward"></span></a>
 							</div>
 						</div>
 					</div>
