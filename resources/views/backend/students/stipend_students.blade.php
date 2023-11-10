@@ -77,33 +77,63 @@
                 </tr>
             </thead>
 
+            @php
+                $total_gov_male = 0;
+                $total_gov_female = 0;
+                $total_sub_male = 0;
+                $total_sub_female = 0;
+                $total_buddhist = 0;
+                $final_gov_total = 0;
+                $final_sub_total = 0;
+                use App\Helpers\AppHelper;
+            @endphp
+
             <tbody>
                 @forelse($students as $item)
                     @php
                         $total_gov = $item->gov_stipend_male + $item->gov_stipend_female;
                         $total_sub = $item->sub_stipend_male + $item->sub_stipend_female;
+
+                        $total_gov_male +=  $item->gov_stipend_male;
+						$total_gov_female += $item->gov_stipend_female;
+						$total_sub_male += $item->sub_stipend_male;
+						$total_sub_female += $item->sub_stipend_female;
+						$final_gov_total += $total_gov;
+						$final_sub_total += $total_sub;
                     @endphp
                     <tr>
-                        <td class="align-middle">{{ $loop->iteration }}</td>
-                        <td class="align-middle" style="font-weight: bold;">{{ $item->class_name }}</td>
-                        <td class="align-middle">{{ $item->sub_stipend_male }}</td>
-                        <td class="align-middle">{{ $item->sub_stipend_female }}</td>
-                        <td class="align-middle" style="font-weight: bold;">{{ $total_sub }}</td>
-                        <td class="align-middle">{{ $item->gov_stipend_male }}</td>
-                        <td class="align-middle">{{ $item->gov_stipend_female }}</td>
-                        <td class="align-middle" style="font-weight: bold;">{{ $total_gov }}</td>
-                        {{-- <td class="align-middle">{{ $item->user->name }}</td> --}}
+                        <td class="align-middle">{{ AppHelper::en2bn($loop->iteration) }}</td>
+                        <td class="align-middle">{{ AppHelper::en2bn_class($item->class_name) }}</td>
+                        <td class="align-middle">{{ AppHelper::en2bn($item->sub_stipend_male) }}</td>
+                        <td class="align-middle">{{ AppHelper::en2bn($item->sub_stipend_female) }}</td>
+                        <td class="align-middle" style="font-weight: bold;">{{ AppHelper::en2bn($total_sub) }}</td>
+                        <td class="align-middle">{{ AppHelper::en2bn($item->gov_stipend_male) }}</td>
+                        <td class="align-middle">{{ AppHelper::en2bn($item->gov_stipend_female) }}</td>
+                        <td class="align-middle" style="font-weight: bold;">{{ AppHelper::en2bn($total_gov) }}</td>
                         <td class="align-middle">
                             <a href="{{ route('backend.edit_stipend_students', $item->id) }}" class="btn my-1 btn-sm btn-warning">আপডেট</a>
                             <a href="{{ route('backend.delete_stipend_students', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="return confirm('আপনি কি নিশ্চিত যে আপনি এই শ্রেণীটি ডিলিট করতে চান?')">ডিলিট</a>
                         </td>
-                    </tr>
+                    </tr>                    
                 @empty
                     <tr>
                         <td class="text-danger fw-bold" colspan="9">এই পর্যন্ত কোন বৃত্তিপ্রাপ্ত শ্রেণী যুক্ত করা হয়নি।</td>
                     </tr>
                 @endforelse
             </tbody>
+
+            <tfoot>
+                <tr>
+                    <th colspan="2">মোট</th>
+                    <th>{{ AppHelper::en2bn($total_sub_male) }}</th>
+                    <th>{{ AppHelper::en2bn($total_sub_female) }}</th>
+                    <th>{{ AppHelper::en2bn($final_sub_total) }}</th>
+                    <th>{{ AppHelper::en2bn($total_gov_male) }}</th>
+                    <th>{{ AppHelper::en2bn($total_gov_female) }}</th>
+                    <th>{{ AppHelper::en2bn($final_gov_total) }}</th>
+                    <th></th>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </main>

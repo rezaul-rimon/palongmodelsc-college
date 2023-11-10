@@ -13,107 +13,72 @@
 					<table class="table table-bordered table-striped text-center" style="font-size: 20px;">
 						<thead>
 							<tr>
-								<th>ক্রম</th>
-								<th>শ্রেণী</th>
-								<th colspan="3">উপবৃত্তি</th>
-								<th colspan="3">সরকারী বৃত্তী</th>
+								<th class="align-middle" rowspan="2" style="width: 7%;">ক্রম</th>
+								<th class="align-middle" rowspan="2" style="width: 13%;">শ্রেণী</th>
+								<th class="align-middle" colspan="3" style="width: 40%;">উপবৃত্তি</th>
+								<th class="align-middle" colspan="3" style="width: 40%;">সরকারী বৃত্তি</th>
 							</tr>
 							<tr>
-								<th></th>
-								<th></th>
-								<th>ছাত্র</th>
-								<th>ছাত্রী</th>
-								<th>মোট</th>
-								<th>ছাত্র</th>
-								<th>ছাত্রী</th>
-								<th>মোট</th>
+								<th class="align-middle" style="width: 13%;">ছাত্র</th>
+								<th class="align-middle" style="width: 13%;">ছাত্রী</th>
+								<th class="align-middle" style="width: 14%;">মোট</th>
+								<th class="align-middle" style="width: 13%;">ছাত্র</th>
+								<th class="align-middle" style="width: 13%;">ছাত্রী</th>
+								<th class="align-middle" style="width: 14%;">মোট</th>
 							</tr>
 						</thead>
 
-						<tbody>
-							<tr>
-								<td>১</td>
-								<th>৬ষ্ঠ</th>
-								<td>৯৬</td>
-								<td>৭৪</td>
-								<th>১১০</th>
-								<td>০৭</td>
-								<td>০৬</td>
-								<th>১৩</th>
-							</tr>
-							<tr>
-								<td>২</td>
-								<th>৭ম</th>
-								<td>৯৩</td>
-								<td>১৩৯</td>
-								<th>২২৩</th>
-								<td>-</td>
-								<td>-</td>
-								<th>-</th>
-							</tr>
-							<tr>
-								<td>৩</td>
-								<th>৮ম</th>
-								<td>৫৯</td>
-								<td>১১৬</td>
-								<th>১৭৫</th>
-								<td>-</td>
-								<td>-</td>
-								<th>-</th>
-							</tr>
-							<tr>
-								<td>৪</td>
-								<th>৯ম</th>
-								<td>২৭</td>
-								<td>১০৪</td>
-								<th>১৩১</th>
-								<td>-</td>
-								<td>-</td>
-								<th>-</th>
-							</tr>
-							<tr>
-								<td>৫</td> 
-								<th>১০ম</th>
-								<td>২১</td>
-								<td>৯২</td>
-								<th>১১৩</th>
-								<td>-</td>
-								<td>-</td>
-								<th>-</th>
-							</tr>
+						@php
+							$total_gov_male = 0;
+							$total_gov_female = 0;
+							$total_sub_male = 0;
+							$total_sub_female = 0;
+							$total_buddhist = 0;
+							$final_gov_total = 0;
+							$final_sub_total = 0;
+							use App\Helpers\AppHelper;
+						@endphp
 
+						<tbody>
+							@forelse ($stipend_students as $item)
+							@php
+								$total_gov = $item->gov_stipend_male + $item->gov_stipend_female;
+								$total_sub = $item->sub_stipend_male + $item->sub_stipend_female;
+
+								$total_gov_male +=  $item->gov_stipend_male;
+								$total_gov_female += $item->gov_stipend_female;
+								$total_sub_male += $item->sub_stipend_male;
+								$total_sub_female += $item->sub_stipend_female;
+								$final_gov_total += $total_gov;
+								$final_sub_total += $total_sub;
+							@endphp
+								<tr>
+									<td class="align-middle">{{ AppHelper::en2bn($loop->iteration) }}</td>
+									<td class="align-middle">{{ AppHelper::en2bn_class($item->class_name) }}</td>
+									<td class="align-middle">{{ AppHelper::en2bn($item->sub_stipend_male) }}</td>
+									<td class="align-middle">{{ AppHelper::en2bn($item->sub_stipend_female) }}</td>
+									<td class="align-middle" style="font-weight: bold;">{{ AppHelper::en2bn($total_sub) }}</td>
+									<td class="align-middle">{{ AppHelper::en2bn($item->gov_stipend_male) }}</td>
+									<td class="align-middle">{{ AppHelper::en2bn($item->gov_stipend_female) }}</td>
+									<td class="align-middle" style="font-weight: bold;">{{ AppHelper::en2bn($total_gov) }}</td>
+								</tr>
+							@empty
 							<tr>
-								<td>৬</td>
-								<th>৯ম (ভোক)</th>
-								<td>-</td>
-								<td>-</td>
-								<th>-</th>
-								<td>-</td>
-								<td>-</td>
-								<th>-</th>
+								<td class="text-danger fw-bold" colspan="8">এই পর্যন্ত কোন বৃত্তিপ্রাপ্ত শ্রেণী যুক্ত করা হয়নি।</td>
 							</tr>
-							<tr>
-								<td>৭</td> 
-								<th>১০ম (ভোক)</th>
-								<td>-</td>
-								<td>-</td>
-								<th>-</th>
-								<td>-</td>
-								<td>-</td>
-								<th>-</th>
-							</tr>
+							@endforelse
 						</tbody>
 
 						<tfoot>
-							<tr> 
+							<tr>
 								<th colspan="2">মোট</th>
-								<th>২৯৬</th>
-								<th>৫২৫</th>
-								<th>৮২১</th>
-								<th>০৭</th>
-								<th>০৬</th>
-								<th>১৩</th>
-							</tr>
+								<th>{{ AppHelper::en2bn($total_sub_male) }}</th>
+								<th>{{ AppHelper::en2bn($total_sub_female) }}</th>
+								<th>{{ AppHelper::en2bn($final_sub_total) }}</th>
+								<th>{{ AppHelper::en2bn($total_gov_male) }}</th>
+								<th>{{ AppHelper::en2bn($total_gov_female) }}</th>
+								<th>{{ AppHelper::en2bn($final_gov_total) }}</th>
+							</tr>							
 						</tfoot>
 					</table>
 				</div>
