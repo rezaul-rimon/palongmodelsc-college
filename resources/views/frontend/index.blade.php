@@ -8,6 +8,8 @@
 	
 	@include('frontend.layouts.featured_highlights')
 
+	@include('frontend.layouts.speech')
+
 	@include('frontend.layouts.special_highlight')
 
 	@include('frontend.layouts.managing_board')

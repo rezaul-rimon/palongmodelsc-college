@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\Notice;
 use App\Models\StipendStudents;
 use App\Models\Students;
+use App\Models\Teacher;
 use Illuminate\Database\Eloquent\HigherOrderBuilderProxy;
 use Illuminate\Http\Request;
 
@@ -164,6 +165,8 @@ class FrontEndController extends Controller
         }
         //dd($class_10_comp);
         //dd($class_6, $class_7, $class_8);
+
+        $teachers = Teacher::where('status', 1)->get();
         
         //dd($committee);
         return view('frontend.index', compact(
@@ -185,6 +188,7 @@ class FrontEndController extends Controller
             'class_10_ar',
             'class_10_comp',
             'class_10_cv',
+            'teachers',
         ));
     }
 }

@@ -212,19 +212,19 @@
 
 						<tbody>
 							<tr>
-								<td>{{ AppHelper::en2bn('৬ষ্ঠ') }}</td>
+								<td>৬ষ্ঠ</td>
 								<td>{{ AppHelper::en2bn($class_6['male']) }}</td>
 								<td>{{ AppHelper::en2bn($class_6['female']) }}</td>
 								<th>{{ AppHelper::en2bn($class_6['male'] + $class_6['female']) }}</th>
 							</tr>
 							<tr>
-								<td>{{ AppHelper::en2bn('৭ম') }}</td>
+								<td>৭ম</td>
 								<td>{{ AppHelper::en2bn($class_7['male']) }}</td>
 								<td>{{ AppHelper::en2bn($class_7['female']) }}</td>
 								<th>{{ AppHelper::en2bn($class_7['male'] + $class_7['female']) }}</th>
 							</tr>
 							<tr>
-								<td>{{ AppHelper::en2bn('৮ম') }}</td>
+								<td>৮ম</td>
 								<td>{{ AppHelper::en2bn($class_8['male']) }}</td>
 								<td>{{ AppHelper::en2bn($class_8['female']) }}</td>
 								<th>{{ AppHelper::en2bn($class_8['male'] + $class_8['female']) }}</th>
@@ -232,7 +232,7 @@
 						</tbody>
 						
 						<tfoot>
-							<th>{{ AppHelper::en2bn('মোট') }}</th>
+							<th>মোট</th>
 							<th>{{ AppHelper::en2bn($class_6['male'] + $class_7['male'] + $class_8['male']) }}</th>
 							<th>{{ AppHelper::en2bn($class_6['female'] + $class_7['female'] + $class_8['female']) }}</th>
 							<th>{{ AppHelper::en2bn($class_6['male'] + $class_7['male'] + $class_8['male'] + $class_6['female'] + $class_7['female'] + $class_8['female']) }}</th>
