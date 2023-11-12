@@ -168,6 +168,8 @@ class FrontEndController extends Controller
         //dd($class_6, $class_7, $class_8);
 
         $teachers = Teacher::where('status', 1)->get();
+        //dd($teachers);
+        
         $galleryItems = Gallery::where('status', 1)->get();
         
         $galleryItems->transform(function ($item) {
