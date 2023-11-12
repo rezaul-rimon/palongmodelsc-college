@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Committee;
 use App\Models\Event;
+use App\Models\Gallery;
 use App\Models\Notice;
 use App\Models\StipendStudents;
 use App\Models\Students;
@@ -167,6 +168,14 @@ class FrontEndController extends Controller
         //dd($class_6, $class_7, $class_8);
 
         $teachers = Teacher::where('status', 1)->get();
+        $galleryItems = Gallery::where('status', 1)->get();
+        
+        $galleryItems->transform(function ($item) {
+            $item->image_paths = json_decode($item->image_paths, true);
+            return $item;
+        });
+
+        //dd($galleryItems);
         
         //dd($committee);
         return view('frontend.index', compact(
@@ -189,6 +198,7 @@ class FrontEndController extends Controller
             'class_10_comp',
             'class_10_cv',
             'teachers',
+            'galleryItems',
         ));
     }
 }
