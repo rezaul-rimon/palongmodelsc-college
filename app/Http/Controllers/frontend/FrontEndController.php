@@ -208,4 +208,176 @@ class FrontEndController extends Controller
         $teachers = Teacher::where('status', 1)->get();
         return view('frontend.teachers_page', compact('teachers'));
     }
+
+    public function notice_events_page(){
+        $notices = Notice::where('status', 1)->orderBy('id', 'desc')->get();
+        $events = Event::where('status', 1)
+            ->whereDate('event_date', '>=', now()) // Filter events with dates greater than or equal to today
+            ->orderBy('event_date') // Order events by event date in ascending order
+            ->get();
+
+            return view('frontend.notice_and_events', compact('notices', 'events'));
+    }
+
+    public function students_page(){
+        $students = Students::where('status', 1)->get();
+        $stipend_students = StipendStudents::where('status', 1)->get();
+        $class_6 = [
+            'male' => 0,
+            'female' => 0,
+        ];
+        $class_7 = [
+            'male' => 0,
+            'female' => 0,
+        ];
+        $class_8 = [
+            'male' => 0,
+            'female' => 0,
+        ];
+
+        $class_9_sc = [
+            'male' => 0,
+            'female' => 0,
+        ];
+
+        $class_10_sc = [
+            'male' => 0,
+            'female' => 0,
+        ];
+
+        $class_9_com = [
+            'male' => 0,
+            'female' => 0,
+        ];
+
+        $class_10_com = [
+            'male' => 0,
+            'female' => 0,
+        ];
+
+        $class_9_ar = [
+            'male' => 0,
+            'female' => 0,
+        ];
+
+        $class_10_ar = [
+            'male' => 0,
+            'female' => 0,
+        ];
+
+        $class_9_comp = [
+            'male' => 0,
+            'female' => 0,
+        ];
+
+        $class_10_comp = [
+            'male' => 0,
+            'female' => 0,
+        ];
+        
+        $class_9_cv = [
+            'male' => 0,
+            'female' => 0,
+        ];
+
+        $class_10_cv = [
+            'male' => 0,
+            'female' => 0,
+        ];
+
+        foreach ($students as $items) {
+            if ($items->class_name == 6) {
+                $class_6['male'] += $items->male_students;
+                $class_6['female'] += $items->female_students;
+            }
+        
+            if ($items->class_name == 7) {
+                $class_7['male'] += $items->male_students;
+                $class_7['female'] += $items->female_students;
+            }
+        
+            if ($items->class_name == 8) {
+                $class_8['male'] += $items->male_students;
+                $class_8['female'] += $items->female_students;
+            }
+
+            if($items->class_name == 9){
+                if($items->class_section == 'A'){
+                    $class_9_sc['male'] += $items->male_students;
+                    $class_9_sc['female'] += $items->female_students;
+                }
+
+                else if($items->class_section == 'B' or $items->class_section == 'C'){
+                    $class_9_com['male'] += $items->male_students;
+                    $class_9_com['female'] += $items->female_students;
+                }
+
+                else if($items->class_section == 'D'){
+                    $class_9_ar['male'] += $items->male_students;
+                    $class_9_ar['female'] += $items->female_students;
+                }
+                
+                else if($items->class_section == 'Computer'){
+                    $class_9_comp['male'] += $items->male_students;
+                    $class_9_comp['female'] += $items->female_students;
+                }
+
+                else if($items->class_section == 'Civil'){
+                    $class_9_cv['male'] += $items->male_students;
+                    $class_9_cv['female'] += $items->female_students;
+                }
+            }
+
+            if($items->class_name == 10){
+                if($items->class_section == 'A'){
+                    $class_10_sc['male'] += $items->male_students;
+                    $class_10_sc['female'] += $items->female_students;
+                }
+
+                else if($items->class_section == 'B' or $items->class_section == 'C'){
+                    $class_10_com['male'] += $items->male_students;
+                    $class_10_com['female'] += $items->female_students;
+                }
+
+                else if($items->class_section == 'D'){
+                    $class_10_ar['male'] += $items->male_students;
+                    $class_10_ar['female'] += $items->female_students;
+                }
+                
+                else if($items->class_section == 'Computer'){
+                    $class_10_comp['male'] += $items->male_students;
+                    $class_10_comp['female'] += $items->female_students;
+                }
+
+                else if($items->class_section == 'Civil'){
+                    $class_10_cv['male'] += $items->male_students;
+                    $class_10_cv['female'] += $items->female_students;
+                }
+            }
+        }
+
+        return view('frontend.students_page', compact(
+            'students',
+            'stipend_students',
+            'class_6',
+            'class_7',
+            'class_8',
+            'class_9_sc',
+            'class_9_com',
+            'class_9_ar',
+            'class_9_comp',
+            'class_9_cv',
+            'class_10_sc',
+            'class_10_com',
+            'class_10_ar',
+            'class_10_comp',
+            'class_10_cv',
+        ));
+    }
+
+    public function about_us(){
+        $committee = Committee::where('status', 1)->get();
+
+        return view('frontend.about_us', compact('committee'));
+    }
 }

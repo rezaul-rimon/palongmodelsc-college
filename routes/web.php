@@ -20,6 +20,9 @@ use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeCo
 Route::controller(FrontEndController::class)->group(function(){
     Route::get('/', 'index')->name('frontend.index');
     Route::get('teachers-page', 'teachers_page')->name('frontend.teachers');
+    Route::get('notice-events-page', 'notice_events_page')->name('frontend.notice_events');
+    Route::get('students-page', 'students_page')->name('frontend.students_page');
+    Route::get('about-us', 'about_us')->name('frontend.about_us');
 });
 
 Route::get('/admin',[BackEndController::class, 'index'])->middleware('auth')->name('backend.index');

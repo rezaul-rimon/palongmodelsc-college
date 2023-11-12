@@ -147,16 +147,16 @@
 						<a class="nav-link nv-start" href="{{ route('frontend.index') }}">প্রথম পাতা <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">আমাদের সম্পর্কে</a>
+						<a class="nav-link" href="{{ route('frontend.about_us') }}">আমাদের সম্পর্কে</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{ route('frontend.teachers') }}">শিক্ষক মন্ডলী</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">নোটিশ ও ইভেন্ট</a>
+						<a class="nav-link" href="{{ route('frontend.notice_events') }}">নোটিশ ও ইভেন্ট</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">ছাত্র ছাত্রী</a>
+						<a class="nav-link" href="{{ route('frontend.students_page') }}">ছাত্র ছাত্রী</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">ফটো গ্যালারী</a>
