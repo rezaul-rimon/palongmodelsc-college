@@ -144,22 +144,19 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link nv-start" href="index.html">হোম <span class="sr-only">(current)</span></a>
+						<a class="nav-link nv-start" href="{{ route('frontend.index') }}">প্রথম পাতা <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">আমাদের সম্পর্কে</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">শিক্ষক মন্ডলী</a>
+						<a class="nav-link" href="{{ route('frontend.teachers') }}">শিক্ষক মন্ডলী</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">নোটিশ বোর্ড</a>
+						<a class="nav-link" href="#">নোটিশ ও ইভেন্ট</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">শ্রেণী বিণ্যাস</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">আপকামিং ইভেন্ট</a>
+						<a class="nav-link" href="#">ছাত্র ছাত্রী</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">ফটো গ্যালারী</a>

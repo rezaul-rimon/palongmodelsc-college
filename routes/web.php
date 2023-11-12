@@ -18,9 +18,9 @@ use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeCo
 
 //Route::get('/',[FrontEndController::class, 'index'])->name('frontend.index');
 Route::controller(FrontEndController::class)->group(function(){
-    Route::get('/', 'index');
+    Route::get('/', 'index')->name('frontend.index');
+    Route::get('teachers-page', 'teachers_page')->name('frontend.teachers');
 });
-
 
 Route::get('/admin',[BackEndController::class, 'index'])->middleware('auth')->name('backend.index');
 

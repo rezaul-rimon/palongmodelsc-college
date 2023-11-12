@@ -203,4 +203,9 @@ class FrontEndController extends Controller
             'galleryItems',
         ));
     }
+
+    public function teachers_page(){
+        $teachers = Teacher::where('status', 1)->get();
+        return view('frontend.teachers_page', compact('teachers'));
+    }
 }
