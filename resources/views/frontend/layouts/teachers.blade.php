@@ -62,16 +62,16 @@
     }
 
 	.details-button {
-        background-color: #17a2b8; /* Set the default background color */
+        background-color: #fda638; /* Set the default background color */
         color: #fff; /* Set the default text color */
-        border: 1px solid #17a2b8; /* Set the default border color */
+        border: 1px solid #fda638; /* Set the default border color */
         transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
     }
 
     .details-button:hover {
         background-color: #fff; /* Set the background color on hover */
-        color: #17a2b8; /* Set the text color on hover */
-        border: 1px solid #17a2b8; /* Set the border color on hover */
+        color: #fda638; /* Set the text color on hover */
+        border: 1px solid #fda638; /* Set the border color on hover */
     }
 </style>
 
@@ -107,6 +107,9 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+		<div class="text-center mt-3">
+            <a href="#" class="btn btn-primary">সকল শিক্ষক দেখুন</a>
         </div>
     </div>
 </section>

@@ -10,7 +10,7 @@
 
 	@include('frontend.layouts.speech')
 
-	@include('frontend.layouts.special_highlight')
+	{{-- @include('frontend.layouts.special_highlight') --}}
 
 	@include('frontend.layouts.managing_board')
 
@@ -22,9 +22,9 @@
 
 	@include('frontend.layouts.stipend_students')
 
-	@include('frontend.layouts.achivements')
+	{{-- @include('frontend.layouts.achivements') --}}
 
-	@include('frontend.layouts.testimonials')
+	{{-- @include('frontend.layouts.testimonials') --}}
 
 	@include('frontend.layouts.contact_form')
 
