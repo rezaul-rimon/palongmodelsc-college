@@ -10,29 +10,8 @@ use App\Models\{Notice, Teacher, Committee, Event, Gallery, Students};
 
 class BackEndController extends Controller
 {
-    // public function index(){
-    //     if(Auth::check())
-    //     {
-    //         $userInfo = Auth::user();
-    //         if($userInfo->role === 0){
-    //             dd("Please Update your role");
-    //         }
-    //         elseif($userInfo->role === 1)
-    //             return view('backend.index');
-    //         }
-            
-    //     return redirect()->route('login')
-    //         ->withErrors([
-    //         'email' => 'ড্যাশবোর্ডে আসার জন্য লগইন করা বাধ্যতামূলক',
-    //     ])->onlyInput('email');
-    // }
     public function index(){
-        $userInfo = Auth::user();
-        if($userInfo->role === 0){
-            dd("Please Update your role");
-        }
-        elseif($userInfo->role === 1)
-            return view('backend.index');
+        return view('backend.index');
     }
 }
 

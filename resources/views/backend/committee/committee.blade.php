@@ -36,9 +36,11 @@
                 <h1 class="text-danger">ম্যানেজিং কমিটি ম্যানেজমেন্ট</h1>
             </div>
 
+            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
             <div class="col-md-6 col-12 add-button">
                 <a style="margin-bottom: 20px;" class="btn btn-primary" href="{{ route('backend.add_committee') }}">নতুন সদস্য যুক্ত করুন</a>
             </div>
+            @endif
         </div>
 
         <div class="col-md-6 offset-md-3">
@@ -92,8 +94,12 @@
                         <td class="align-middle">{{ $item->committee_designation }}</td>
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">
+                            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
                             <a href="{{ route('backend.edit_committee', $item->id) }}" class="btn my-1 btn-sm btn-warning">সংশোধন</a>
                             <a href="{{ route('backend.delete_committee', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="confirm('আপনি কি নিশ্চিত যে আপনি এই কমিটি সদস্যকে ডিলিট করতে চান?')">ডিলিট</a>
+                            @else
+                            <span class="text-danger">শুধুমাত্র এডমিন একশন নিতে পারে</span>
+                            @endif
                         </td>
                     </tr>
                 @empty
@@ -107,51 +113,5 @@
 </main>
 @endsection
 
-<!-- Add Modal -->
-{{-- <div class="modal fade" id="memberAddModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-primary" id="staticBackdropLabel">নতুন কমিটি সদস্য যোগ করুন</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('backend.add_committee') }}" method="POST" id="notice" enctype="multipart/form-data">
-                    @csrf
-                
-                    <div class="form-group mb-4">
-                        <label for="committeeName" class="text-info">সদস্যের নাম</label>
-                        <input type="text" class="form-control @error('committeeName') is-invalid @enderror" id="committeeName" name="committeeName" value="{{ old('committeeName') }}" required>
-                        @error('committeeName')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                
-                    <div class="form-group mb-4">
-                        <label for="committeeDesignation" class="text-info">সদস্যের পদবী</label>
-                        <input type="text" class="form-control @error('committeeDesignation') is-invalid @enderror" id="committeeDesignation" name="committeeDesignation" value="{{ old('committeerDesignation') }}" required>
-                        @error('committeeDesignation')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                
-                    <div class="form-group">
-                        <label for="committeePhoto" class="text-info">সদস্যের ছবি</label>
-                        <input type="file" class="form-control @error('committeePhoto') is-invalid @enderror" id="committeePhoto" name="committeePhoto" value="{{ old('committeePhoto') }}">
-                        @error('committeePhoto')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">বাতিল করুন</button>
-                        <input type="submit" value="যুক্ত করুন" class="btn btn-success">
-                    </div>
-                </form>                
-            </div>
-        </div>
-    </div>
-</div> --}}
 
 

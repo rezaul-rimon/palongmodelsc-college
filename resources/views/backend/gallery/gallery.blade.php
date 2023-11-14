@@ -36,9 +36,11 @@
                 <h1 class="text-danger">গ্যালারী ম্যানেজমেন্ট</h1>
             </div>
 
+            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
             <div class="col-md-6 col-12 add-button">
                 <a style="margin-bottom: 20px;" class="btn btn-primary" href="{{ route('backend.add_gallery') }}">নতুন গ্যালারী ছবি যুক্ত করুন</a>
             </div>
+            @endif
         </div>
 
         <div class="col-md-6 offset-md-3">
@@ -94,8 +96,12 @@
                         </td>
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">
+                            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
                             {{-- <a href="#" class="btn my-1 btn-sm btn-warning">Edit</a> --}}
-                            <a href="#" class="btn my-1 btn-sm btn-danger" onclick="showConfirmationModal({{ $item->id }})"><i class="fas fa-trash"></i></a>
+                            <a href="#" class="btn my-1 btn-sm btn-danger" onclick="confirm('আপনি কি নিশ্চিত যে আপনি এই গ্যালারীটি ডিলিট করতে চান?')"><i class="fas fa-trash"></i></a>
+                            @else
+                            <span class="text-danger">শুধুমাত্র এডমিন একশন নিতে পারে</span>
+                            @endif
                         </td>
                     </tr>
                 @empty
@@ -105,14 +111,6 @@
                 @endforelse
             </tbody>            
             
-            <script>
-                function showConfirmationModal(itemId) {
-                    if (confirm('আপনি কি নিশ্চিত যে আপনি এই গ্যালারীটি ডিলিট করতে চান?')) {
-                        // If the user confirms, redirect to the delete route
-                        window.location.href = "{{ route('backend.delete_gallery', '') }}" + '/' + itemId;
-                    }
-                }
-            </script>
         </table>
     </div>
 </main>

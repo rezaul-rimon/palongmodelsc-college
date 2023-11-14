@@ -13,8 +13,7 @@ use Illuminate\Validation\Rule;
 class AuthController extends Controller
 {
     
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware('guest')->except([
             'logout', 'dashboard'
         ]);
@@ -26,8 +25,7 @@ class AuthController extends Controller
     }
 
     //Apply Registration Process
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:50',
             'email' => 'required|email|max:100|unique:users',
@@ -71,8 +69,7 @@ class AuthController extends Controller
     }
 
     //Attempt to log in Process
-    public function authenticate(Request $request)
-    {
+    public function authenticate(Request $request){
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
@@ -89,11 +86,11 @@ class AuthController extends Controller
     
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
-            return redirect()->route('backend.index')->withSuccess('You have successfully logged in!');
+            return redirect()->route('backend.index')->withSuccess('আপনার লগইন সফল হয়েছে।');
         }
     
         return back()->withErrors([
-            'email' => 'Your provided credentials do not match our records.',
+            'email' => 'আপনার প্রদাণকৃত তথ্য সঠিক নয়!',
         ])->withInput($request->except('password'));
     }
 
@@ -102,12 +99,13 @@ class AuthController extends Controller
     {
         if(Auth::check())
         {
-            return view('auth.dashboard');
+            // return view('auth.dashboard');
+            return view('backend.index');
         }
         
         return redirect()->route('login')
             ->withErrors([
-            'email' => 'Please login to access the dashboard.',
+            'email' => 'ড্যাশবোর্ডে আসার জন্য লগইন করতে হবে।',
         ])->onlyInput('email');
     }
 
@@ -118,6 +116,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('login')
-            ->withSuccess('You have logged out successfully!');;
+            ->withSuccess('আপনি সফল্ভাবে লগআউট করে ফেলেছেন');;
     } 
 }

@@ -8,54 +8,59 @@
                     ড্যাশবোর্ড
                 </a>
                 {{-- <div class="sb-sidenav-menu-heading" style="font-size: 20px;">ম্যানেজমেন্ট</div> --}}
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
-                    দপ্তর ব্যাবস্থাপনা
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('backend.notice') }}">নোটিশ</a>
-                        <a class="nav-link" href="{{ route('backend.event') }}">ইভেন্ট</a>
-                        <a class="nav-link" href="{{ route('backend.gallery') }}">গ্যালারী</a>
-                    </nav>
-                </div>
+                @if(auth()->user()->permission === 1)
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+                        দপ্তর ব্যাবস্থাপনা
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{ route('backend.notice') }}">নোটিশ</a>
+                            <a class="nav-link" href="{{ route('backend.event') }}">ইভেন্ট</a>
+                            <a class="nav-link" href="{{ route('backend.gallery') }}">গ্যালারী</a>
+                        </nav>
+                    </div>
 
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts_a" aria-expanded="false" aria-controls="collapseLayouts_a">
-                    <div class="sb-nav-link-icon"><i class="fas fa-user-tie"></i></div>
-                    প্রশাসনিক ব্যাবস্থাপনা
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="collapseLayouts_a" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('backend.teacher') }}">শিক্ষক</a>
-                        <a class="nav-link" href="{{ route('backend.committee') }}">কমিটি</a>
-                    </nav>
-                </div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts_a" aria-expanded="false" aria-controls="collapseLayouts_a">
+                        <div class="sb-nav-link-icon"><i class="fas fa-user-tie"></i></div>
+                        প্রশাসনিক ব্যাবস্থাপনা
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts_a" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{ route('backend.teacher') }}">শিক্ষক</a>
+                            <a class="nav-link" href="{{ route('backend.committee') }}">কমিটি</a>
+                        </nav>
+                    </div>
 
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts_b" aria-expanded="false" aria-controls="collapseLayouts_b">
-                    <div class="sb-nav-link-icon"><i class="fas fa-graduation-cap"></i></div>
-                    ছাত্র-ছাত্রী ব্যাবস্থাপনা
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="collapseLayouts_b" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('backend.students') }}">সকল ছাত্র-ছাত্রী</a>
-                        <a class="nav-link" href="{{ route('backend.stipend_students') }}">বৃত্তিপ্রাপ্ত ছাত্র-ছাত্রী</a>
-                    </nav>
-                </div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts_b" aria-expanded="false" aria-controls="collapseLayouts_b">
+                        <div class="sb-nav-link-icon"><i class="fas fa-graduation-cap"></i></div>
+                        ছাত্র-ছাত্রী ব্যাবস্থাপনা
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts_b" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{ route('backend.students') }}">সকল ছাত্র-ছাত্রী</a>
+                            <a class="nav-link" href="{{ route('backend.stipend_students') }}">বৃত্তিপ্রাপ্ত ছাত্র-ছাত্রী</a>
+                        </nav>
+                    </div>
 
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts_u" aria-expanded="false" aria-controls="collapseLayouts_u">
-                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                    ইউজার
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="collapseLayouts_u" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('backend.users') }}">সকল ইউজার</a>
-                        {{-- <a class="nav-link" href="{{ route('backend.stipend_students') }}">বৃত্তিপ্রাপ্ত ছাত্র-ছাত্রী</a> --}}
-                    </nav>
-                </div>
+                    @if(auth()->user()->role === 2)
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts_u" aria-expanded="false" aria-controls="collapseLayouts_u">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            ইউজার
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts_u" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{ route('backend.users') }}">সকল ইউজার</a>
+                                {{-- <a class="nav-link" href="{{ route('backend.stipend_students') }}">বৃত্তিপ্রাপ্ত ছাত্র-ছাত্রী</a> --}}
+                            </nav>
+                        </div>
+                    @endif
+
+                @endif
 
 
 

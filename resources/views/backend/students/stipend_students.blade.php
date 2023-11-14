@@ -36,9 +36,11 @@
                 <h1 class="text-danger">বৃত্তিপ্রাপ্ত ছাত্র-ছাত্রী ম্যানেজমেন্ট</h1>
             </div>
 
+            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
             <div class="col-md-6 col-12 add-button">
                 <a style="margin-bottom: 20px;" type="button" class="btn btn-primary" href="{{ route('backend.add_stipend_students') }}">নতুন শ্রেণী যুক্ত করুন</a>
             </div>
+            @endif
         </div>
 
         <div class="col-md-6 offset-md-3">
@@ -111,8 +113,12 @@
                         <td class="align-middle">{{ AppHelper::en2bn($item->gov_stipend_female) }}</td>
                         <td class="align-middle" style="font-weight: bold;">{{ AppHelper::en2bn($total_gov) }}</td>
                         <td class="align-middle">
+                            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
                             <a href="{{ route('backend.edit_stipend_students', $item->id) }}" class="btn my-1 btn-sm btn-warning">আপডেট</a>
                             <a href="{{ route('backend.delete_stipend_students', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="return confirm('আপনি কি নিশ্চিত যে আপনি এই শ্রেণীটি ডিলিট করতে চান?')">ডিলিট</a>
+                            @else
+                                <span class="text-danger">শুধুমাত্র এডমিন একশন নিতে পারে</span>
+                            @endif
                         </td>
                     </tr>                    
                 @empty

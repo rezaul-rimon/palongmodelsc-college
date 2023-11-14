@@ -36,9 +36,11 @@
                 <h1 class="text-danger">শিক্ষক ম্যানেজমেন্ট</h1>
             </div>
 
+            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
             <div class="col-md-6 col-12 add-button">
                 <a style="margin-bottom: 20px;" class="btn btn-primary" href="{{ route('backend.add_teacher') }}">নতুন শিক্ষক যুক্ত করুন</a>
             </div>
+            @endif
         </div>
 
         <div class="col-md-6 offset-md-3">
@@ -102,8 +104,12 @@
                         <td class="align-middle">{{ $item->taken_subject }}</td>
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">
+                            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
                             <a href="{{ route('backend.edit_teacher', $item->id) }}" class="btn my-1 btn-sm btn-warning">আপডেট</a>
                             <a href="{{ route('backend.delete_teacher', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="return confirm('আপনি কি নিশ্চিত যে আপনি এই শিক্ষককে ডিলিট করতে চান?')">ডিলিট</a>
+                            @else
+                                <span class="text-danger">শুধুমাত্র এডমিন একশন নিতে পারে</span>
+                            @endif
                         </td>
                     </tr>
                 @empty
