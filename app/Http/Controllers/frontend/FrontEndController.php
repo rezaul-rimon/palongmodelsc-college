@@ -391,4 +391,8 @@ class FrontEndController extends Controller
 
         return view('frontend.gallery_page', compact('galleryItems'));
     }
+
+    public function contact_us(){
+        return view('frontend.contact_us');
+    }
 }

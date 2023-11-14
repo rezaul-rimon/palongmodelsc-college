@@ -38,7 +38,7 @@
 					@foreach (array_slice($items->image_paths, 0, 1) as $image)
 						<div class="col-md-3 ftco-animate">
 							<div class="gallery-item">
-								<a href="#" class="gallery image-popup img d-flex align-items-center"
+								<a href="{{  }}" class="gallery image-popup img d-flex align-items-center"
 									style="background-image: url({{ asset('Resources/Gallery/Photos/' . $image) }});">
 									<div class="hover-content">
 										<span>{{ $items->gallery_title }}</span>

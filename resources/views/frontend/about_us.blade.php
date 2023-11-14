@@ -11,7 +11,7 @@
     @include('frontend.layouts.managing_board')
     @include('frontend.layouts.achivements')
     @include('frontend.layouts.testimonials')
-    
+    @include('frontend.layouts.map_and_contact_form')
     
     <div class="mt-5"></div>
 
