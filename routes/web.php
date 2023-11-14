@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\FrontEndController;
-use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeController, EventController, GalleryController, NoticeController, StipendStudentsController, StudentsController, TeacherController};
+use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeController, EventController, GalleryController, NoticeController, StipendStudentsController, StudentsController, TeacherController, UserController};
 
 /*
 |--------------------------------------------------------------------------
@@ -105,6 +105,14 @@ Route::controller(StipendStudentsController::class)->prefix('backend')->middlewa
     Route::get('/delete-stipend-students/{id}', 'delete_stipend_students')->name('backend.delete_stipend_students');
     Route::get('/edit-stipend-students/{id}', 'edit_stipend_students')->name('backend.edit_stipend_students');
     Route::post('/update-stipend-students/{id}', 'update_stipend_students')->name('backend.update_stipend_students');
+});
+
+//Teacher
+Route::controller(UserController::class)->prefix('backend')->middleware('auth')->group(function () {
+    Route::get('/users', 'users')->name('backend.users');
+    Route::get('/edit-user/{id}', 'edit_user')->name('backend.edit_user');
+    Route::post('/update-user/{id}', 'update_user')->name('backend.update_user');
+    Route::get('/delete-user/{id}', 'delete_user')->name('backend.delete_user');
 });
 
 

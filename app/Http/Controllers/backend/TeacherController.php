@@ -156,7 +156,7 @@ class TeacherController extends Controller
                 return redirect()->route('backend.teacher')
                     ->with('success', 'শিক্ষকের তথ্য সফলভাবে আপডেট করা হয়েছে');
             } else {
-                return redirect()->back()
+                return redirect()->route('backend.teacher')
                     ->with('error', 'শিক্ষকের তথ্য আপডেট করা যায়নি');
             }
         }
