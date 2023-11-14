@@ -380,4 +380,15 @@ class FrontEndController extends Controller
 
         return view('frontend.about_us', compact('committee'));
     }
+
+    public function gallery_page(){
+        $galleryItems = Gallery::where('status', 1)->get();
+        
+        $galleryItems->transform(function ($item) {
+            $item->image_paths = json_decode($item->image_paths, true);
+            return $item;
+        });
+
+        return view('frontend.gallery_page', compact('galleryItems'));
+    }
 }

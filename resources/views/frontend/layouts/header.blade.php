@@ -159,7 +159,7 @@
 						<a class="nav-link" href="{{ route('frontend.students_page') }}">ছাত্র ছাত্রী</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">ফটো গ্যালারী</a>
+						<a class="nav-link" href="{{ route('frontend.gallery_page') }}">ফটো গ্যালারী</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">যোগাযোগ</a>
