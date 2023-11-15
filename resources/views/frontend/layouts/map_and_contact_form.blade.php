@@ -9,23 +9,42 @@
     <div class="container">
         <div class="row d-flex align-items-stretch no-gutters">
             <div class="col-md-6 p-4 p-md-5 order-md-last border rounded">
-                <form action="#">
+                <form action="{{ route('contact_store') }}" method="POST">
+                    @csrf
+                    
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Your Name" name="name" value="{{ old('name') }}">
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                        @enderror
                     </div>
+                    
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Email">
+                        <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Your Email" name="email" value="{{ old('email') }}">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                        @enderror
                     </div>
+                    
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject">
+                        <input type="text" class="form-control @error('subject') is-invalid @enderror" placeholder="Subject" name="subject" value="{{ old('subject') }}">
+                        @error('subject')
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                        @enderror
                     </div>
+                    
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                        <textarea id="" cols="30" rows="7" class="form-control @error('message') is-invalid @enderror" placeholder="Message" name="message">{{ old('message') }}</textarea>
+                        @error('message')
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                        @enderror
                     </div>
+                    
                     <div class="form-group">
                         <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
                     </div>
-                </form>
+                </form>                
+                
             </div>
             {{-- <div class="col-md-6 d-flex align-items-stretch">
                 <div id="map"></div>

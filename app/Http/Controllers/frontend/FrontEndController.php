@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Committee;
+use App\Models\ContactUs;
 use App\Models\Event;
 use App\Models\Gallery;
 use App\Models\Notice;
@@ -12,6 +13,8 @@ use App\Models\Students;
 use App\Models\Teacher;
 use Illuminate\Database\Eloquent\HigherOrderBuilderProxy;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class FrontEndController extends Controller
 {
@@ -410,13 +413,56 @@ class FrontEndController extends Controller
         
     }
 
-    //////Admission
-    public function admission(){
-        $banner_text = "অনলাইনে ভর্তি";
-        return view('frontend.admission_form', compact('banner_text'));
+    public function contact_store(Request $request)
+    {
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|min:3|max:50',
+            'email' => 'required|email|max:50',
+            'subject' => 'required|string|min:5|max:250',
+            'message' => 'required|string|min:10|max:500',
+        ], [
+            'name.required' => 'অবশ্যই নাম দিতে হবে',
+            'name.min' => 'এতছোট নাম গ্রহণযোগ্য নয়',
+            'name.max' => 'এতছোট নাম গ্রহণযোগ্য নয়',
+    
+            'email.required' => 'অবশ্যই ইমেইল দিতে হবে',
+            'email.email' => 'ইমেইল সঠিক নয়',
+            'email.max' => 'ইমেইল অবশ্যই ৫০ অক্ষরের মধ্যে হতে হবে',
+    
+            'subject.required' => 'অবশ্যই বিষয় দিতে হবে',
+            'subject.string' => 'বিষয় অবশ্যই স্ট্রিং হতে হবে',
+            'subject.min' => 'বিষয় অবশ্যই ৫ অক্ষরের বেশী হতে হবে',
+            'subject.max' => 'বিষয় অবশ্যই ২৫০ অক্ষরের মধ্যে হতে হবে',
+    
+            'message.required' => 'অবশ্যই মেসেজ দিতে হবে',
+            'message.string' => 'মেসেজ অবশ্যই স্ট্রিং হতে হবে',
+            'message.min' => 'মেসেজ অবশ্যই ১০ অক্ষরের বেশী হতে হবে',
+            'message.max' => 'মেসেজ অবশ্যই ৫০০ অক্ষরের মধ্যে হতে হবে',
+        ]);
+    
+        // If validation fails, redirect back with errors and input
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+    
+        // Try to create a new ContactUs record
+        try {
+            ContactUs::create([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'subject' => $request->input('subject'),
+                'message' => $request->input('message'),
+            ]);
+    
+            // If successful, you can add a success message or redirect to a thank you page
+            return redirect()->route('frontend.contact_us')->with('success', 'আপনার মেসেজ টি সফল ভাবে প্রদান করা হয়েছে, দয়া করে অপেক্ষা করুন আমরা আপনার সাথে যথা সম্ভব দ্রুত যোগাযোগ করবো!');
+        } catch (\Exception $e) {
+            // If an exception occurs (data insertion fails), flash an error message and redirect back
+            return redirect()->route('frontend.contact_us')->with('error', 'দুঃখিত! আপনার মেসেজ টি প্রেরণ করা যায়নি')->withInput();
+        }
     }
-
-    public function admission_store(Request $request){
-        dd($request->all());
-    }
+    
 }

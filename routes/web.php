@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\FrontEndController;
 use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeController, EventController, GalleryController, NoticeController, StipendStudentsController, StudentsController, TeacherController, UserController};
+use App\Http\Controllers\frontend\AdmissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,11 @@ Route::controller(FrontEndController::class)->group(function(){
     Route::get('/about-us', 'about_us')->name('frontend.about_us');
     Route::get('/gallery-page', 'gallery_page')->name('frontend.gallery_page');
     Route::get('/contact-us', 'contact_us')->name('frontend.contact_us');
+    Route::post('/contact-store', 'contact_store')->name('contact_store');
+    
+});
 
+Route::controller(AdmissionController::class)->group(function(){
     Route::get('/admission', 'admission')->name('frontend.admission');
     Route::post('/admission-store', 'admission_store')->name('frontend.admission_store');
 });
