@@ -64,18 +64,72 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="district">জেলা</label>
-                            <input type="text" class="form-control" id="district" name="district" value="কক্সবাজার">
+                <div class="my-3" style="border: 1px dashed #ccc; padding:2%;">
+                    <div class="row">
+                        <div class="col-12">বর্তমান ঠিকানাঃ</div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="district">জেলা</label>
+                                <input type="text" class="form-control" id="district" name="district" value="কক্সবাজার">
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="upazila">উপজেলা</label>
+                                <input type="text" class="form-control" id="upazila" name="upazila" value="উখিয়া">
+                            </div>
                         </div>
                     </div>
+    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="village">গ্রাম</label>
+                                <input type="text" class="form-control" id="village" name="village">
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="post_office">ডাকঘর</label>
+                                <input type="text" class="form-control" id="post_office" name="post_office">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="upazila">উপজেলা</label>
-                            <input type="text" class="form-control" id="upazila" name="upazila" value="উখিয়া">
+                <div class="my-3" style="border: 1px dashed #ccc; padding:2%;">
+                    <div class="row">
+                        <div class="col-12">স্থায়ী ঠিকানাঃ</div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="district">জেলা</label>
+                                <input type="text" class="form-control" id="district" name="district" value="কক্সবাজার">
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="upazila">উপজেলা</label>
+                                <input type="text" class="form-control" id="upazila" name="upazila" value="উখিয়া">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="village">গ্রাম</label>
+                                <input type="text" class="form-control" id="village" name="village">
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="post_office">ডাকঘর</label>
+                                <input type="text" class="form-control" id="post_office" name="post_office">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -83,50 +137,49 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="union">ইউনিয়ন</label>
-                            <input type="text" class="form-control" id="union" name="union" value="রত্নাপালং">
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="ward">ওয়ার্ড</label>
-                            <input type="text" class="form-control" id="ward" name="ward">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="post_office">পোস্ট অফিস</label>
-                            <input type="text" class="form-control" id="post_office" name="post_office">
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="post_code">পোস্ট কোড</label>
-                            <input type="text" class="form-control" id="post_code" name="post_code">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="village">গ্রাম</label>
+                            <label for="village">সর্বশেষ পঠিত স্কুল/মাদ্রাসার নাম</label>
                             <input type="text" class="form-control" id="village" name="village">
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="house">বাড়ী/রাস্তা/হোল্ডীং</label>
-                            <input type="text" class="form-control" id="house" name="house">
+                            <label for="post_office">ঠিকানা</label>
+                            <input type="text" class="form-control" id="post_office" name="post_office">
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="village">পঞ্চম শ্রেণীর সমাপণী পরীক্ষারর রোল</label>
+                            <input type="text" class="form-control" id="village" name="village">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="village">পাশের সন</label>
+                            <input type="text" class="form-control" id="village" name="village">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="post_office">গ্রেড পয়েন্ট</label>
+                            <input type="text" class="form-control" id="post_office" name="post_office">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
 
                 <div class="row">
                     <div class="col-md-6">
