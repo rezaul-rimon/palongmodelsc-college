@@ -204,9 +204,13 @@ class FrontEndController extends Controller
         ));
     }
 
+
+    ////////
     public function teachers_page(){
         $teachers = Teacher::where('status', 1)->get();
-        return view('frontend.teachers_page', compact('teachers'));
+        $banner_text = "শিক্ষক মন্ডলী";
+
+        return view('frontend.teachers_page', compact('teachers', 'banner_text'));
     }
 
     public function notice_events_page(){
@@ -216,7 +220,9 @@ class FrontEndController extends Controller
             ->orderBy('event_date') // Order events by event date in ascending order
             ->get();
 
-            return view('frontend.notice_and_events', compact('notices', 'events'));
+            $banner_text = "নোটিশ এবং ইভেন্ট";
+
+            return view('frontend.notice_and_events', compact('notices', 'events', 'banner_text'));
     }
 
     public function students_page(){
@@ -356,6 +362,8 @@ class FrontEndController extends Controller
             }
         }
 
+        $banner_text = "ছাত্র ছাত্রীর তথ্য";
+
         return view('frontend.students_page', compact(
             'students',
             'stipend_students',
@@ -372,13 +380,15 @@ class FrontEndController extends Controller
             'class_10_ar',
             'class_10_comp',
             'class_10_cv',
+            'banner_text',
         ));
     }
 
     public function about_us(){
         $committee = Committee::where('status', 1)->get();
+        $banner_text = "আমাদের সম্পর্কে";
 
-        return view('frontend.about_us', compact('committee'));
+        return view('frontend.about_us', compact('committee', 'banner_text'));
     }
 
     public function gallery_page(){
@@ -389,10 +399,24 @@ class FrontEndController extends Controller
             return $item;
         });
 
-        return view('frontend.gallery_page', compact('galleryItems'));
+        $banner_text = "স্মৃতির পাতা";
+
+        return view('frontend.gallery_page', compact('galleryItems', 'banner_text'));
     }
 
     public function contact_us(){
-        return view('frontend.contact_us');
+        $banner_text = "আমাদের সাথে যোগাযোগ";
+        return view('frontend.contact_us', compact('banner_text'));
+        
+    }
+
+    //////Admission
+    public function admission(){
+        $banner_text = "অনলাইনে ভর্তি";
+        return view('frontend.admission_form', compact('banner_text'));
+    }
+
+    public function admission_store(Request $request){
+        dd($request->all());
     }
 }
