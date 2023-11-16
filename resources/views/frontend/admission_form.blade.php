@@ -16,6 +16,15 @@
             label{
                 /* color: #fd7e14;*/
                 color: #343a40;
+                margin-left: 10px;
+            }
+
+            input{
+                margin-top: -10px;
+            }
+
+            select{
+                margin-top: -10px;
             }
 
         </style>
@@ -92,9 +101,9 @@
     
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="birth_certificate_no">জন্ম নিবন্ধন নাম্বার</label>
-                                <input type="text" class="form-control" id="birth_certificate_no" name="birth_certificate_no">
-                            </div>
+                                <label for="birth_certificate_no" class="form-label">জন্ম নিবন্ধন নাম্বার</label>
+                                <input type="text" class="form-control form-control-sm" id="birth_certificate_no" name="birth_certificate_no" placeholder="জন্ম নিবন্ধন নাম্বার">
+                            </div>                            
                         </div>
     
                         <div class="col-md-4">
@@ -375,9 +384,10 @@
                 </script>
 
 
-                <div class="my-3" style="border: 1px dashed #ccc; padding:2%;">
+                {{-- Last School --}}
+                <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
                     <div class="row">
-                        <div class="col-12">সর্বশেষ পঠিত তথ্যঃ</div>
+                        <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">সর্বশেষ পঠিত তথ্যঃ</div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="village">সর্বশেষ পঠিত স্কুল/মাদ্রাসার নাম</label>
@@ -433,43 +443,199 @@
                     </div>
                 </div>
 
-                <div class="my-3" style="border: 1px dashed #ccc; padding:2%;">
+
+                {{-- Others Information --}}
+                <div class="my-3" style="border: 1px dashed #fd7e14; padding: 3%; border-radius: 10px;">
                     <div class="row">
-                        <div class="col-12">অন্যান্য তথ্যঃ</div>
+                        <div class="col-12 text-center mb-3" style="font-size: 20px; color: #6610f2;">অন্যান্য তথ্যঃ</div>
+                        
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="protibondhi">প্রতিবন্ধী কিনা?</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input ml-2" type="radio" name="protibondhi" id="protibondhi_yes" value="yes">
+                                    <label class="form-check-label" for="protibondhi_yes">হ্যাঁ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="protibondhi" id="protibondhi_no" value="no" checked>
+                                    <label class="form-check-label" for="protibondhi_no">না</label>
+                                </div>
+                            </div>
+
+                            <!-- Additional input fields for প্রতিবন্ধী কিনা? -->
+                            <div class="row" id="protibondhi_fields" style="display: none;">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="protibondhi_type">প্রতিবন্ধকতার ধরন</label>
+                                        <input type="text" class="form-control" id="protibondhi_type" name="protibondhi_type">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="protibondhi_certificate">সার্টিফিকেট</label>
+                                        <input type="file" class="form-control" id="protibondhi_certificate" name="protibondhi_certificate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="muktijoddha">মুক্তিযোদ্ধা পরিবারের সদস্য কিনা?</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input ml-2" type="radio" name="muktijoddha" id="muktijoddha_yes" value="yes">
+                                    <label class="form-check-label" for="muktijoddha_yes">হ্যাঁ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="muktijoddha" id="muktijoddha_no" value="no" checked>
+                                    <label class="form-check-label" for="muktijoddha_no">না</label>
+                                </div>
+                            </div>
+
+                            <!-- Additional input fields for মুক্তিযোদ্ধা কিনা? -->
+                            <div class="row" id="muktijoddha_fields" style="display: none;">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="muktijoddha_contact">মুক্তিযোদ্ধার সাথে সম্পর্ক</label>
+                                        <input type="text" class="form-control" id="muktijoddha_contact" name="muktijoddha_contact">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="muktijoddha_certificate">সার্টিফিকেট</label>
+                                        <input type="file" class="form-control" id="muktijoddha_certificate" name="muktijoddha_certificate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="brother_sister_school">ভাই বোন অত্র স্কুলে পড়ে কিনা? </label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input ml-2" type="radio" name="brother_sister_school" id="brother_sister_school_yes" value="yes">
+                                    <label class="form-check-label" for="brother_sister_school_yes">হ্যাঁ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="brother_sister_school" id="brother_sister_school_no" value="no" checked>
+                                    <label class="form-check-label" for="brother_sister_school_no">না</label>
+                                </div>
+                            </div>
+
+                            <!-- Additional input fields for "ভাই বোন অত্র স্কুলে পড়ে কিনা?" -->
+                            <div class="row" id="brother_sister_school_fields" style="display: none;">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="brother_sister_name">ভাই/বোনের নাম</label>
+                                        <input type="text" class="form-control" id="brother_sister_name" name="brother_sister_name">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="brother_sister_section">রোল</label>
+                                        <input type="text" class="form-control" id="brother_sister_section" name="brother_sister_section">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="brother_sister_class">শ্রেণি</label>
+                                        <select class="form-control" id="brother_sister_class" name="brother_sister_class">
+                                            <option value="" selected>নির্বাচন করুন</option>
+                                            <option value="6">৬ষ্ঠ</option>
+                                            <option value="7">৭ম</option>
+                                            <option value="8">৮ম</option>
+                                            <option value="9">৯ম</option>
+                                            <option value="10">১০ম</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="brother_sister_branch">শাখা</label>
+                                        <select class="form-control" id="brother_sister_section" name="brother_sister_section">
+                                            <option value="" selected>নির্বাচন করুন</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <script>
+                    // Show/hide additional fields for "ভাই বোন অত্র স্কুলে পড়ে কিনা?" based on radio button selection
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const brotherSisterSchoolRadio = document.querySelectorAll('input[name="brother_sister_school"]');
+                        const brotherSisterSchoolFields = document.getElementById('brother_sister_school_fields');
+
+                        brotherSisterSchoolRadio.forEach(function (radio) {
+                            radio.addEventListener('change', function () {
+                                if (radio.value === 'yes') {
+                                    brotherSisterSchoolFields.style.display = 'flex';
+                                } else {
+                                    brotherSisterSchoolFields.style.display = 'none';
+                                }
+                            });
+                        });
+
+                        const muktijoddhaRadio = document.querySelectorAll('input[name="muktijoddha"]');
+                        const muktijoddhaFields = document.getElementById('muktijoddha_fields');
+
+                        muktijoddhaRadio.forEach(function (radio) {
+                            radio.addEventListener('change', function () {
+                                if (radio.value === 'yes') {
+                                    muktijoddhaFields.style.display = 'flex';
+                                } else {
+                                    muktijoddhaFields.style.display = 'none';
+                                }
+                            });
+                        });
+
+                        const protibondhiRadio = document.querySelectorAll('input[name="protibondhi"]');
+                        const protibondhiFields = document.getElementById('protibondhi_fields');
+
+                        protibondhiRadio.forEach(function (radio) {
+                            radio.addEventListener('change', function () {
+                                if (radio.value === 'yes') {
+                                    protibondhiFields.style.display = 'flex';
+                                } else {
+                                    protibondhiFields.style.display = 'none';
+                                }
+                            });
+                        });
+                    });
+                </script>
+
+
+
+
+
+
+
+
+                    <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="district">মুক্তিযোদ্ধা পরিবারের সদস্য কিনা?</label>
-                                <input type="text" class="form-control" id="district" name="district" value="কক্সবাজার">
+                                <input type="button" class="form-control bg-warning" value="বাতিল করুন">
                             </div>
                         </div>
     
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="upazila">প্রতিবন্ধী কিনা?</label>
-                                <input type="text" class="form-control" id="upazila" name="upazila" value="উখিয়া">
+                            <div class="form-group bg-success">
+                                <input type="submit" class="form-control" value="জমা দিন">
                             </div>
                         </div>
                     </div>
-                    </div>
-                </div>
-
-
-
-
-                <div class="row mt-4">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="button" class="form-control bg-warning" value="বাতিল করুন">
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group bg-success">
-                            <input type="submit" class="form-control" value="জমা দিন">
-                        </div>
-                    </div>
-                </div>
-                    
+            </div>
+            
             </form>
         </div>
 
