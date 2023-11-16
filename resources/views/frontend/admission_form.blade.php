@@ -41,14 +41,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name_bn">নাম (বাংলাতে)</label>
-                                <input type="text" class="form-control" id="name_bn" name="name_bn">
+                                <input type="text" class="form-control" id="name_bn" name="name_bn" placeholder="যেমনঃ রেজাউল ইসলাম খান">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">Name (In English)</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Example: Rezaul Islam Khan">
                             </div>
                         </div>
 
@@ -57,8 +57,8 @@
                                 <label for="gender">লিঙ্গ</label>
                                 <select class="form-control" id="gender" name="gender">
                                     <option value="" selected>নির্বাচন করুন</option>
-                                    <option value="male">পুরুষ</option>
-                                    <option value="female">মহিলা</option>
+                                    <option value="male">ছেলে</option>
+                                    <option value="female">মেয়ে</option>
                                     <option value="other">অন্যান্য</option>
                                 </select>
                             </div>
@@ -69,7 +69,7 @@
                                 <label for="nationality">জাতীয়তা</label>
                                 <select class="form-control" id="nationality" name="nationality">
                                     <option value="" selected>নির্বাচন করুন</option>
-                                    <option value="bangladeshi">বাঙ্গলাদেশী</option>
+                                    <option value="bangladeshi">বাংলাদেশী</option>
                                     <option value="chakma">চাকমা</option>
                                     <option value="marma">মারমা</option>
                                     <option value="rohingya">রাখাইন</option>
@@ -91,25 +91,32 @@
                                 </select>
                             </div>
                         </div>
-                        
-                        <div class="col-md-4">
+
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="dob">জন্ম তারিখ</label>
                                 <input type="date" class="form-control" id="dob" name="dob">
                             </div>
                         </div>
-    
-                        <div class="col-md-4">
+                        
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="birth_certificate_no" class="form-label">জন্ম নিবন্ধন নাম্বার</label>
-                                <input type="text" class="form-control form-control-sm" id="birth_certificate_no" name="birth_certificate_no" placeholder="জন্ম নিবন্ধন নাম্বার">
+                                <label for="birth_cft_no" class="form-label">জন্ম নিবন্ধন নাম্বার</label>
+                                <input type="text" class="form-control form-control-sm" id="birth_cft_no" name="birth_cft_no" placeholder="যেমনঃ ২০১০১৩১৪৫১১০০০২২৪">
                             </div>                            
                         </div>
-    
-                        <div class="col-md-4">
+
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="birth_certificate_file">জন্ম নিবন্ধন</label>
-                                <input type="file" class="form-control" id="birth_certificate_file" name="birth_certificate_file">
+                                <label for="photo">ছবি</label>
+                                <input type="file" class="form-control" id="photo" name="photo">
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="birth_cft_file">জন্ম নিবন্ধন</label>
+                                <input type="file" class="form-control" id="birth_cft_file" name="birth_cft_file">
                             </div>
                         </div>
                     </div>
@@ -123,88 +130,116 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="fathers_name_bn">পিতার নাম (বাংলাতে)</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn" placeholder="যেমনঃ রফিকুল ইসলাম খান">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="fathers_name">Father's Name (In English)</label>
-                                <input type="text" class="form-control" id="fathers_name" name="fathers_name">
+                                <input type="text" class="form-control" id="fathers_name" name="fathers_name" placeholder="Example: Rafiqul Islam Khan">
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">পিতার পেশা</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="fathers_proff">পিতার পেশা</label>
+                                <input type="text" class="form-control" id="fathers_proff" name="fathers_proff" placeholder="যেমনঃ কৃষি/শিক্ষক/ড্রাইভার">
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">পিতার বর্তমান অবস্থান</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="fathers_location">পিতার বর্তমান অবস্থান</label>
+                                <input type="text" class="form-control" id="fathers_location" name="fathers_location" placeholder="যেমনঃ দেশে/সিঙ্গাপুর/ঢাকা">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">পিতার বার্ষিক আয়</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="fathers_income">পিতার বার্ষিক আয়</label>
+                                <input type="text" class="form-control" id="fathers_income" name="fathers_income" placeholder="যেমনঃ 500000">
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">পিতার সম্পত্তির পরিমান</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="fathers_property">পিতার সম্পত্তির পরিমান</label>
+                                <input type="text" class="form-control" id="fathers_property" name="fathers_property" placeholder="যেমনঃ ১০ বিঘা/কাঠা/শতাংশ">
                             </div>
                         </div>
-    
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="fathers_phone">পিতার মোবাইল</label>
+                                <input type="text" class="form-control" id="fathers_phone" name="fathers_phone" placeholder="01712345678">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="fathers_nid">পিতার NID</label>
+                                <input type="file" class="form-control" id="fathers_nid" name="fathers_nid">
+                            </div>
+                        </div>
                     </div> 
+
                     <div class="col-12"><hr><hr></div>
     
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="mothers_name_bn">মাতার নাম (বাংলাতে)</label>
-                                <input type="text" class="form-control" id="mothers_name_bn" name="mothers_name_bn">
+                                <input type="text" class="form-control" id="mothers_name_bn" name="mothers_name_bn" placeholder="যেমনঃ রোজিনা বেগম">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="mothers_name">Mother's Name (In English)</label>
-                                <input type="text" class="form-control" id="mothers_name" name="mothers_name">
+                                <input type="text" class="form-control" id="mothers_name" name="mothers_name" placeholder="Example: Rozina Begum">
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">মাতার পেশা</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="mothers_proff">মাতার পেশা</label>
+                                <input type="text" class="form-control" id="mothers_proff" name="mothers_proff" placeholder="যেমনঃ গৃহিণী/শিক্ষিকা">
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">মাতার বর্তমান অবস্থান</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="mothers_location">মাতার বর্তমান অবস্থান</label>
+                                <input type="text" class="form-control" id="mothers_location" name="mothers_location" placeholder="যেমনঃ দেশে/মালেশিয়া/ঢাকা">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">মাতার বার্ষিক আয়</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="mothers_income">মাতার বার্ষিক আয়</label>
+                                <input type="number" class="form-control" id="mothers_income" name="mothers_income" placeholder="যেমনঃ 350000">
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">মাতার সম্পত্তির পরিমান</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="mothers_property">মাতার সম্পত্তির পরিমান</label>
+                                <input type="text" class="form-control" id="mothers_property" name="mothers_property" placeholder="যেমনঃ ৫ কাঠা/বিঘা/শতাংশ">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="mothers_phone">মাতার মোবাইল</label>
+                                <input type="text" class="form-control" id="mothers_phone" name="mothers_phone" placeholder="যেমনঃ 01712345678">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="mothers_nid">মাতার NID</label>
+                                <input type="file" class="form-control" id="mothers_nid" name="mothers_nid">
                             </div>
                         </div>
                     </div>
@@ -213,18 +248,18 @@
                 {{-- Guirdians Information --}}
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
                     <div class="row">
-                        <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">অভিভাবকের তথ্যঃ</div>
+                        <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">স্থানীয় অভিভাবকের তথ্যঃ</div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name">অভিভাবকের নামঃ</label>
-                                <input type="text" class="form-control" id="fathers_name" name="fathers_name">
+                                <label for="guardians_name">অভিভাবকের নামঃ</label>
+                                <input type="text" class="form-control" id="guardians_name" name="guardians_name" placeholder="যেমনঃ রোজিনা বেগম">
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">অভিভাবকের সাথে সম্পর্ক</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="guardians_relation">অভিভাবকের সাথে সম্পর্ক</label>
+                                <input type="text" class="form-control" id="guardians_relation" name="guardians_relation" placeholder="যেমনঃ মা/বাবা/চাচা/মামা/ভাই">
                             </div>
                         </div>
                     </div>
@@ -232,15 +267,15 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name">অভিভাবকের ঠিকানা</label>
-                                <input type="text" class="form-control" id="fathers_name" name="fathers_name">
+                                <label for="guardians_address">অভিভাবকের ঠিকানা</label>
+                                <input type="text" class="form-control" id="guardians_address" name="guardians_address" placeholder="যেমনঃ রত্নাপালং, উখিয়া">
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">অভিভাবকের মোবাইল নাম্বার</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="guardians_phone">অভিভাবকের মোবাইল নাম্বার</label>
+                                <input type="text" class="form-control" id="guardians_phone" name="guardians_phone" placeholder="যেমনঃ 01712345678">
                             </div>
                         </div>
                     </div>
@@ -250,17 +285,18 @@
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
                     <div class="row">
                         <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">আইনত অভিভাবকের তথ্যঃ <br> <p style="font-size: 16px; color: black; margin-top: -10px;">(পিতা মাতা জীবিত না থাকলে)</p></div>
+
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name">অভিভাবকের নামঃ</label>
-                                <input type="text" class="form-control" id="fathers_name" name="fathers_name">
+                                <label for="law_guardians_name">অভিভাবকের নামঃ</label>
+                                <input type="text" class="form-control" id="law_guardians_name" name="law_guardians_name" placeholder="যেমনঃ জালাল উদ্দিন খান">
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">অভিভাবকের সাথে সম্পর্ক</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="law_guardians_relation">অভিভাবকের সাথে সম্পর্ক</label>
+                                <input type="text" class="form-control" id="law_guardians_relation" name="law_guardians_relation" placeholder="যেমনঃ চাচা/মামা/খালা">
                             </div>
                         </div>
                     </div>
@@ -268,15 +304,15 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name">অভিভাবকের ঠিকানা</label>
-                                <input type="text" class="form-control" id="fathers_name" name="fathers_name">
+                                <label for="law_guardians_address">অভিভাবকের ঠিকানা</label>
+                                <input type="text" class="form-control" id="law_guardians_address" name="law_guardians_address" placeholder="যেমনঃ ফরাজী পাড়া, চকরিয়া">
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_name_bn">অভিভাবকের মোবাইল নাম্বার</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn">
+                                <label for="law_guardians_phone">অভিভাবকের মোবাইল নাম্বার</label>
+                                <input type="text" class="form-control" id="law_guardians_phone" name="law_guardians_phone" placeholder="যেমনঃ 01712345678">
                             </div>
                         </div>
                     </div>
@@ -286,6 +322,7 @@
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
                     <div class="row">
                         <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">বর্তমান ঠিকানাঃ</div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="current_district">জেলা</label>
@@ -305,14 +342,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="current_village">গ্রাম</label>
-                                <input type="text" class="form-control" id="current_village" name="current_village">
+                                <input type="text" class="form-control" id="current_village" name="current_village" placeholder="যেমনঃ রত্নাপালং">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="current_post_office">ডাকঘর</label>
-                                <input type="text" class="form-control" id="current_post_office" name="current_post_office">
+                                <input type="text" class="form-control" id="current_post_office" name="current_post_office" placeholder="যেমনঃ রত্নাপালং">
                             </div>
                         </div>
                     </div>
@@ -322,6 +359,7 @@
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
                     <div class="row">
                         <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">স্থায়ী ঠিকানাঃ</div>
+
                         {{-- Checkbox to copy current address to permanent address --}}
                         <div class="form-check col-12 ml-3">
                             <input class="form-check-input" type="checkbox" id="copy_address" name="copy_address">
@@ -383,22 +421,22 @@
                     });
                 </script>
 
-
                 {{-- Last School --}}
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
                     <div class="row">
                         <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">সর্বশেষ পঠিত তথ্যঃ</div>
+
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="village">সর্বশেষ পঠিত স্কুল/মাদ্রাসার নাম</label>
-                                <input type="text" class="form-control" id="village" name="village">
+                                <label for="last_school">সর্বশেষ পঠিত স্কুল/মাদ্রাসার নাম</label>
+                                <input type="text" class="form-control" id="last_school" name="last_school" placeholder="যেমনঃ পোকখালী আদর্শ উচ্চ বিদ্যালয়">
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="post_office">ঠিকানা</label>
-                                <input type="text" class="form-control" id="post_office" name="post_office">
+                                <label for="last_school_address">ঠিকানা</label>
+                                <input type="text" class="form-control" id="last_school_address" name="last_school_address" placeholder="যেমনঃ পোকখালী, ঈদগাহ">
                             </div>
                         </div>
                     </div>
@@ -406,15 +444,23 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="village">সর্বশেষ পঠিত শ্রেনী</label>
-                                <input type="text" class="form-control" id="village" name="village">
+                                <label for="last_class">সর্বশেষ পঠিত শ্রেনী</label>
+                                <select class="form-control" id="class_5_roll" name="class_5_roll">
+                                    <option value="" selected>নির্বাচন করুন</option>
+                                    <option value="5">৫ম</option>
+                                    <option value="6">৬ষ্ঠ</option>
+                                    <option value="7">৭ম</option>
+                                    <option value="8">৮ম</option>
+                                    <option value="9">৯ম</option>
+                                    <option value="10">১০ম</option>
+                                </select>
                             </div>
                         </div>
     
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="post_office">সমাপনী পরীক্ষার প্রবেশপত্র</label>
-                                <input type="file" class="form-control" id="post_office" name="post_office">
+                                <label for="last_class_admit">সর্বশেষ বার্ষিক পরীক্ষার প্রবেশপত্র</label>
+                                <input type="file" class="form-control" id="last_class_admit" name="last_class_admit">
                             </div>
                         </div>
                     </div>
@@ -422,27 +468,26 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="village">পঞ্চম শ্রেণীর সমাপণী পরীক্ষারর রোল</label>
-                                <input type="text" class="form-control" id="village" name="village">
+                                <label for="class_5_roll">পঞ্চম শ্রেণীর সমাপণী পরীক্ষারর রোল</label>
+                                <input type="text" class="form-control" id="class_5_roll" name="class_5_roll" placeholder="যেমনঃ 1020304050">
                             </div>
                         </div>
     
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="village">পাশের সন</label>
-                                <input type="text" class="form-control" id="village" name="village">
+                                <label for="class_5_year">পাশের সন</label>
+                                <input type="text" class="form-control" id="class_5_year" name="class_5_year" placeholder="2022">
                             </div>
                         </div>
     
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="post_office">গ্রেড পয়েন্ট</label>
-                                <input type="text" class="form-control" id="post_office" name="post_office">
+                                <label for="class_5_gpa">গ্রেড পয়েন্ট</label>
+                                <input type="text" class="form-control" id="class_5_gpa" name="class_5_gpa" placeholder="যেমনঃ ৩.৭৫">
                             </div>
                         </div>
                     </div>
                 </div>
-
 
                 {{-- Others Information --}}
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding: 3%; border-radius: 10px;">
@@ -467,7 +512,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="protibondhi_type">প্রতিবন্ধকতার ধরন</label>
-                                        <input type="text" class="form-control" id="protibondhi_type" name="protibondhi_type">
+                                        <input type="text" class="form-control" id="protibondhi_type" name="protibondhi_type" placeholder="যেমনঃ শারিরিক/মানষিক/বাক">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -496,8 +541,8 @@
                             <div class="row" id="muktijoddha_fields" style="display: none;">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="muktijoddha_contact">মুক্তিযোদ্ধার সাথে সম্পর্ক</label>
-                                        <input type="text" class="form-control" id="muktijoddha_contact" name="muktijoddha_contact">
+                                        <label for="muktijoddha_relation">মুক্তিযোদ্ধার সাথে সম্পর্ক</label>
+                                        <input type="text" class="form-control" id="muktijoddha_relation" name="muktijoddha_relation" placeholder="যেমনঃ বাবা/দাদা/নানা">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -527,14 +572,14 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="brother_sister_name">ভাই/বোনের নাম</label>
-                                        <input type="text" class="form-control" id="brother_sister_name" name="brother_sister_name">
+                                        <input type="text" class="form-control" id="brother_sister_name" name="brother_sister_name" placeholder="যেমনঃ তামান্না পপি">
                                     </div>
                                 </div>
 
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label for="brother_sister_section">রোল</label>
-                                        <input type="text" class="form-control" id="brother_sister_section" name="brother_sister_section">
+                                        <input type="text" class="form-control" id="brother_sister_section" name="brother_sister_section" placeholder="যেমনঃ ১৫">
                                     </div>
                                 </div>
 
@@ -615,22 +660,16 @@
                 </script>
 
 
-
-
-
-
-
-
                     <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="button" class="form-control bg-warning" value="বাতিল করুন">
+                                <input type="button" class="form-control bg-warning" value="বাতিল করুন" style="background-color: #fd7e14 !important; border-radius: 10px !important">
                             </div>
                         </div>
     
                         <div class="col-md-6">
-                            <div class="form-group bg-success">
-                                <input type="submit" class="form-control" value="জমা দিন">
+                            <div class="form-group">
+                                <input type="submit" class="form-control" value="জমা দিন" style="background-color: #6214fd !important; border-radius: 10px !important; color:white !important;">
                             </div>
                         </div>
                     </div>
