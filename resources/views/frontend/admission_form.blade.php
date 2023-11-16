@@ -36,89 +36,116 @@
                 {{-- Personal Information --}}
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
                     <div class="row">
-                        <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">ব্যাক্তিগত তথ্যঃ</div>
-                        
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name_bn">নাম (বাংলাতে)</label>
-                                <input type="text" class="form-control" id="name_bn" name="name_bn" placeholder="যেমনঃ রেজাউল ইসলাম খান">
+                                <input type="text" class="form-control @error('name_bn') is-invalid @enderror" id="name_bn" name="name_bn" placeholder="যেমনঃ রেজাউল ইসলাম খান" value="{{ old('name_bn') }}">
+                                @error('name_bn')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">Name (In English)</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Example: Rezaul Islam Khan">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Example: Rezaul Islam Khan" value="{{ old('name') }}">
+                                @error('name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="gender">লিঙ্গ</label>
-                                <select class="form-control" id="gender" name="gender">
+                                <select class="form-control @error('gender') is-invalid @enderror" id="gender" name="gender">
                                     <option value="" selected>নির্বাচন করুন</option>
-                                    <option value="male">ছেলে</option>
-                                    <option value="female">মেয়ে</option>
-                                    <option value="other">অন্যান্য</option>
+                                    <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>ছেলে</option>
+                                    <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>মেয়ে</option>
+                                    <option value="other" {{ old('gender') == 'other' ? 'selected' : '' }}>অন্যান্য</option>
                                 </select>
+                                @error('gender')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-                        
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="nationality">জাতীয়তা</label>
-                                <select class="form-control" id="nationality" name="nationality">
+                                <select class="form-control @error('nationality') is-invalid @enderror" id="nationality" name="nationality">
                                     <option value="" selected>নির্বাচন করুন</option>
-                                    <option value="bangladeshi">বাংলাদেশী</option>
-                                    <option value="chakma">চাকমা</option>
-                                    <option value="marma">মারমা</option>
-                                    <option value="rohingya">রাখাইন</option>
-                                    <option value="other">অন্যান্য</option>
+                                    <option value="bangladeshi" {{ old('nationality') == 'bangladeshi' ? 'selected' : '' }}>বাংলাদেশী</option>
+                                    <option value="chakma" {{ old('nationality') == 'chakma' ? 'selected' : '' }}>চাকমা</option>
+                                    <option value="marma" {{ old('nationality') == 'marma' ? 'selected' : '' }}>মারমা</option>
+                                    <option value="rakhain" {{ old('nationality') == 'rakhain' ? 'selected' : '' }}>রাখাইন</option>
+                                    <option value="rohinga" {{ old('nationality') == 'rohinga' ? 'selected' : '' }}>রোহিঙ্গা</option>
+                                    <option value="other" {{ old('nationality') == 'other' ? 'selected' : '' }}>অন্যান্য</option>
                                 </select>
+                                @error('nationality')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-                        
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="religion">ধর্ম</label>
-                                <select class="form-control" id="religion" name="religion">
+                                <select class="form-control @error('religion') is-invalid @enderror" id="religion" name="religion">
                                     <option value="" selected>নির্বাচন করুন</option>
-                                    <option value="muslim">মুসলিম</option>
-                                    <option value="hindu">হিন্দু</option>
-                                    <option value="buddhist">বৌদ্ধ</option>
-                                    <option value="christian">খ্রীষ্ঠান</option>
-                                    <option value="other">অন্যান্য</option>
+                                    <option value="muslim" {{ old('religion') == 'muslim' ? 'selected' : '' }}>মুসলিম</option>
+                                    <option value="hindu" {{ old('religion') == 'hindu' ? 'selected' : '' }}>হিন্দু</option>
+                                    <option value="buddhist" {{ old('religion') == 'buddhist' ? 'selected' : '' }}>বৌদ্ধ</option>
+                                    <option value="christian" {{ old('religion') == 'christian' ? 'selected' : '' }}>খ্রীষ্ঠান</option>
+                                    <option value="other" {{ old('religion') == 'other' ? 'selected' : '' }}>অন্যান্য</option>
                                 </select>
+                                @error('religion')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="dob">জন্ম তারিখ</label>
-                                <input type="date" class="form-control" id="dob" name="dob">
+                                <input type="date" class="form-control @error('dob') is-invalid @enderror" id="dob" name="dob" value="{{ old('dob') }}">
+                                @error('dob')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="birth_cft_no" class="form-label">জন্ম নিবন্ধন নাম্বার</label>
-                                <input type="text" class="form-control form-control-sm" id="birth_cft_no" name="birth_cft_no" placeholder="যেমনঃ ২০১০১৩১৪৫১১০০০২২৪">
-                            </div>                            
+                                <input type="text" class="form-control form-control-sm @error('birth_cft_no') is-invalid @enderror" id="birth_cft_no" name="birth_cft_no" placeholder="যেমনঃ 20121314511000225" value="{{ old('birth_cft_no') }}">
+                                @error('birth_cft_no')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="photo">ছবি</label>
-                                <input type="file" class="form-control" id="photo" name="photo">
+                                <input type="file" class="form-control @error('photo') is-invalid @enderror" id="photo" name="photo">
+                                @error('photo')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-    
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="birth_cft_file">জন্ম নিবন্ধন</label>
-                                <input type="file" class="form-control" id="birth_cft_file" name="birth_cft_file">
+                                <input type="file" class="form-control @error('birth_cft_file') is-invalid @enderror" id="birth_cft_file" name="birth_cft_file">
+                                @error('birth_cft_file')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -127,122 +154,174 @@
                     <div class="row">
                         <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">পিতা মাতার তথ্যঃ</div>
 
+                        {{-- Father's Information --}}
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="fathers_name_bn">পিতার নাম (বাংলাতে)</label>
-                                <input type="text" class="form-control" id="fathers_name_bn" name="fathers_name_bn" placeholder="যেমনঃ রফিকুল ইসলাম খান">
+                                <input type="text" class="form-control @error('fathers_name_bn') is-invalid @enderror" id="fathers_name_bn" name="fathers_name_bn" placeholder="যেমনঃ রফিকুল ইসলাম খান" value="{{ old('fathers_name_bn') }}">
+                                @error('fathers_name_bn')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="fathers_name">Father's Name (In English)</label>
-                                <input type="text" class="form-control" id="fathers_name" name="fathers_name" placeholder="Example: Rafiqul Islam Khan">
-                            </div>
-                        </div>
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="fathers_proff">পিতার পেশা</label>
-                                <input type="text" class="form-control" id="fathers_proff" name="fathers_proff" placeholder="যেমনঃ কৃষি/শিক্ষক/ড্রাইভার">
-                            </div>
-                        </div>
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="fathers_location">পিতার বর্তমান অবস্থান</label>
-                                <input type="text" class="form-control" id="fathers_location" name="fathers_location" placeholder="যেমনঃ দেশে/সিঙ্গাপুর/ঢাকা">
+                                <input type="text" class="form-control @error('fathers_name') is-invalid @enderror" id="fathers_name" name="fathers_name" placeholder="Example: Rafiqul Islam Khan" value="{{ old('fathers_name') }}">
+                                @error('fathers_name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fathers_income">পিতার বার্ষিক আয়</label>
-                                <input type="text" class="form-control" id="fathers_income" name="fathers_income" placeholder="যেমনঃ 500000">
+                                <label for="fathers_proff">পিতার পেশা</label>
+                                <input type="text" class="form-control @error('fathers_proff') is-invalid @enderror" id="fathers_proff" name="fathers_proff" placeholder="যেমনঃ কৃষি/শিক্ষক/ড্রাইভার" value="{{ old('fathers_proff') }}">
+                                @error('fathers_proff')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-    
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="fathers_location">পিতার বর্তমান অবস্থান</label>
+                                <input type="text" class="form-control @error('fathers_location') is-invalid @enderror" id="fathers_location" name="fathers_location" placeholder="যেমনঃ দেশে/সিঙ্গাপুর/ঢাকা" value="{{ old('fathers_location') }}">
+                                @error('fathers_location')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="fathers_income">পিতার বার্ষিক আয় (টাকায়)</label>
+                                <input type="text" class="form-control @error('fathers_income') is-invalid @enderror" id="fathers_income" name="fathers_income" placeholder="যেমনঃ 500000" value="{{ old('fathers_income') }}">
+                                @error('fathers_income')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="fathers_property">পিতার সম্পত্তির পরিমান</label>
-                                <input type="text" class="form-control" id="fathers_property" name="fathers_property" placeholder="যেমনঃ ১০ বিঘা/কাঠা/শতাংশ">
+                                <input type="text" class="form-control @error('fathers_property') is-invalid @enderror" id="fathers_property" name="fathers_property" placeholder="যেমনঃ ১০ বিঘা/কাঠা/শতাংশ" value="{{ old('fathers_property') }}">
+                                @error('fathers_property')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="fathers_phone">পিতার মোবাইল</label>
-                                <input type="text" class="form-control" id="fathers_phone" name="fathers_phone" placeholder="01712345678">
+                                <input type="text" class="form-control @error('fathers_phone') is-invalid @enderror" id="fathers_phone" name="fathers_phone" placeholder="01712345678" value="{{ old('fathers_phone') }}">
+                                @error('fathers_phone')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="fathers_nid">পিতার NID</label>
-                                <input type="file" class="form-control" id="fathers_nid" name="fathers_nid">
+                                <input type="file" class="form-control @error('fathers_nid') is-invalid @enderror" id="fathers_nid" name="fathers_nid">
+                                @error('fathers_nid')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="col-12"><hr><hr></div>
     
+                    {{-- Mother's Information --}}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="mothers_name_bn">মাতার নাম (বাংলাতে)</label>
-                                <input type="text" class="form-control" id="mothers_name_bn" name="mothers_name_bn" placeholder="যেমনঃ রোজিনা বেগম">
+                                <input type="text" class="form-control @error('mothers_name_bn') is-invalid @enderror" id="mothers_name_bn" name="mothers_name_bn" placeholder="যেমনঃ রোজিনা বেগম" value="{{ old('mothers_name_bn') }}">
+                                @error('mothers_name_bn')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="mothers_name">Mother's Name (In English)</label>
-                                <input type="text" class="form-control" id="mothers_name" name="mothers_name" placeholder="Example: Rozina Begum">
+                                <input type="text" class="form-control @error('mothers_name') is-invalid @enderror" id="mothers_name" name="mothers_name" placeholder="Example: Rozina Begum" value="{{ old('mothers_name') }}">
+                                @error('mothers_name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-    
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="mothers_proff">মাতার পেশা</label>
-                                <input type="text" class="form-control" id="mothers_proff" name="mothers_proff" placeholder="যেমনঃ গৃহিণী/শিক্ষিকা">
+                                <input type="text" class="form-control @error('mothers_proff') is-invalid @enderror" id="mothers_proff" name="mothers_proff" placeholder="যেমনঃ গৃহিণী/শিক্ষিকা" value="{{ old('mothers_proff') }}">
+                                @error('mothers_proff')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-    
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="mothers_location">মাতার বর্তমান অবস্থান</label>
-                                <input type="text" class="form-control" id="mothers_location" name="mothers_location" placeholder="যেমনঃ দেশে/মালেশিয়া/ঢাকা">
+                                <input type="text" class="form-control @error('mothers_location') is-invalid @enderror" id="mothers_location" name="mothers_location" placeholder="যেমনঃ দেশে/মালেশিয়া/ঢাকা" value="{{ old('mothers_location') }}">
+                                @error('mothers_location')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="mothers_income">মাতার বার্ষিক আয়</label>
-                                <input type="number" class="form-control" id="mothers_income" name="mothers_income" placeholder="যেমনঃ 350000">
+                                <input type="text" class="form-control @error('mothers_income') is-invalid @enderror" id="mothers_income" name="mothers_income" placeholder="যেমনঃ 350000" value="{{ old('mothers_income') }}">
+                                @error('mothers_income')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-    
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="mothers_property">মাতার সম্পত্তির পরিমান</label>
-                                <input type="text" class="form-control" id="mothers_property" name="mothers_property" placeholder="যেমনঃ ৫ কাঠা/বিঘা/শতাংশ">
+                                <input type="text" class="form-control @error('mothers_property') is-invalid @enderror" id="mothers_property" name="mothers_property" placeholder="যেমনঃ ৫ কাঠা/বিঘা/শতাংশ" value="{{ old('mothers_property') }}">
+                                @error('mothers_property')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="mothers_phone">মাতার মোবাইল</label>
-                                <input type="text" class="form-control" id="mothers_phone" name="mothers_phone" placeholder="যেমনঃ 01712345678">
+                                <input type="text" class="form-control @error('mothers_phone') is-invalid @enderror" id="mothers_phone" name="mothers_phone" placeholder="যেমনঃ 01712345678" value="{{ old('mothers_phone') }}">
+                                @error('mothers_phone')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="mothers_nid">মাতার NID</label>
-                                <input type="file" class="form-control" id="mothers_nid" name="mothers_nid">
+                                <input type="file" class="form-control @error('mothers_nid') is-invalid @enderror" id="mothers_nid" name="mothers_nid">
+                                @error('mothers_nid')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
+
                     </div>
+
                 </div>
 
                 {{-- Guirdians Information --}}
