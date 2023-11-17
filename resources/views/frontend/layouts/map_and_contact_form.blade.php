@@ -13,35 +13,35 @@
                     @csrf
                     
                     <div class="form-group">
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Your Name" name="name" value="{{ old('name') }}">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="আপনার নাম" name="name" value="{{ old('name') }}" required>
                         @error('name')
                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
                     
                     <div class="form-group">
-                        <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Your Email" name="email" value="{{ old('email') }}">
+                        <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="আপনার ইমেইল" name="email" value="{{ old('email') }}" required>
                         @error('email')
                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
                     
                     <div class="form-group">
-                        <input type="text" class="form-control @error('subject') is-invalid @enderror" placeholder="Subject" name="subject" value="{{ old('subject') }}">
+                        <input type="text" class="form-control @error('subject') is-invalid @enderror" placeholder="যোগাযোগের বিষয়বস্তু" name="subject" value="{{ old('subject') }}" required>
                         @error('subject')
                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
                     
                     <div class="form-group">
-                        <textarea id="" cols="30" rows="7" class="form-control @error('message') is-invalid @enderror" placeholder="Message" name="message">{{ old('message') }}</textarea>
+                        <textarea id="" cols="30" rows="7" class="form-control @error('message') is-invalid @enderror" placeholder="আপনার বিস্তারিত মেসেজ" name="message" required>{{ old('message') }}</textarea>
                         @error('message')
                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
                     
                     <div class="form-group">
-                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                        <input type="submit" value="পাঠিয়ে দিন" class="btn btn-primary py-3 px-5">
                     </div>
                 </form>                
                 

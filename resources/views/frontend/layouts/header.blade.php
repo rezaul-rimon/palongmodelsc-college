@@ -3,20 +3,18 @@
 
 <head>
 	<title>পালং আদর্শ উচ্চ বিদ্যালয় ও কলেজ</title>
+	<link rel="icon" href="{{ asset('frontend/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('frontend/favicon.ico') }}" type="image/x-icon">
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
-
-	{{-- <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet"> --}}
 
 	<link rel="stylesheet" href="{{ asset('frontend/css/open-iconic-bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}">
 
 	<link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
-	
-	{{-- <link rel="stylesheet" href="{{ asset('frontend/css/magnific-popup.css') }}"> --}}
 
 	<link rel="stylesheet" href="{{ asset('frontend/css/aos.css') }}">
 
@@ -167,7 +165,7 @@
 						<a class="nav-link" href="{{ route('frontend.contact_us') }}">যোগাযোগ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('frontend.admission') }}">ভর্তি কার্যক্রম</a>
+						<a class="nav-link" href="https://forms.gle/P7tnbAPkd11aXzjp6">ভর্তি কার্যক্রম</a>
 					</li>
 					<!-- <li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -196,7 +194,7 @@
 					<span>আপডেট</span>
 				</div>
 				<div class="col-lg-11 col-md-10 col-9 up-text">
-					<p><marquee scrollamount="5" behavior="alternate" direction="left">শিক্ষা মন্ত্রনালয়ের ২৮ মার্চ ২০২১ খ্রিঃ তারিখের ৩৭.00.0000.098.030.০০১.২০১৭(অংশ-১) ১২১ নং স্মারকের জনবল কাঠামো মোতাবেক কক্সবাজার জেলার উখিয়া উপজেলাধীন পালং আদর্শ উচ্চ বিদ্যালয়-এর ভারপ্রাপ্ত প্রধান শিক্ষকের আবেদনের প্রেক্ষিতে নিম্নোলিখিত পদে সরকারি বিধি মোতাবেক নিয়োগের জন্য অনুমতি দেয়া গেল।</marquee></p>
+					<p><marquee scrollamount="5" behavior="alternate" direction="left">{{ $last_notice->notice_summary }}</marquee></p>
 				</div>
 			</div>
 		</div>

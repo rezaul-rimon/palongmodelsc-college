@@ -10,31 +10,48 @@
             <div class="row d-flex contact-info">
                 <div class="col-md-3 d-flex">
                     <div class="bg-light align-self-stretch box p-4 text-center">
-                        <h3 class="mb-2">Address</h3>
-                        <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+                        <h3 class="mb-2">আমাদের ঠিকানাঃ</h3>
+                        <p>রত্নাপালং, কোটবাজার-৪৭৫০, টেকনাফ হাইওয়ে, উখিয়া, কক্সবাজার</p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light align-self-stretch box p-4 text-center">
-                        <h3 class="mb-2">Contact Number</h3>
-                        <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
+                        <h3 class="mb-2">যোগাযোগ এর নাম্বার</h3>
+                        <p><a href="#">+ 1235 2355 98</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light align-self-stretch box p-4 text-center">
-                        <h3 class="mb-2">Email Address</h3>
-                        <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                        <h3 class="mb-2">ইমেইলঃ</h3>
+                        <p><a href="#"></a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light align-self-stretch box p-4 text-center">
-                        <h3 class="mb-2">Website</h3>
+                        <h3 class="mb-2">হোয়াটস এপ</h3>
                         <p><a href="#">yoursite.com</a></p>
                     </div>
                 </div>
             </div>
         </div>
         </section>
+
+        <div class="col-md-6 offset-md-3">
+            @if (session()->has('success'))
+                <div class="alert alert-success text-center">
+                    {{ session('success') }}
+                </div>
+            @elseif (session()->has('error'))
+                <div class="alert alert-danger text-center">
+                    {{ session('error') }}
+                </div>
+            @endif
+        </div>
+        <script>
+            $(document).ready(function() {
+                $('.alert').delay(15000).fadeOut(500);
+            });
+        </script> 
     
         @include('frontend.layouts.map_and_contact_form')
     

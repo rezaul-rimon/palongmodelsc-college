@@ -20,15 +20,20 @@ class FrontEndController extends Controller
 {
     public function index(){
         $committee = Committee::where('status', 1)->get();
+
         $students = Students::where('status', 1)->get();
         $stipend_students = StipendStudents::where('status', 1)->get();
+
         $notices = Notice::where('status', 1)->orderBy('id', 'desc')->take(4)->get();
+        $last_notice = Notice::select('notice_summary')->where('status', 1)->orderBy('id', 'desc')->first();
         $all_notice_show = 'no';
+
+        //dd($last_notice);
         
         $events = Event::where('status', 1)
             ->whereDate('event_date', '>=', now()) // Filter events with dates greater than or equal to today
             ->orderBy('event_date') // Order events by event date in ascending order
-            ->take(4)
+            ->take(3)
             ->get();
 
         //Class 6 to 8
@@ -193,6 +198,7 @@ class FrontEndController extends Controller
             'notices',
             'events',
             'all_notice_show',
+            'last_notice',
             'class_6',
             'class_7',
             'class_8',
@@ -217,14 +223,16 @@ class FrontEndController extends Controller
     public function teachers_page(){
         // $teachers = Teacher::where('status', 1)->get();
         $teachers = Teacher::where('status', 1)->orderBy('id', 'asc')->get();
+        $last_notice = Notice::select('notice_summary')->where('status', 1)->orderBy('id', 'desc')->first();
         $banner_text = "শিক্ষক মন্ডলী";
         $all_teacher_show = "yes";
 
-        return view('frontend.teachers_page', compact('teachers', 'banner_text', 'all_teacher_show'));
+        return view('frontend.teachers_page', compact('teachers', 'banner_text', 'all_teacher_show', 'last_notice'));
     }
 
     public function notice_events_page(){
         $notices = Notice::where('status', 1)->orderBy('id', 'desc')->get();
+        $last_notice = Notice::select('notice_summary')->where('status', 1)->orderBy('id', 'desc')->first();
         $events = Event::where('status', 1)
             ->whereDate('event_date', '>=', now()) // Filter events with dates greater than or equal to today
             ->orderBy('event_date') // Order events by event date in ascending order
@@ -233,12 +241,13 @@ class FrontEndController extends Controller
             $banner_text = "নোটিশ এবং ইভেন্ট";
             $all_notice_show = "yes";
 
-            return view('frontend.notice_and_events', compact('notices', 'events', 'banner_text', 'all_notice_show'));
+            return view('frontend.notice_and_events', compact('notices', 'events', 'banner_text', 'all_notice_show', 'last_notice'));
     }
 
     public function students_page(){
         $students = Students::where('status', 1)->get();
         $stipend_students = StipendStudents::where('status', 1)->get();
+        $last_notice = Notice::select('notice_summary')->where('status', 1)->orderBy('id', 'desc')->first();
         $class_6 = [
             'male' => 0,
             'female' => 0,
@@ -392,18 +401,21 @@ class FrontEndController extends Controller
             'class_10_comp',
             'class_10_cv',
             'banner_text',
+            'last_notice',
         ));
     }
 
     public function about_us(){
         $committee = Committee::where('status', 1)->get();
+        $last_notice = Notice::select('notice_summary')->where('status', 1)->orderBy('id', 'desc')->first();
         $banner_text = "আমাদের সম্পর্কে";
 
-        return view('frontend.about_us', compact('committee', 'banner_text'));
+        return view('frontend.about_us', compact('committee', 'banner_text', 'last_notice'));
     }
 
     public function gallery_page(){
         $galleryItems = Gallery::where('status', 1)->get();
+        $last_notice = Notice::select('notice_summary')->where('status', 1)->orderBy('id', 'desc')->first();
         
         $galleryItems->transform(function ($item) {
             $item->image_paths = json_decode($item->image_paths, true);
@@ -412,12 +424,14 @@ class FrontEndController extends Controller
 
         $banner_text = "স্মৃতির পাতা";
 
-        return view('frontend.gallery_page', compact('galleryItems', 'banner_text'));
+        return view('frontend.gallery_page', compact('galleryItems', 'banner_text', 'last_notice'));
     }
 
     public function contact_us(){
         $banner_text = "আমাদের সাথে যোগাযোগ";
-        return view('frontend.contact_us', compact('banner_text'));
+        $last_notice = Notice::select('notice_summary')->where('status', 1)->orderBy('id', 'desc')->first();
+
+        return view('frontend.contact_us', compact('banner_text', 'last_notice'));
         
     }
 
