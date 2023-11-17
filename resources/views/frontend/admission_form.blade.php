@@ -35,6 +35,7 @@
                 
                 {{-- Personal Information --}}
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
+                    <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">ব্যাক্তিগত তথ্যঃ </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -328,153 +329,167 @@
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
                     <div class="row">
                         <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">স্থানীয় অভিভাবকের তথ্যঃ</div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="guardians_name">অভিভাবকের নামঃ</label>
-                                <input type="text" class="form-control" id="guardians_name" name="guardians_name" placeholder="যেমনঃ রোজিনা বেগম">
+                                <input type="text" class="form-control @error('guardians_name') is-invalid @enderror" id="guardians_name" name="guardians_name" placeholder="যেমনঃ রোজিনা বেগম" value="{{ old('guardians_name') }}">
+                                @error('guardians_name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-    
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="guardians_relation">অভিভাবকের সাথে সম্পর্ক</label>
-                                <input type="text" class="form-control" id="guardians_relation" name="guardians_relation" placeholder="যেমনঃ মা/বাবা/চাচা/মামা/ভাই">
+                                <input type="text" class="form-control @error('guardians_relation') is-invalid @enderror" id="guardians_relation" name="guardians_relation" placeholder="যেমনঃ মা/বাবা/চাচা/মামা/ভাই" value="{{ old('guardians_relation') }}">
+                                @error('guardians_relation')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-                    </div>
-    
-                    <div class="row">
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="guardians_address">অভিভাবকের ঠিকানা</label>
-                                <input type="text" class="form-control" id="guardians_address" name="guardians_address" placeholder="যেমনঃ রত্নাপালং, উখিয়া">
+                                <input type="text" class="form-control @error('guardians_address') is-invalid @enderror" id="guardians_address" name="guardians_address" placeholder="যেমনঃ রত্নাপালং, উখিয়া" value="{{ old('guardians_address') }}">
+                                @error('guardians_address')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-    
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="guardians_phone">অভিভাবকের মোবাইল নাম্বার</label>
-                                <input type="text" class="form-control" id="guardians_phone" name="guardians_phone" placeholder="যেমনঃ 01712345678">
+                                <input type="text" class="form-control @error('guardians_phone') is-invalid @enderror" id="guardians_phone" name="guardians_phone" placeholder="যেমনঃ 01712345678" value="{{ old('guardians_phone') }}">
+                                @error('guardians_phone')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {{-- Guirdiand in Law Information --}}
-                <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
-                    <div class="row">
-                        <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">আইনত অভিভাবকের তথ্যঃ <br> <p style="font-size: 16px; color: black; margin-top: -10px;">(পিতা মাতা জীবিত না থাকলে)</p></div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="law_guardians_name">অভিভাবকের নামঃ</label>
-                                <input type="text" class="form-control" id="law_guardians_name" name="law_guardians_name" placeholder="যেমনঃ জালাল উদ্দিন খান">
-                            </div>
-                        </div>
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="law_guardians_relation">অভিভাবকের সাথে সম্পর্ক</label>
-                                <input type="text" class="form-control" id="law_guardians_relation" name="law_guardians_relation" placeholder="যেমনঃ চাচা/মামা/খালা">
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="law_guardians_address">অভিভাবকের ঠিকানা</label>
-                                <input type="text" class="form-control" id="law_guardians_address" name="law_guardians_address" placeholder="যেমনঃ ফরাজী পাড়া, চকরিয়া">
-                            </div>
-                        </div>
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="law_guardians_phone">অভিভাবকের মোবাইল নাম্বার</label>
-                                <input type="text" class="form-control" id="law_guardians_phone" name="law_guardians_phone" placeholder="যেমনঃ 01712345678">
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 {{-- Current Address --}}
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
                     <div class="row">
                         <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">বর্তমান ঠিকানাঃ</div>
-
+                    
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="current_district">জেলা</label>
-                                <input type="text" class="form-control" id="current_district" name="current_district" value="কক্সবাজার">
+                                <input type="text" class="form-control @error('current_district') is-invalid @enderror" id="current_district" name="current_district" value="{{ old('current_district', 'কক্সবাজার') }}">
+                                @error('current_district')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
-
+                    
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="current_upazila">উপজেলা</label>
-                                <input type="text" class="form-control" id="current_upazila" name="current_upazila" value="উখিয়া">
+                                <input type="text" class="form-control @error('current_upazila') is-invalid @enderror" id="current_upazila" name="current_upazila" value="{{ old('current_upazila', 'উখিয়া') }}">
+                                @error('current_upazila')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
+                    
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="current_village">গ্রাম</label>
-                                <input type="text" class="form-control" id="current_village" name="current_village" placeholder="যেমনঃ রত্নাপালং">
+                                <input type="text" class="form-control @error('current_village') is-invalid @enderror" id="current_village" name="current_village" value="{{ old('current_village') }}" placeholder="যেমনঃ রত্নাপালং">
+                                @error('current_village')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
-
+                    
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="current_post_office">ডাকঘর</label>
-                                <input type="text" class="form-control" id="current_post_office" name="current_post_office" placeholder="যেমনঃ রত্নাপালং">
+                                <input type="text" class="form-control @error('current_post_office') is-invalid @enderror" id="current_post_office" name="current_post_office" value="{{ old('current_post_office') }}" placeholder="যেমনঃ রত্নাপালং">
+                                @error('current_post_office')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
+
                     </div>
+                    
                 </div>
 
                 {{-- Permanent Address --}}
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
                     <div class="row">
                         <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">স্থায়ী ঠিকানাঃ</div>
-
+                    
                         {{-- Checkbox to copy current address to permanent address --}}
                         <div class="form-check col-12 ml-3">
                             <input class="form-check-input" type="checkbox" id="copy_address" name="copy_address">
                             <label class="form-check-label" for="copy_address">বর্তমান এবং স্থায়ী ঠিকানা একই</label>
                         </div>
-
+                    
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="permanent_district">জেলা</label>
-                                <input type="text" class="form-control" id="permanent_district" name="permanent_district">
+                                <input type="text" class="form-control @error('permanent_district') is-invalid @enderror" id="permanent_district" name="permanent_district" value="{{ old('permanent_district') }}">
+                                @error('permanent_district')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
-
+                    
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="permanent_upazila">উপজেলা</label>
-                                <input type="text" class="form-control" id="permanent_upazila" name="permanent_upazila">
+                                <input type="text" class="form-control @error('permanent_upazila') is-invalid @enderror" id="permanent_upazila" name="permanent_upazila" value="{{ old('permanent_upazila') }}">
+                                @error('permanent_upazila')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
+                    
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="permanent_village">গ্রাম</label>
-                                <input type="text" class="form-control" id="permanent_village" name="permanent_village">
+                                <input type="text" class="form-control @error('permanent_village') is-invalid @enderror" id="permanent_village" name="permanent_village" value="{{ old('permanent_village') }}">
+                                @error('permanent_village')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
-
+                    
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="permanent_post_office">ডাকঘর</label>
-                                <input type="text" class="form-control" id="permanent_post_office" name="permanent_post_office">
+                                <input type="text" class="form-control @error('permanent_post_office') is-invalid @enderror" id="permanent_post_office" name="permanent_post_office" value="{{ old('permanent_post_office') }}">
+                                @error('permanent_post_office')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                     </div>
+                    
 
                 </div>
 
@@ -500,79 +515,160 @@
                     });
                 </script>
 
-                {{-- Last School --}}
+                {{-- Admission Type --}}
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding:3%; border-radius: 10px; ">
                     <div class="row">
-                        <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">সর্বশেষ পঠিত তথ্যঃ</div>
+                        <div class="col-12 text-center mb-3" style="font-size: 20px; color:#6610f2;">ভর্তি সংক্রান্ত তথ্যঃ</div>
 
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <div class="form-group">
-                                <label for="last_school">সর্বশেষ পঠিত স্কুল/মাদ্রাসার নাম</label>
-                                <input type="text" class="form-control" id="last_school" name="last_school" placeholder="যেমনঃ পোকখালী আদর্শ উচ্চ বিদ্যালয়">
+                                <label for="admission_type">ভর্তির ধরন</label>
+                                <div class="form-check form-check-inline" required>
+                                    <input class="form-check-input ml-2" type="radio" name="admission_type" id="admission_type_new" value="new">
+                                    <label class="form-check-label" for="admission_type_new">নতুন ভর্তি</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="admission_type" id="admission_type_renew" value="renew">
+                                    <label class="form-check-label" for="admission_type_renew">ভর্তি নবায়ন</label>
+                                </div>
                             </div>
-                        </div>
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="last_school_address">ঠিকানা</label>
-                                <input type="text" class="form-control" id="last_school_address" name="last_school_address" placeholder="যেমনঃ পোকখালী, ঈদগাহ">
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="last_class">সর্বশেষ পঠিত শ্রেনী</label>
-                                <select class="form-control" id="class_5_roll" name="class_5_roll">
-                                    <option value="" selected>নির্বাচন করুন</option>
-                                    <option value="5">৫ম</option>
-                                    <option value="6">৬ষ্ঠ</option>
-                                    <option value="7">৭ম</option>
-                                    <option value="8">৮ম</option>
-                                    <option value="9">৯ম</option>
-                                    <option value="10">১০ম</option>
-                                </select>
+                            <!-- Additional input fields for নতুন ভর্তি -->
+                            <div class="row" id="new_admission_fields" style="display: none;">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="last_school">সর্বশেষ পঠিত স্কুল/মাদ্রাসার নাম</label>
+                                        <input type="text" class="form-control" id="last_school" name="last_school" placeholder="যেমনঃ পোকখালী আদর্শ উচ্চ বিদ্যালয়">
+                                    </div>
+                                </div>
+            
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="last_school_address">ঠিকানা</label>
+                                        <input type="text" class="form-control" id="last_school_address" name="last_school_address" placeholder="যেমনঃ পোকখালী, ঈদগাহ">
+                                    </div>
+                                </div>
+                            
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="last_class">সর্বশেষ পঠিত শ্রেনী</label>
+                                        <select class="form-control" id="last_class" name="last_class">
+                                            <option value="" selected>নির্বাচন করুন</option>
+                                            <option value="5">৫ম</option>
+                                            <option value="6">৬ষ্ঠ</option>
+                                            <option value="7">৭ম</option>
+                                            <option value="8">৮ম</option>
+                                            <option value="9">৯ম</option>
+                                            <option value="10">১০ম</option>
+                                        </select>
+                                    </div>
+                                </div>
+            
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="last_class_admit">সর্বশেষ বার্ষিক পরীক্ষার প্রবেশপত্র</label>
+                                        <input type="file" class="form-control" id="last_class_admit" name="last_class_admit">
+                                    </div>
+                                </div>
+            
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="class_5_roll">পঞ্চম শ্রেণীর সমাপণী পরীক্ষারর রোল</label>
+                                        <input type="text" class="form-control" id="class_5_roll" name="class_5_roll" placeholder="যেমনঃ 1020304050">
+                                    </div>
+                                </div>
+            
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="class_5_passing_year">পাশের সন</label>
+                                        <input type="text" class="form-control" id="class_5_passing_year" name="class_5_passing_year" placeholder="2022">
+                                    </div>
+                                </div>
+            
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="class_5_gpa">গ্রেড পয়েন্ট</label>
+                                        <input type="text" class="form-control" id="class_5_gpa" name="class_5_gpa" placeholder="যেমনঃ ৩.৭৫">
+                                    </div>
+                                </div>
+
                             </div>
-                        </div>
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="last_class_admit">সর্বশেষ বার্ষিক পরীক্ষার প্রবেশপত্র</label>
-                                <input type="file" class="form-control" id="last_class_admit" name="last_class_admit">
+
+                            <!-- Additional input fields for ভর্তি নবায়ন -->
+                            <div class="row" id="renew_admission_fields" style="display: none;">
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="last_class">সর্বশেষ পঠিত শ্রেনী</label>
+                                        <select class="form-control" id="class_5_roll" name="class_5_roll">
+                                            <option value="" selected>নির্বাচন করুন</option>
+                                            <option value="5">৫ম</option>
+                                            <option value="6">৬ষ্ঠ</option>
+                                            <option value="7">৭ম</option>
+                                            <option value="8">৮ম</option>
+                                            <option value="9">৯ম</option>
+                                            <option value="10">১০ম</option>
+                                        </select>
+                                    </div>
+                                </div>
+            
+                                
+            
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="class_5_roll">সর্বশেষ শ্রেণীর রোল</label>
+                                        <input type="text" class="form-control" id="class_5_roll" name="class_5_roll" placeholder="যেমনঃ 1020304050">
+                                    </div>
+                                </div>
+            
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="class_5_year">সর্বশেষ শ্রেণীর শাখা</label>
+                                        <input type="text" class="form-control" id="class_5_year" name="class_5_year" placeholder="2022">
+                                    </div>
+                                </div>
+            
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="class_5_gpa">গ্রেড পয়েন্ট</label>
+                                        <input type="text" class="form-control" id="class_5_gpa" name="class_5_gpa" placeholder="যেমনঃ ৩.৭৫">
+                                    </div>
+                                </div>
+
                             </div>
+
                         </div>
-                    </div>
-    
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="class_5_roll">পঞ্চম শ্রেণীর সমাপণী পরীক্ষারর রোল</label>
-                                <input type="text" class="form-control" id="class_5_roll" name="class_5_roll" placeholder="যেমনঃ 1020304050">
-                            </div>
-                        </div>
-    
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="class_5_year">পাশের সন</label>
-                                <input type="text" class="form-control" id="class_5_year" name="class_5_year" placeholder="2022">
-                            </div>
-                        </div>
-    
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="class_5_gpa">গ্রেড পয়েন্ট</label>
-                                <input type="text" class="form-control" id="class_5_gpa" name="class_5_gpa" placeholder="যেমনঃ ৩.৭৫">
-                            </div>
-                        </div>
+
+                        
                     </div>
                 </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const admission_typeRadio = document.querySelectorAll('input[name="admission_type"]');
+                        const admission_typeFields = document.getElementById('new_admission_fields');
+                        const renew_admission_typeFields = document.getElementById('renew_admission_fields');
+
+                        admission_typeRadio.forEach(function (radio) {
+                            radio.addEventListener('change', function () {
+                                if (radio.value === 'new') {
+                                    admission_typeFields.style.display = 'flex';
+                                    renew_admission_typeFields.style.display = 'none';
+                                } else if (radio.value === 'renew') {
+                                    admission_typeFields.style.display = 'none';
+                                    renew_admission_typeFields.style.display = 'flex';
+                                }
+                            });
+                        });
+                        
+                    });
+                </script>
 
                 {{-- Others Information --}}
                 <div class="my-3" style="border: 1px dashed #fd7e14; padding: 3%; border-radius: 10px;">
                     <div class="row">
                         <div class="col-12 text-center mb-3" style="font-size: 20px; color: #6610f2;">অন্যান্য তথ্যঃ</div>
-                        
+                        {{-- is the student Physically Unfit --}}
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="protibondhi">প্রতিবন্ধী কিনা?</label>
@@ -603,6 +699,66 @@
                             </div>
                         </div>
 
+                        {{-- is the students is Orphan --}}
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="orphan">ইয়াতিম কিনা?</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input ml-2" type="radio" name="orphan" id="orphan_yes" value="yes">
+                                    <label class="form-check-label" for="orphan_yes">হ্যাঁ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="orphan" id="orphan_no" value="no" checked>
+                                    <label class="form-check-label" for="orphan_no">না</label>
+                                </div>
+                            </div>
+
+                            <!-- Additional input fields for ইয়াতিম কিনা? -->
+                            <div class="row" id="orphan_fields" style="display: none;">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="legal_guardians_name">আইনত অভিভাবকের নামঃ</label>
+                                        <input type="text" class="form-control @error('legal_guardians_name') is-invalid @enderror" id="legal_guardians_name" name="legal_guardians_name" placeholder="যেমনঃ জালাল উদ্দিন খান" value="{{ old('legal_guardians_name') }}">
+                                        @error('legal_guardians_name')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+        
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="legal_guardians_relation">অভিভাবকের সাথে সম্পর্ক</label>
+                                        <input type="text" class="form-control @error('legal_guardians_relation') is-invalid @enderror" id="legal_guardians_relation" name="legal_guardians_relation" placeholder="যেমনঃ চাচা/মামা/খালা" value="{{ old('legal_guardians_relation') }}">
+                                        @error('legal_guardians_relation')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+        
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="legal_guardians_address">অভিভাবকের ঠিকানা</label>
+                                        <input type="text" class="form-control @error('legal_guardians_address') is-invalid @enderror" id="legal_guardians_address" name="legal_guardians_address" placeholder="যেমনঃ ফরাজী পাড়া, চকরিয়া" value="{{ old('legal_guardians_address') }}">
+                                        @error('legal_guardians_address')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+        
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="legal_guardians_phone">অভিভাবকের মোবাইল নাম্বার</label>
+                                        <input type="text" class="form-control @error('legal_guardians_phone') is-invalid @enderror" id="legal_guardians_phone" name="legal_guardians_phone" placeholder="যেমনঃ 01712345678" value="{{ old('legal_guardians_phone') }}">
+                                        @error('legal_guardians_phone')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {{-- Is the students Member of Freedom fighter --}}
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="muktijoddha">মুক্তিযোদ্ধা পরিবারের সদস্য কিনা?</label>
@@ -633,6 +789,7 @@
                             </div>
                         </div>
 
+                        {{-- Is any siblings on this school --}}
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="brother_sister_school">ভাই বোন অত্র স্কুলে পড়ে কিনা? </label>
@@ -710,6 +867,19 @@
                             });
                         });
 
+                        const orphanRadio = document.querySelectorAll('input[name="orphan"]');
+                        const orphanFields = document.getElementById('orphan_fields');
+
+                        orphanRadio.forEach(function (radio) {
+                            radio.addEventListener('change', function () {
+                                if (radio.value === 'yes') {
+                                    orphanFields.style.display = 'flex';
+                                } else {
+                                    orphanFields.style.display = 'none';
+                                }
+                            });
+                        });
+
                         const muktijoddhaRadio = document.querySelectorAll('input[name="muktijoddha"]');
                         const muktijoddhaFields = document.getElementById('muktijoddha_fields');
 
@@ -735,6 +905,8 @@
                                 }
                             });
                         });
+
+
                     });
                 </script>
 
