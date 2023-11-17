@@ -9,8 +9,12 @@
 	@include('frontend.layouts.speech')
     @include('frontend.layouts.special_highlight')
     @include('frontend.layouts.managing_board')
+    <div class="mt-5"></div>
+    <div class="mt-5"></div>
     @include('frontend.layouts.achivements')
-    @include('frontend.layouts.testimonials')
+    <div class="mt-5"></div>
+    <div class="mt-5"></div>
+    {{-- @include('frontend.layouts.testimonials') --}}
     @include('frontend.layouts.map_and_contact_form')
     
     <div class="mt-5"></div>

@@ -58,6 +58,7 @@
         position: absolute; /* Set absolute position */
         bottom: 5px; /* Adjust as needed */
         left: 50%;
+        padding-top:7px; 
         transform: translateX(-50%);
     }
 
@@ -80,8 +81,7 @@
         <div class="row justify-content-center mb-5 pb-2">
 			<div class="col-md-8 text-center heading-section ftco-animate">
 				<h2 class="mb-4"><span>সম্মানিত</span> শিক্ষক মহোদয়গন</h2>
-				<p>Separated they live in. A small river named Duden flows by their place and supplies it with the
-					necessary regelialia. It is a paradisematic country</p>
+				<p>আমাদের রয়েছে একঝাঁক দীর্ঘদিনের অভিজ্ঞ শিক্ষকমন্ডলী, আপনাদের সন্তানের ভবিষ্যত গঠনে আমাদের শিক্ষকরা প্রতিশ্রুতিবদ্ধ।</p>
 			</div>
 		</div>
 
@@ -90,7 +90,11 @@
                 <div class="col-md-3 mb-4">
                     <div class="teacher-card rounded">
                         <div class="teacher-photo">
-                            <img src="{{ asset('Resources/Teachers/Photos/' . $teacher->teacher_photo) }}" alt="{{ $teacher->teacher_name }}">
+                            @if($teacher->teacher_photo != null)
+                                <img src="{{ asset('Resources/Teachers/Photos/' . $teacher->teacher_photo) }}" alt="{{ $teacher->teacher_name }}">
+                            @else
+                                <img src="{{ asset('Resources/Teachers/Photos/teacher.png') }}" alt="{{ $teacher->teacher_name }}">
+                            @endif
                             <div class="social-icons">
                                 <!-- Add social icons and links here (displayed on hover) -->
                                 <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -108,8 +112,10 @@
                 </div>
             @endforeach
         </div>
+        @if($all_teacher_show === 'no')
 		<div class="text-center mt-3">
-            <a href="#" class="btn btn-primary">সকল শিক্ষক দেখুন</a>
+            <a href="{{ route('frontend.teachers') }}" class="btn btn-primary">সকল শিক্ষক দেখুন</a>
         </div>
+        @endif
     </div>
 </section>

@@ -22,11 +22,13 @@ class FrontEndController extends Controller
         $committee = Committee::where('status', 1)->get();
         $students = Students::where('status', 1)->get();
         $stipend_students = StipendStudents::where('status', 1)->get();
-        $notices = Notice::where('status', 1)->orderBy('id', 'desc')->get();
+        $notices = Notice::where('status', 1)->orderBy('id', 'desc')->take(4)->get();
+        $all_notice_show = 'no';
         
         $events = Event::where('status', 1)
             ->whereDate('event_date', '>=', now()) // Filter events with dates greater than or equal to today
             ->orderBy('event_date') // Order events by event date in ascending order
+            ->take(4)
             ->get();
 
         //Class 6 to 8
@@ -170,7 +172,8 @@ class FrontEndController extends Controller
         //dd($class_10_comp);
         //dd($class_6, $class_7, $class_8);
 
-        $teachers = Teacher::where('status', 1)->get();
+        $teachers = Teacher::where('status', 1)->orderBy('id', 'asc')->take(8)->get();
+        $all_teacher_show = "no";
         //dd($teachers);
         
         $galleryItems = Gallery::where('status', 1)->get();
@@ -189,6 +192,7 @@ class FrontEndController extends Controller
             'stipend_students',
             'notices',
             'events',
+            'all_notice_show',
             'class_6',
             'class_7',
             'class_8',
@@ -203,6 +207,7 @@ class FrontEndController extends Controller
             'class_10_comp',
             'class_10_cv',
             'teachers',
+            'all_teacher_show',
             'galleryItems',
         ));
     }
@@ -210,10 +215,12 @@ class FrontEndController extends Controller
 
     ////////
     public function teachers_page(){
-        $teachers = Teacher::where('status', 1)->get();
+        // $teachers = Teacher::where('status', 1)->get();
+        $teachers = Teacher::where('status', 1)->orderBy('id', 'asc')->get();
         $banner_text = "শিক্ষক মন্ডলী";
+        $all_teacher_show = "yes";
 
-        return view('frontend.teachers_page', compact('teachers', 'banner_text'));
+        return view('frontend.teachers_page', compact('teachers', 'banner_text', 'all_teacher_show'));
     }
 
     public function notice_events_page(){
@@ -224,8 +231,9 @@ class FrontEndController extends Controller
             ->get();
 
             $banner_text = "নোটিশ এবং ইভেন্ট";
+            $all_notice_show = "yes";
 
-            return view('frontend.notice_and_events', compact('notices', 'events', 'banner_text'));
+            return view('frontend.notice_and_events', compact('notices', 'events', 'banner_text', 'all_notice_show'));
     }
 
     public function students_page(){

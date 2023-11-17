@@ -62,5 +62,11 @@
 					
 				@endforelse
 			</div>
+			
+			@if($all_notice_show === 'no')
+			<div class="text-center mt-3">
+				<a href="{{ route('frontend.notice_events') }}" class="btn btn-primary">সকল নোটিশ দেখুন</a>
+			</div>
+			@endif
 		</div>
 	</section>
