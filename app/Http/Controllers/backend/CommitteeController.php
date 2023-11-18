@@ -127,7 +127,7 @@ class CommitteeController extends Controller
                 return redirect()->route('backend.committee')
                     ->with('success', 'সদস্যের তথ্য সফলভাবে আপডেট করা হয়েছে');
             } catch (\Exception $e) {
-                return redirect()->back()
+                return redirect()->route('backend.committee')
                     ->with('error', 'কিছু একটা সমস্যা হয়েছে');
             }
         }

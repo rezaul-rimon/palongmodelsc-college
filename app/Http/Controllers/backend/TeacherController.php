@@ -178,10 +178,10 @@ class TeacherController extends Controller
 
             $teacher->delete(); // Delete the teacher from the database.
 
-            return redirect()->back()->with('success', 'এই শিক্ষকের ডেটা সম্পূর্ণরূপে মুছে ফেলা হয়েছে');
+            return redirect()->route('backend.teacher')->with('success', 'এই শিক্ষকের ডেটা সম্পূর্ণরূপে মুছে ফেলা হয়েছে');
         } catch (\Exception $e) {
             // Handle any errors, such as the teacher not being found.
-            return redirect()->back()->with('error', 'কিছু একটা সমস্যা হয়েছে');
+            return redirect()->route('backend.teacher')->with('error', 'কিছু একটা সমস্যা হয়েছে');
         }
     }
 }

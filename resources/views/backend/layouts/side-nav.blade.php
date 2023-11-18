@@ -19,6 +19,7 @@
                             <a class="nav-link" href="{{ route('backend.notice') }}">নোটিশ</a>
                             <a class="nav-link" href="{{ route('backend.event') }}">ইভেন্ট</a>
                             <a class="nav-link" href="{{ route('backend.gallery') }}">গ্যালারী</a>
+                            <a class="nav-link" href="{{ route('backend.contact_us') }}">মেসেজ</a>
                         </nav>
                     </div>
 

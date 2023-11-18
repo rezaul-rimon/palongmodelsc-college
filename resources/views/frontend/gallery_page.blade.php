@@ -2,6 +2,10 @@
 
 @section('content')
 
+@php
+use App\Helpers\AppHelper;
+@endphp
+
 	@include('frontend.layouts.hero_single_page')
 
     {{-- @include('frontend.layouts.gallary') --}}
@@ -41,8 +45,10 @@
                     </div>
                 </div>
                 <div class="row no-gutters">
-                    @forelse ($galleryItems->take(8) as $items)
-                    <div class="col-12 text-center text-primary mt-4" style="font-size: 18px;"><p>{{ $items->gallery_title }}</p></div>
+                    @forelse ($galleryItems as $items)
+                    <div class="col-12 text-center text-primary mt-5"><p style="font-size: 20px;">{{ $items->gallery_title }}</p>
+                        <p style="margin-top:-25px; color:black;">তারিখঃ {{ AppHelper::en2bn($items->created_at->format('d-m-Y')) }}</p>
+                    </div>
                         @foreach ($items->image_paths as $image)
                         {{-- @foreach (array_slice($items->image_paths, 0, 1) as $image) --}}
                             <div class="col-md-3 ftco-animate">

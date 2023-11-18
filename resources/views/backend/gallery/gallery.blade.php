@@ -98,7 +98,7 @@
                         <td class="align-middle">
                             @if(auth()->user()->role === 1 or auth()->user()->role === 2)
                             {{-- <a href="#" class="btn my-1 btn-sm btn-warning">Edit</a> --}}
-                            <a href="#" class="btn my-1 btn-sm btn-danger" onclick="confirm('আপনি কি নিশ্চিত যে আপনি এই গ্যালারীটি ডিলিট করতে চান?')"><i class="fas fa-trash"></i></a>
+                            <a href="{{ route('backend.delete_gallery', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="confirm('আপনি কি নিশ্চিত যে আপনি এই গ্যালারীটি ডিলিট করতে চান?')"><i class="fas fa-trash"></i></a>
                             @else
                             <span class="text-danger">শুধুমাত্র এডমিন একশন নিতে পারে</span>
                             @endif

@@ -181,7 +181,7 @@ class FrontEndController extends Controller
         $all_teacher_show = "no";
         //dd($teachers);
         
-        $galleryItems = Gallery::where('status', 1)->get();
+        $galleryItems = Gallery::where('status', 1)->orderBy('id', 'desc')->take(8)->get();
         
         $galleryItems->transform(function ($item) {
             $item->image_paths = json_decode($item->image_paths, true);
@@ -414,7 +414,7 @@ class FrontEndController extends Controller
     }
 
     public function gallery_page(){
-        $galleryItems = Gallery::where('status', 1)->get();
+        $galleryItems = Gallery::where('status', 1)->orderBy('id', 'desc')->get();
         $last_notice = Notice::select('notice_summary')->where('status', 1)->orderBy('id', 'desc')->first();
         
         $galleryItems->transform(function ($item) {

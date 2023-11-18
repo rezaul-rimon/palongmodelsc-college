@@ -71,10 +71,10 @@
 			
 			</div>
 			
-			@if($all_notice_show === 'no')
+			{{-- @if($all_notice_show === 'no')
 			<div class="text-center mt-3">
 				<a href="{{ route('frontend.notice_events') }}" class="btn btn-primary">সকল ইভেন্ট দেখুন</a>
 			</div>
-			@endif
+			@endif --}}
 		</div>
 	</section>

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\FrontEndController;
-use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeController, EventController, GalleryController, NoticeController, StipendStudentsController, StudentsController, TeacherController, UserController};
+use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeController, ContactUsController, EventController, GalleryController, NoticeController, StipendStudentsController, StudentsController, TeacherController, UserController};
 use App\Http\Controllers\frontend\AdmissionController;
 
 /*
@@ -117,7 +117,7 @@ Route::controller(StipendStudentsController::class)->prefix('backend')->middlewa
     Route::post('/update-stipend-students/{id}', 'update_stipend_students')->name('backend.update_stipend_students');
 });
 
-//Teacher
+//User
 Route::controller(UserController::class)->prefix('backend')->middleware('auth')->group(function () {
     Route::get('/users', 'users')->name('backend.users');
     Route::get('/edit-user/{id}', 'edit_user')->name('backend.edit_user');
@@ -125,4 +125,9 @@ Route::controller(UserController::class)->prefix('backend')->middleware('auth')-
     Route::get('/delete-user/{id}', 'delete_user')->name('backend.delete_user');
 });
 
+//Contact Us
+Route::controller(ContactUsController::class)->prefix('backend')->middleware('auth')->group(function () {
+    Route::get('/contact-us', 'contact_us')->name('backend.contact_us');
+    Route::get('/delete-contact-us/{id}', 'delete_contact_us')->name('backend.delete_contact_us');
+});
 

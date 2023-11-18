@@ -1,11 +1,13 @@
-<footer class="ftco-footer ftco-bg-dark ftco-section">
+<footer class="ftco-footer ftco-bg-dark ftco-section" style="padding: 20px 10px 5px 10px !important">
     <div class="container">
         <div class="row">
 			@php
 				use App\Helpers\AppHelper;
 			@endphp
             <div class="col-md-12 text-center">
-                <p style="font-size: 17px;">কপিরাইট &copy;{{ AppHelper::en2bn(now()->year) }} সকল সত্বাধিকারী পালং আদর্শ স্কুল ও কলেজ | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                <p style="font-size: 17px;">কপিরাইট &copy; {{ AppHelper::en2bn(now()->year) }} সকল সত্বাধিকারী পালং আদর্শ স্কুল ও কলেজ <br> This website is made with <span style="color: burlywood">Md. Rezaul Islam Khan</span> 
+					{{-- <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> --}}
+				</p>
             </div>
         </div>
     </div>

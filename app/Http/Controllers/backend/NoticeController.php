@@ -87,10 +87,10 @@ class NoticeController extends Controller
     
             $notice->delete(); // Delete the notice from the database.
     
-            return redirect()->back()->with('success', 'নোটিশটি সম্পূর্ণরূপে মুছে ফেলা হয়েছে');
+            return redirect()->route('backend.notice')->with('success', 'নোটিশটি সম্পূর্ণরূপে মুছে ফেলা হয়েছে');
         } catch (\Exception $e) {
             // Handle any errors, such as the notice not being found.
-            return redirect()->back()->with('error', 'কিছু একটা সমস্যা হয়েছে');
+            return redirect()->route('backend.notice')->with('error', 'কিছু একটা সমস্যা হয়েছে');
         }
     }
     
@@ -126,7 +126,7 @@ class NoticeController extends Controller
             $notice = Notice::find($id);
     
             if (!$notice) {
-                return redirect()->back()
+                return redirect()->route('backend.notice')
                     ->with('error', 'নোটিশ পাওয়া যায়নি');
             }
     
@@ -155,7 +155,7 @@ class NoticeController extends Controller
                 return redirect()->route('backend.notice')
                     ->with('success', 'নোটিশটি সফল ভাবে আপডেট করা হয়েছে');
             } else {
-                return redirect()->back()
+                return redirect()->route('backend.notice')
                     ->with('error', 'নোটিশ আপডেট করা যায়নি');
             }
         }
