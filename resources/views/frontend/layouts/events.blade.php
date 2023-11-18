@@ -39,9 +39,9 @@
 				<div class="col-md-6 col-lg-4 ftco-animate">
 					<div class="blog-entry">
 						@if($item->event_photo != null)
-							<a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url('{{ asset('Resources/Event/Photos/' . $item->event_photo) }}'); background-size: cover; background-position: center;">
+							<a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url('{{ asset('storage/Resources/Event/Photos/' . $item->event_photo) }}'); background-size: cover; background-position: center;">
 						@else
-							<a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url('{{ asset('Resources/Event/Photos/event.jpg') }}'); background-size: cover; background-position: center;">
+							<a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url('{{ asset('storage/Resources/Event/Photos/event.jpg') }}'); background-size: cover; background-position: center;">
 						@endif
 							<div class="meta-date text-center p-2">
 								@php

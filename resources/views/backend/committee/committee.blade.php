@@ -85,9 +85,9 @@
                         <td class="align-middle">{{ $item->updated_at }}</td>
                         <td class="align-middle">
                             @if($item->committee_photo != null)
-                                <img src="{{ asset('Resources/Committee/Photos/' . $item->committee_photo) }}" alt="{{ $item->committee_name }} Photo" style="max-width: 80px; height: 80px;">
+                                <img src="{{ asset('storage/Resources/Committee/Photos/' . $item->committee_photo) }}" alt="{{ $item->committee_name }} Photo" style="max-width: 80px; height: 80px;">
                             @else
-                                <img src="{{ asset('Resources/Committee/Photos/committee.png') }}" alt="{{ $item->committee_name }} Photo" style="max-width: 80px; height: 80px;">
+                                <img src="{{ asset('storage/Resources/Committee/Photos/committee.png') }}" alt="{{ $item->committee_name }} Photo" style="max-width: 80px; height: 80px;">
                             @endif
                         </td>                        
                         <td class="align-middle">{{ $item->committee_name }}</td>

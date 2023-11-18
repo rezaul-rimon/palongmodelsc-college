@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <style>
     .page-title {
         text-align: left;
@@ -25,9 +24,7 @@
             margin: 0 0 10px 0;
         }
     }
-
 </style>
-
 
 <main>
     <div class="container-fluid px-4">
@@ -54,7 +51,7 @@
             $(document).ready(function() {
                 $('.alert').delay(2000).fadeOut(500);
             });
-        </script>               
+        </script>
 
         <table class="table table-responsive table-bordered text-center">
             <colgroup>
@@ -89,15 +86,15 @@
                                 @endphp
                                 @if(is_array($imagePaths))
                                     @foreach($imagePaths as $imagePath)
-                                        <img src="{{ asset('Resources/Gallery/Photos/' . $imagePath) }}" alt="{{ $item->gallery_title }} Photo" style="max-width: 100px; height: 80px;">
+                                        <img src="{{ asset('storage/Resources/Gallery/Photos/' . $imagePath) }}" alt="{{ $item->gallery_title }} Photo" style="max-width: 100px; height: 80px;">
                                     @endforeach
                                 @endif
                             @endif
                         </td>
+
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">
                             @if(auth()->user()->role == 1 or auth()->user()->role == 2)
-                            {{-- <a href="#" class="btn my-1 btn-sm btn-warning">Edit</a> --}}
                             <a href="{{ route('backend.delete_gallery', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="confirm('আপনি কি নিশ্চিত যে আপনি এই গ্যালারীটি ডিলিট করতে চান?')"><i class="fas fa-trash"></i></a>
                             @else
                             <span class="text-danger">শুধুমাত্র এডমিন একশন নিতে পারে</span>
@@ -109,11 +106,9 @@
                         <td class="text-danger fw-bold" colspan="6">এই পর্যন্ত কোন গ্যালারী যুক্ত করা হয়নি।</td>
                     </tr>
                 @endforelse
-            </tbody>            
-            
+            </tbody>
+
         </table>
     </div>
 </main>
 @endsection
-
-

@@ -91,9 +91,9 @@
                         <td class="align-middle">{{ $item->updated_at }}</td>
                         <td class="align-middle">
                             @if($item->event_photo != null)
-                                <img src="{{ asset('Resources/Event/Photos/' . $item->event_photo) }}" alt="{{ $item->event_name }} Photo" style="max-width: 120px; height: 80px;">
+                                <img src="{{ asset('storage/Resources/Event/Photos/' . $item->event_photo) }}" alt="{{ $item->event_name }} Photo" style="max-width: 120px; height: 80px;">
                             @else
-                                <img src="{{ asset('Resources/Event/Photos/event.jpg') }}" alt="{{ $item->event_name }} Photo" style="max-width: 120px; height: 80px;">
+                                <img src="{{ asset('storage/Resources/Event/Photos/event.jpg') }}" alt="{{ $item->event_name }} Photo" style="max-width: 120px; height: 80px;">
                             @endif
                         </td>                        
                         <td class="align-middle">{{ $item->event_name }}</td>

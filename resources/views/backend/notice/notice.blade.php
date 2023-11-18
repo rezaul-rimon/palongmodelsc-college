@@ -90,7 +90,7 @@
                         <td class="align-middle">{{ $item->notice_type }}</td>
                         <td class="align-middle">{{ $item->notice_summary }}</td>
                         <td class="align-middle">
-                            <a target="_blank" href="{{ asset('Resources/Notice/Files/' . $item->notice_file) }}">{{ $item->notice_file }}</a>
+                            <a target="_blank" href="{{ asset('storage/Resources/Notice/Files/' . $item->notice_file) }}">{{ $item->notice_file }}</a>
                         </td>
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">

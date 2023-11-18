@@ -91,9 +91,9 @@
                     <div class="teacher-card rounded">
                         <div class="teacher-photo">
                             @if($teacher->teacher_photo != null)
-                                <img src="{{ asset('Resources/Teachers/Photos/' . $teacher->teacher_photo) }}" alt="{{ $teacher->teacher_name }}">
+                                <img src="{{ asset('storage/Resources/Teachers/Photos/' . $teacher->teacher_photo) }}" alt="{{ $teacher->teacher_name }}">
                             @else
-                                <img src="{{ asset('Resources/Teachers/Photos/teacher.png') }}" alt="{{ $teacher->teacher_name }}">
+                                <img src="{{ asset('storage/Resources/Teachers/Photos/teacher.png') }}" alt="{{ $teacher->teacher_name }}">
                             @endif
                             <div class="social-icons">
                                 <!-- Add social icons and links here (displayed on hover) -->
