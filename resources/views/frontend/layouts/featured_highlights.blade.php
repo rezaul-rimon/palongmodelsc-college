@@ -12,9 +12,7 @@
 				</div>
 				<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
 					<h3 class="mb-4">কেন আমাদের স্কুলে আসবেন?</h3>
-					<p style="text-align: justify">On her way she met a copy. The copy warned the Little Blind Text, that where it came from it
-						would have been rewritten a thousand times and everything that was left from its origin would be
-						the word.</p>
+					<p style="text-align: justify">আপনার সন্তানকে পরিপূর্ণ মানুষ হিসেবে গড়ে তুলতে আমরা প্রতিশ্রুতিবদ্ধ।</p>
 					<div class="row mt-5">
 						<div class="col-lg-6">
 							<div class="services-2 d-flex">
@@ -22,7 +20,7 @@
 										class="flaticon-security"></span></div>
 								<div class="text">
 									<h3>নিরাপত্তা</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+									<p>আমাদের স্কুলে ছাত্র-ছাত্রী এবং শিক্ষক মহোদয় গনের জন্য রয়েছে পর্যাপ্ত নিরাপত্তা ব্যাবস্থা।</p>
 								</div>
 							</div>
 						</div>
@@ -32,7 +30,7 @@
 										class="flaticon-reading"></span></div>
 								<div class="text">
 									<h3>নিয়মিত পাঠদান</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+									<p>যে কোন পরিস্থিতিতে নিয়মিত পাঠদান চালিয়ে যাওয়ার ব্যাপারে আমরা বিশেষ ভাবে প্রতিশ্রুতিবদ্ধ।</p>
 								</div>
 							</div>
 						</div>
@@ -42,7 +40,7 @@
 										class="flaticon-diploma"></span></div>
 								<div class="text">
 									<h3>অভিজ্ঞ শিক্ষক মহোদয়</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+									<p>আমাদের রয়েছে একঝাক তরুন মেধাবী এবং বিশেষ ভাবে প্রশিক্ষনপ্রাপ্ত অভিজ্ঞ শিক্ষক মন্ডলী।</p>
 								</div>
 							</div>
 						</div>
@@ -52,7 +50,7 @@
 										class="flaticon-education"></span></div>
 								<div class="text">
 									<h3>পর্যাপ্ত শ্রেণীকক্ষ</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+									<p>শিক্ষার্থীদের পাঠদানের জন্য রয়েছে আমাদের পর্যাপ্ত শ্রেণীকক্ষ এবং অন্যান্য সকল সুযোগ সুবিধা।</p>
 								</div>
 							</div>
 						</div>
@@ -62,7 +60,7 @@
 										class="flaticon-jigsaw"></span></div>
 								<div class="text">
 									<h3>সৃজনশীল পদ্ধতিতে পাঠদান</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+									<p>আধুনিক সিলেবাস এবং শিক্ষাব্যাবস্থা বিশেষ করে সৃজনশীল পদ্ধতির আলোকে পাঠদানে আমাদের শিক্ষক মহোদয় গন বিশেষ ভাবে প্রশিক্ষনপ্রাপ্ত।</p>
 								</div>
 							</div>
 						</div>
@@ -72,7 +70,7 @@
 										class="flaticon-kids"></span></div>
 								<div class="text">
 									<h3>খেলাধুলার সুব্যাবস্থা</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+									<p>শিক্ষার্থীদের পরিপূর্ণ মেধাবিকাশে খেলাধুলা সহ এবং অন্যান্য এক্সট্রা কারিকুলাম এক্টিভিটির পর্যাপ্ত সুব্যাবস্থা রয়েছে।</p>
 								</div>
 							</div>
 						</div>

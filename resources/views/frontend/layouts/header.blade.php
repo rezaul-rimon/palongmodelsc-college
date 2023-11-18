@@ -194,7 +194,9 @@
 					<span>আপডেট</span>
 				</div>
 				<div class="col-lg-11 col-md-10 col-9 up-text">
-					<p><marquee scrollamount="5" behavior="alternate" direction="left">{{ $last_notice->notice_summary }}</marquee></p>
+					@if($last_notice)
+						<p><marquee scrollamount="5" behavior="alternate" direction="left">{{ $last_notice->notice_summary }}</marquee></p>
+					@endif
 				</div>
 			</div>
 		</div>

@@ -59,7 +59,9 @@
 					</div>
 				</div>
 				@empty
-					
+				<div class="mt-3 col-md-8 offset-md-2">
+					<h2 class="text-secondary font-bold text-4xl mb-2" style="text-align: center;">আপাতত কোন নোটিশ নেই।</h2>
+				</div>
 				@endforelse
 			</div>
 			

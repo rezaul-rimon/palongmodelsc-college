@@ -48,7 +48,9 @@
 						</div>
 					@endforeach
 				@empty
-					<!-- Handle case where there are no gallery items -->
+				<div class="mt-3 col-md-8 offset-md-2">
+					<h2 class="text-secondary font-bold text-4xl mb-2" style="text-align: center;">আপাতত কোন গ্যালারী ইমেজ নেই।</h2>
+				</div>
 				@endforelse
 			</div>		
 		</div>
