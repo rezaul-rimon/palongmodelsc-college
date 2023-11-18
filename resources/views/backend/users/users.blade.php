@@ -87,23 +87,23 @@
                         <td class="align-middle">{{ $item->created_at }}</td>
                         <td class="align-middle">
                             {{ $item->name }}
-                            @if($item->id === auth()->user()->id)
+                            @if($item->id == auth()->user()->id)
                                 <span class="text-primary">(You)</span>
                             @else
                             @endif
                         </td>                        
                         <td class="align-middle">{{ $item->email }}</td>
                         <td class="align-middle">
-                            @if($item->permission === 1)
+                            @if($item->permission == 1)
                                 Yes
                             @else
                                 No
                             @endif
                         </td>
                         <td class="align-middle">
-                            @if($item->role === 1)
+                            @if($item->role == 1)
                                 Admin
-                            @elseif($item->role === 2)
+                            @elseif($item->role == 2)
                                 Super Admin
                             @else
                                 People

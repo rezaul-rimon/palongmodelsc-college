@@ -36,7 +36,7 @@
                 <h1 class="text-danger">ম্যানেজিং কমিটি ম্যানেজমেন্ট</h1>
             </div>
 
-            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
+            @if(auth()->user()->role == 1 or auth()->user()->role == 2)
             <div class="col-md-6 col-12 add-button">
                 <a style="margin-bottom: 20px;" class="btn btn-primary" href="{{ route('backend.add_committee') }}">নতুন সদস্য যুক্ত করুন</a>
             </div>
@@ -94,7 +94,7 @@
                         <td class="align-middle">{{ $item->committee_designation }}</td>
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">
-                            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
+                            @if(auth()->user()->role == 1 or auth()->user()->role == 2)
                             <a href="{{ route('backend.edit_committee', $item->id) }}" class="btn my-1 btn-sm btn-warning">সংশোধন</a>
                             <a href="{{ route('backend.delete_committee', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="confirm('আপনি কি নিশ্চিত যে আপনি এই কমিটি সদস্যকে ডিলিট করতে চান?')">ডিলিট</a>
                             @else

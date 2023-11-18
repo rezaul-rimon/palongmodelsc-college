@@ -35,7 +35,7 @@
                 <h1 class="text-danger">মেসেজ ম্যানেজমেন্ট</h1>
             </div>
 
-            {{-- @if(auth()->user()->role === 1 or auth()->user()->role === 2)
+            {{-- @if(auth()->user()->role == 1 or auth()->user()->role == 2)
             <div class="col-md-6 col-12 add-button">
                 <a style="margin-bottom: 20px;" class="btn btn-primary" href="{{ route('backend.add_teacher') }}">নতুন শিক্ষক যুক্ত করুন</a>
             </div>
@@ -92,7 +92,7 @@
                         <td class="align-middle">{{ $item->subject }}</td>
                         <td class="align-middle">{{ $item->message }}</td>
                         <td class="align-middle">
-                            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
+                            @if(auth()->user()->role == 1 or auth()->user()->role == 2)
                             <a href="{{ route('backend.delete_contact_us', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="return confirm('আপনি কি নিশ্চিত যে আপনি এই মেসেজটি ডিলিট করতে চান?')">ডিলিট</a>
                             @else
                                 <span class="text-danger">শুধুমাত্র এডমিন একশন নিতে পারে</span>

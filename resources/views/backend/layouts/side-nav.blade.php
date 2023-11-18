@@ -8,7 +8,7 @@
                     ড্যাশবোর্ড
                 </a>
                 {{-- <div class="sb-sidenav-menu-heading" style="font-size: 20px;">ম্যানেজমেন্ট</div> --}}
-                @if(auth()->user()->permission === 1)
+                @if(auth()->user()->permission == 1)
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                         দপ্তর ব্যাবস্থাপনা
@@ -47,7 +47,7 @@
                         </nav>
                     </div>
 
-                    @if(auth()->user()->role === 2)
+                    @if(auth()->user()->role == 2)
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts_u" aria-expanded="false" aria-controls="collapseLayouts_u">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             ইউজার
@@ -114,11 +114,11 @@
         <div class="sb-sidenav-footer">
             <div class="text-white">আপনার রোলঃ
                 <span class="text-warning">
-                    @if(auth()->user()->role === 0)
+                    @if(auth()->user()->role == 0)
                     সাধারণ
-                    @elseif(auth()->user()->role === 1)
+                    @elseif(auth()->user()->role == 1)
                     এডমিন
-                    @elseif(auth()->user()->role === 2)
+                    @elseif(auth()->user()->role == 2)
                     সুপার এডমিন
                     @endif
                 </span>

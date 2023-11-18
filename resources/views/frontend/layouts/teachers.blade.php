@@ -112,7 +112,7 @@
                 </div>
             @endforeach
         </div>
-        @if($all_teacher_show === 'no')
+        @if($all_teacher_show == 'no')
 		<div class="text-center mt-3">
             <a href="{{ route('frontend.teachers') }}" class="btn btn-primary">সকল শিক্ষক দেখুন</a>
         </div>

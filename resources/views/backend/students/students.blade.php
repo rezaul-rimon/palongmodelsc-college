@@ -36,7 +36,7 @@
                 <h1 class="text-danger">শ্রেণী ভিত্তিক ছাত্র-ছাত্রী ম্যানেজমেন্ট</h1>
             </div>
 
-            @if(auth()->user()->role === 1 or auth()->user()->role === 2)
+            @if(auth()->user()->role == 1 or auth()->user()->role == 2)
             <div class="col-md-6 col-12 add-button">
                 <a style="margin-bottom: 20px;" type="button" class="btn btn-primary" href="{{ route('backend.add_students') }}">নতুন শ্রেণী যুক্ত করুন</a>
             </div>
@@ -122,7 +122,7 @@
                     <td class="align-middle">{{ AppHelper::en2bn($item->buddhist_students) }}</td>
                     <td class="align-middle">{{ AppHelper::en2bn($total) }}</td>
                     <td class="align-middle">
-                        @if(auth()->user()->role === 1 or auth()->user()->role === 2)
+                        @if(auth()->user()->role == 1 or auth()->user()->role == 2)
                         <a href="{{ route('backend.edit_students', $item->id) }}" class="btn my-1 btn-sm btn-warning">আপডেট</a>
                         <a href="{{ route('backend.delete_students', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="return confirm('আপনি কি নিশ্চিত যে আপনি এই শ্রেণীটি ডিলিট করতে চান?')">ডিলিট</a>
                         @else
