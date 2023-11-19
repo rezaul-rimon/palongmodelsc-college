@@ -21,9 +21,9 @@
                     @endphp
 
                     @if(Storage::disk('public')->exists($imagePath))
-                        <img src="{{ asset('storage/' . $imagePath) }}" alt="Profile Picture" class="float-left pl-4 pb-2" height="150px" width="relative">
+                        <img src="{{ asset('storage/app/public/' . $imagePath) }}" alt="Profile Picture" class="float-left pl-4 pb-2" height="150px" width="relative">
                     @else
-                        <img src="{{ asset('storage/Resources/Committee/Photos/committee.png') }}" alt="Default Picture" class="float-left pl-4 pb-2" height="150px" width="relative">
+                        <img src="{{ asset('storage/app/public/Resources/Committee/Photos/committee.png') }}" alt="Default Picture" class="float-left pl-4 pb-2" height="150px" width="relative">
                     @endif
 
                     <div class="text text-3 px-4 ftco-animate">
@@ -37,13 +37,13 @@
             <div class="col-md-5 order-md-last wrap-about py-5 wrap-about">
                 <div class="text-wt-image">
                     @php
-                        $imagePath = public_path('Resources/Teachers/Photos/principle.jpg');
+                        $imagePath = 'Resources/Teachers/Photos/principle.jpg';
                     @endphp
 
-                    @if(file_exists($imagePath))
-                        <img src="{{ asset('Resources/Teachers/Photos/principle.jpg') }}" alt="Profile Picture" class="float-left pl-4 pb-2" height="150px" width="relative">
+                    @if(Storage::disk('public')->exists($imagePath))
+                        <img src="{{ asset('storage/app/public/' . $imagePath) }}" alt="Profile Picture" class="float-left pl-4 pb-2" height="150px" width="relative">
                     @else
-                        <img src="{{ asset('Resources/Teachers/Photos/teacher.png') }}" alt="Default Picture" class="float-left pl-4 pb-2" height="150px" width="relative">
+                        <img src="{{ asset('storage/app/public/Resources/Teachers/Photos/teacher.png') }}" alt="Default Picture" class="float-left pl-4 pb-2" height="150px" width="relative">
                     @endif
 
                     <div class="text text-3 px-4 ftco-animate">

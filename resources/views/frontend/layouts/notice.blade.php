@@ -54,7 +54,7 @@
 						</div>						
 												
 						<div class="button-container">
-							<a target="_blank" href="{{ asset('storage/Resources/Notice/Files/' . $item->notice_file) }}" class="btn {{ $buttonClasses[$loop->iteration % count($buttonClasses)] }} px-4 py-3">বিস্তারিত</a>
+							<a target="_blank" href="{{ asset('storage/app/public/Resources/Notice/Files/' . $item->notice_file) }}" class="btn {{ $buttonClasses[$loop->iteration % count($buttonClasses)] }} px-4 py-3">বিস্তারিত</a>
 						</div>						
 					</div>
 				</div>

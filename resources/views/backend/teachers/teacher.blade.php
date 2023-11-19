@@ -93,9 +93,9 @@
                         <td class="align-middle">{{ $item->updated_at }}</td>
                         <td class="align-middle">
                             @if($item->teacher_photo != null)
-                                <img src="{{ asset('storage/Resources/Teachers/Photos/' . $item->teacher_photo) }}" alt="{{ $item->teacher_name }} Photo" style="max-width: 80px; height: 80px;">
+                                <img src="{{ asset('storage/app/public/Resources/Teachers/Photos/' . $item->teacher_photo) }}" alt="{{ $item->teacher_name }} Photo" style="max-width: 80px; height: 80px;">
                             @else
-                                <img src="{{ asset('storage/Resources/Teachers/Photos/teacher.png') }}" alt="{{ $item->teacher_name }} Photo" style="max-width: 80px; height: 80px;">
+                                <img src="{{ asset('storage/app/public/Resources/Teachers/Photos/teacher.png') }}" alt="{{ $item->teacher_name }} Photo" style="max-width: 80px; height: 80px;">
                             @endif
                         </td>
                         <td class="align-middle">{{ $item->teacher_name }}</td>

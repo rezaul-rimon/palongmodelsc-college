@@ -52,7 +52,7 @@ use App\Helpers\AppHelper;
                     <div class="col-md-3 ftco-animate">
                         <div class="gallery-item">
                             <div class="gallery image-popup img d-flex align-items-center"
-                                style="background-image: url({{ asset('storage/Resources/Gallery/Photos/' . $image) }});">
+                                style="background-image: url({{ asset('sstorage/app/public/Resources/Gallery/Photos/' . $image) }});">
                                 <div class="hover-content">
                                     <span>{{ $item->gallery_title }}</span>
                                 </div>

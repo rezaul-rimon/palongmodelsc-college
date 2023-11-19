@@ -39,7 +39,7 @@
 						<div class="col-md-3 ftco-animate">
 							<div class="gallery-item">
 								<a href="{{ route('frontend.gallery_page') }}" class="gallery image-popup img d-flex align-items-center"
-									style="background-image: url({{ asset('storage/Resources/Gallery/Photos/' . $image) }});">
+									style="background-image: url({{ asset('storage/app/public/Resources/Gallery/Photos/' . $image) }});">
 									<div class="hover-content">
 										<span>{{ $items->gallery_title }}</span>
 									</div>

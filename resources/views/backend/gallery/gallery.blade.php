@@ -86,7 +86,7 @@
                                 @endphp
                                 @if(is_array($imagePaths))
                                     @foreach($imagePaths as $imagePath)
-                                        <img src="{{ asset('storage/Resources/Gallery/Photos/' . $imagePath) }}" alt="{{ $item->gallery_title }} Photo" style="max-width: 100px; height: 80px;">
+                                        <img src="{{ asset('storage/app/public/Resources/Gallery/Photos/' . $imagePath) }}" alt="{{ $item->gallery_title }} Photo" style="max-width: 100px; height: 80px;">
                                     @endforeach
                                 @endif
                             @endif
