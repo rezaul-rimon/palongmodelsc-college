@@ -37,11 +37,11 @@
             <div class="col-md-5 order-md-last wrap-about py-5 wrap-about">
                 <div class="text-wt-image">
                     @php
-                        $imagePath = public_path('Resources/Teachers/Photos/principle.jpg');
+                        $imagePath = 'Resources/Teachers/Photos/principle.jpg';
                     @endphp
 
-                    @if(file_exists($imagePath))
-                        <img src="{{ asset('Resources/Teachers/Photos/principle.jpg') }}" alt="Profile Picture" class="float-left pl-4 pb-2" height="150px" width="relative">
+                    @if(file_exists(public_path($imagePath)))
+                        <img src="{{ asset($imagePath) }}" alt="Profile Picture" class="float-left pl-4 pb-2" height="150px" width="relative">
                     @else
                         <img src="{{ asset('Resources/Teachers/Photos/teacher.png') }}" alt="Default Picture" class="float-left pl-4 pb-2" height="150px" width="relative">
                     @endif
