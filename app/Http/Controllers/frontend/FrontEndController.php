@@ -121,17 +121,17 @@ class FrontEndController extends Controller
             }
 
             if($items->class_name == 9){
-                if($items->class_section == 'A'){
+                if($items->class_section == 'C'){
                     $class_9_sc['male'] += $items->male_students;
                     $class_9_sc['female'] += $items->female_students;
                 }
 
-                else if($items->class_section == 'B' or $items->class_section == 'C'){
+                else if($items->class_section == 'B'){
                     $class_9_com['male'] += $items->male_students;
                     $class_9_com['female'] += $items->female_students;
                 }
 
-                else if($items->class_section == 'D'){
+                else if($items->class_section == 'A' or $items->class_section == 'D'){
                     $class_9_ar['male'] += $items->male_students;
                     $class_9_ar['female'] += $items->female_students;
                 }
@@ -148,17 +148,17 @@ class FrontEndController extends Controller
             }
 
             if($items->class_name == 10){
-                if($items->class_section == 'A'){
+                if($items->class_section == 'C'){
                     $class_10_sc['male'] += $items->male_students;
                     $class_10_sc['female'] += $items->female_students;
                 }
 
-                else if($items->class_section == 'B' or $items->class_section == 'C'){
+                else if($items->class_section == 'B'){
                     $class_10_com['male'] += $items->male_students;
                     $class_10_com['female'] += $items->female_students;
                 }
 
-                else if($items->class_section == 'D'){
+                else if($items->class_section == 'A' or $items->class_section == 'D'){
                     $class_10_ar['male'] += $items->male_students;
                     $class_10_ar['female'] += $items->female_students;
                 }
@@ -214,7 +214,7 @@ class FrontEndController extends Controller
             'class_10_cv',
             'teachers',
             'all_teacher_show',
-            'galleryItems',
+            'galleryItems'
         ));
     }
 
@@ -328,17 +328,17 @@ class FrontEndController extends Controller
             }
 
             if($items->class_name == 9){
-                if($items->class_section == 'A'){
+                if($items->class_section == 'C'){
                     $class_9_sc['male'] += $items->male_students;
                     $class_9_sc['female'] += $items->female_students;
                 }
 
-                else if($items->class_section == 'B' or $items->class_section == 'C'){
+                else if($items->class_section == 'B'){
                     $class_9_com['male'] += $items->male_students;
                     $class_9_com['female'] += $items->female_students;
                 }
 
-                else if($items->class_section == 'D'){
+                else if($items->class_section == 'A' or $items->class_section == 'D'){
                     $class_9_ar['male'] += $items->male_students;
                     $class_9_ar['female'] += $items->female_students;
                 }
@@ -355,17 +355,17 @@ class FrontEndController extends Controller
             }
 
             if($items->class_name == 10){
-                if($items->class_section == 'A'){
+                if($items->class_section == 'C'){
                     $class_10_sc['male'] += $items->male_students;
                     $class_10_sc['female'] += $items->female_students;
                 }
 
-                else if($items->class_section == 'B' or $items->class_section == 'C'){
+                else if($items->class_section == 'B'){
                     $class_10_com['male'] += $items->male_students;
                     $class_10_com['female'] += $items->female_students;
                 }
 
-                else if($items->class_section == 'D'){
+                else if($items->class_section == 'A' or $items->class_section == 'D'){
                     $class_10_ar['male'] += $items->male_students;
                     $class_10_ar['female'] += $items->female_students;
                 }
@@ -401,7 +401,7 @@ class FrontEndController extends Controller
             'class_10_comp',
             'class_10_cv',
             'banner_text',
-            'last_notice',
+            'last_notice'
         ));
     }
 
