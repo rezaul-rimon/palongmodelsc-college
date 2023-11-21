@@ -167,6 +167,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="https://forms.gle/P7tnbAPkd11aXzjp6">ভর্তি কার্যক্রম</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ route('frontend.important_links') }}">জরুরী লিংক</a>
+					</li>
 					<!-- <li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

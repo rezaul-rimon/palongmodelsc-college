@@ -486,5 +486,11 @@ class FrontEndController extends Controller
             return redirect()->route('frontend.contact_us')->with('error', 'দুঃখিত! আপনার মেসেজ টি প্রেরণ করা যায়নি')->withInput();
         }
     }
+
+    public function important_links(){
+        $banner_text = "গুরুত্বপূর্ণ ওইয়েব সাইট এবং হটলাইন";
+        $last_notice = Notice::select('notice_summary')->where('status', 1)->orderBy('id', 'desc')->first();
+        return view('frontend.important_links', compact('banner_text', 'last_notice'));
+    }
     
 }

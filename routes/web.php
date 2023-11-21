@@ -27,6 +27,8 @@ Route::controller(FrontEndController::class)->group(function(){
     Route::get('/gallery-page', 'gallery_page')->name('frontend.gallery_page');
     Route::get('/contact-us', 'contact_us')->name('frontend.contact_us');
     Route::post('/contact-store', 'contact_store')->name('contact_store');
+
+    Route::get('/impoertant-links', 'important_links')->name('frontend.important_links');
     
 });
 
