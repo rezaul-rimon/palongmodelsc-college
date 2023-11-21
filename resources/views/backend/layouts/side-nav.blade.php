@@ -20,6 +20,7 @@
                             <a class="nav-link" href="{{ route('backend.event') }}">ইভেন্ট</a>
                             <a class="nav-link" href="{{ route('backend.gallery') }}">গ্যালারী</a>
                             <a class="nav-link" href="{{ route('backend.contact_us') }}">মেসেজ</a>
+                            <a class="nav-link" href="{{ route('backend.quick_link') }}">কুইক লিংক</a>
                         </nav>
                     </div>
 

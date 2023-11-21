@@ -74,4 +74,8 @@ class User extends Authenticatable
     public function stipend_students(){
         return $this->hasMany(Students::class, 'added_by', 'id');
     }
+
+    public function quick_links(){
+        return $this->hasMany(Students::class, 'added_by', 'id');
+    }
 }

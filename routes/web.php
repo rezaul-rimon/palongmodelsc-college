@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\FrontEndController;
 use App\Http\Controllers\backend\{BackEndController, AuthController, CommitteeController, ContactUsController, EventController, GalleryController, NoticeController, StipendStudentsController, StudentsController, TeacherController, UserController};
 use App\Http\Controllers\frontend\AdmissionController;
+use App\Http\Controllers\backend\QuickLinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,7 +104,7 @@ Route::controller(EventController::class)->prefix('backend')->middleware('auth',
 });
 
 // QuickLink
-Route::controller(QuickLink::class)->prefix('backend')->middleware('auth', 'permission')->group(function () {
+Route::controller(QuickLinkController::class)->prefix('backend')->middleware('auth', 'permission')->group(function () {
     Route::get('/quick-link', 'quick_link')->name('backend.quick_link');
 
     Route::middleware('role:1,2')->group(function () {

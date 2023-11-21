@@ -75,6 +75,9 @@ class EventController extends Controller
             if ($event) {
                 return redirect()->route('backend.event')->with('success', 'সফল ভাবে নতুন একটি ইভেন্ট যুক্ত করা হয়েছে');
             }
+            else{
+                return redirect()->route('backend.event')->with('error', 'দুঃখিত! ইভেন্ট টি যুক্ত করা যায় নি');
+            }
         }
     }
 
