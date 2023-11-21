@@ -53,7 +53,8 @@ Route::controller(AuthController::class)->group(function() {
 Route::controller(NoticeController::class)->prefix('backend')->middleware('auth', 'permission')->group(function () {
     Route::get('/notice', 'notice')->name('backend.notice');
 
-    Route::middleware('permission')->group(function () {
+    Route::middleware('role:1,2')->group(function () {
+        
         Route::get('/add-notice', 'add_notice')->name('backend.add_notice');
         Route::post('/store-notice', 'store_notice')->name('backend.store_notice');
         Route::get('/edit-notice/{id}', 'edit_notice')->name('backend.edit_notice');
@@ -98,6 +99,19 @@ Route::controller(EventController::class)->prefix('backend')->middleware('auth',
         Route::get('/edit-event/{id}', 'edit_event')->name('backend.edit_event');
         Route::post('/update-event/{id}', 'update_event')->name('backend.update_event');
         Route::get('/delete-event/{id}', 'delete_event')->name('backend.delete_event');
+    });
+});
+
+// QuickLink
+Route::controller(QuickLink::class)->prefix('backend')->middleware('auth', 'permission')->group(function () {
+    Route::get('/quick-link', 'quick_link')->name('backend.quick_link');
+
+    Route::middleware('role:1,2')->group(function () {
+        Route::get('/add-quick-link', 'add_quick_link')->name('backend.add_quick_link');
+        Route::post('/store-quick-link', 'store_quick_link')->name('backend.store_quick_link');
+        Route::get('/edit-quick-link/{id}', 'edit_quick_link')->name('backend.edit_quick_link');
+        Route::post('/update-quick-link/{id}', 'update_quick_link')->name('backend.update_quick_link');
+        Route::get('/delete-quick-link/{id}', 'delete_quick_link')->name('backend.delete_quick_link');
     });
 });
 
