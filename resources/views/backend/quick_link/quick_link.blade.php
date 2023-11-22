@@ -89,7 +89,7 @@
                         <td class="align-middle">{{ $item->updated_at }}</td>
                         <td class="align-middle">
                             @if($item->site_logo != null)
-                                <img src="{{ asset('storage/Resources/QuickLink/Photos/' . $item->site_logo) }}" alt="{{ $item->site_name }} Photo" style="max-width: 120px; height: 80px;">
+                                <img src="{{ asset('storage/Resources/QuickLink/Photos/'.$item->site_logo) }}" alt="{{ $item->site_name }} Photo" style="max-width: 120px; height: 80px;">
                             @else
                                 <img src="{{ asset('storage/Resources/QuickLink/Photos/default.png') }}" alt="{{ $item->site_name }} Photo" style="max-width: 120px; height: 80px;">
                             @endif
