@@ -70,11 +70,13 @@ class NoticeController extends Controller
             if ($notice) {
                 return redirect()->route('backend.notice')->with('success', 'সফল ভাবে নতুন একটি নোটিশ যুক্ত করা হয়েছে');
             }
+            else{
+                return redirect()->route('backend.notice')->with('error', 'দুঃখিত! নোটিশ টি যুক্ত করা যায়নি');
+            }
         }
     }
 
-    public function delete_notice($id)
-    {
+    public function delete_notice($id){
         try {
             $notice = Notice::findOrFail($id);
             $noticeFile = $notice->notice_file;
@@ -156,12 +158,12 @@ class NoticeController extends Controller
                 $notice->notice_file = $filename;
             }
 
-            if ($notice->save()) {
+            if ($notice->update()) {
                 return redirect()->route('backend.notice')
                     ->with('success', 'নোটিশটি সফল ভাবে আপডেট করা হয়েছে');
             } else {
                 return redirect()->route('backend.notice')
-                    ->with('error', 'নোটিশ আপডেট করা যায়নি');
+                    ->with('error', 'দুঃখিত! নোটিশ টি আপডেট করা যায়নি');
             }
         }
     }

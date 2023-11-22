@@ -51,188 +51,33 @@
     </div>
 
     <div class="row">
+        @forelse ($quick_links as $item)
         <div class="col-md-2 col-sm-4 custom-col">
+            <a href="{{ $item->site_link }}" target="_blank">
+                <div class="link-img">
+                    @if($item->site_logo != null)
+                        <img src="{{ asset('storage/Resources/QuickLink/Photos/' . $item->site_logo) }}" alt="{{ $item->site_name }} Photo" class="img-fluid">
+                    @else
+                        <img src="{{ asset('storage/Resources/QuickLink/Photos/default.png') }}" alt="{{ $item->site_name }} Photo" class="img-fluid">
+                    @endif
+
+                </div>
+                <div class="img-title">{{ $item->site_name }}</div>
+            </a>
+        </div>
+        @empty
+        <h2 class="text-secondary font-bold mb-2" style="text-align: center;">আমাদের প্ল্যানে আপাতত কোন আপকামিং ইভেন্ট নেই, কোন ইভেন্টের প্ল্যান হওইয়া মাত্রই জানিয়ে দেয়া হবে। </h2>
+        @endforelse
+
+        {{-- <div class="col-md-2 col-sm-4 custom-col">
             <a href="#">
                 <div class="link-img">
                     <img src="{{ asset('frontend/images/ntrca.jpg') }}" alt="NTRCA" class="img-fluid">
                 </div>
                 <div class="img-title">বেসরকারী শিক্ষক নিবন্ধন ও প্রত্যয়ন কতৃপক্ষ</div>
             </a>
-        </div>
-
-        <!-- Repeat the same structure for other columns -->
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/ctg-edu-board.png') }}" alt="Title 2" class="img-fluid">
-                </div>
-                <div class="img-title">মাধ্যমিক ও উচ্চমাধ্যমিক শিক্ষাবোর্ড চট্টগ্রাম</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/bteb.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ কারিগরি শিক্ষাবোর্ড</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/primary-board.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">প্রাথমিক শিক্ষা অধিদপ্তর</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/gov.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">শিক্ষা মন্ত্রনালয়</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/a2i.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">এ টু আই</div>
-            </a>
-        </div>
-
-        {{-- সামরিক বাহিনী --}}
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/police.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ পুলিশ</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/tourist-police.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ ট্যুরিস্ট পুলিশ</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/ctg-police.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">চট্টগ্রাম মেট্রোপলিট্রন পুলিশ</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/rab.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ র‍্যাব</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/cost-guard.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ কোস্ট গার্ড</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/ansar.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ আনসার ও ভিডিপি</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/army.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ সেনাবাহিনী</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/air-force.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ বিমানবাহিনী</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/navy.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ নৌবাহিনী</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/bgb.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বর্ডার গার্ড বাংলাদেশ</div>
-            </a>
-        </div>
-
-        {{-- স্বেচ্ছাসেবী --}}
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/fire-service.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ ফায়ার সার্ভিস</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/scout.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ স্কাউট</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/bncc.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ জাতীয় ক্যাডেট কোর</div>
-            </a>
-        </div>
-
-        <div class="col-md-2 col-sm-4 custom-col">
-            <a href="#">
-                <div class="link-img">
-                    <img src="{{ asset('frontend/images/rcy.png') }}" alt="Title 3" class="img-fluid">
-                </div>
-                <div class="img-title">বাংলাদেশ রেড ক্রিসেন্ট</div>
-            </a>
-        </div>
+        </div> --}}
+        
 
 
         <!-- Repeat for other columns -->

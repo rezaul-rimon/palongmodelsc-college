@@ -63,7 +63,7 @@
 				</div>
 				@empty
 				<div class="mt-3 col-md-8 offset-md-2">
-					<h2 class="text-secondary font-bold text-4xl mb-2" style="text-align: center;">আমাদের প্ল্যানে আপাতত কোন আপকামিং ইভেন্ট নেই, কোন ইভেন্টের প্ল্যান হওইয়া মাত্রই জানিয়ে দেয়া হবে। </h2>
+					<h2 class="text-secondary font-bold mb-2" style="text-align: center;">আমাদের প্ল্যানে আপাতত কোন আপকামিং ইভেন্ট নেই, কোন ইভেন্টের প্ল্যান হওইয়া মাত্রই জানিয়ে দেয়া হবে। </h2>
 				</div>				
 				@endforelse
 			

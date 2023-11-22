@@ -89,9 +89,9 @@
                         <td class="align-middle">{{ $item->updated_at }}</td>
                         <td class="align-middle">
                             @if($item->site_logo != null)
-                                <img src="{{ asset('storage/app/public/Resources/QuickLink/Photos/' . $item->site_logo) }}" alt="{{ $item->site_name }} Photo" style="max-width: 120px; height: 80px;">
+                                <img src="{{ asset('storage/Resources/QuickLink/Photos/' . $item->site_logo) }}" alt="{{ $item->site_name }} Photo" style="max-width: 120px; height: 80px;">
                             @else
-                                <img src="{{ asset('storage/app/public/Resources/QuickLink/Photos/default.png') }}" alt="{{ $item->site_name }} Photo" style="max-width: 120px; height: 80px;">
+                                <img src="{{ asset('storage/Resources/QuickLink/Photos/default.png') }}" alt="{{ $item->site_name }} Photo" style="max-width: 120px; height: 80px;">
                             @endif
                         </td>                        
                         <td class="align-middle">{{ $item->site_name }}</td>
@@ -99,8 +99,8 @@
                         <td class="align-middle">{{ $item->user->name }}</td>
                         <td class="align-middle">
                             @if(auth()->user()->role == 1 or auth()->user()->role == 2)
-                            <a href="{{ route('backend.edit_event', $item->id) }}" class="btn my-1 btn-sm btn-warning">সংশোধন</a>
-                            <a href="{{ route('backend.delete_event', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="confirm('আপনি কি নিশ্চিত যে আপনি এই ইভেন্টটি ডিলিট করতে চান?')">ডিলিট</a>
+                            <a href="{{ route('backend.edit_quick_link', $item->id) }}" class="btn my-1 btn-sm btn-warning">সংশোধন</a>
+                            <a href="{{ route('backend.delete_quick_link', $item->id) }}" class="btn my-1 btn-sm btn-danger" onclick="confirm('আপনি কি নিশ্চিত যে আপনি এই কুইক লিংকটি ডিলিট করতে চান?')">ডিলিট</a>
                             @else
                             <span class="text-danger">শুধুমাত্র এডমিন একশন নিতে পারে</span>
                             @endif

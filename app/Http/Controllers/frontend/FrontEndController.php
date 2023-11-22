@@ -8,6 +8,7 @@ use App\Models\ContactUs;
 use App\Models\Event;
 use App\Models\Gallery;
 use App\Models\Notice;
+use App\Models\QuickLink;
 use App\Models\StipendStudents;
 use App\Models\Students;
 use App\Models\Teacher;
@@ -490,7 +491,11 @@ class FrontEndController extends Controller
     public function important_links(){
         $banner_text = "গুরুত্বপূর্ণ ওইয়েব সাইট এবং হটলাইন";
         $last_notice = Notice::select('notice_summary')->where('status', 1)->orderBy('id', 'desc')->first();
-        return view('frontend.important_links', compact('banner_text', 'last_notice'));
+
+        $quick_links = QuickLink::where('status', 1)->get();
+
+
+        return view('frontend.important_links', compact('banner_text', 'last_notice', 'quick_links'));
     }
     
 }
